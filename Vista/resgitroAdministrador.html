@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="../styles/registroAdministrador.css">
+  <title>Registro Administrador</title>
+</head>
+<body>
+  <!-- Inicio Navbar -->
+  <!--Barra de navegacion-->
+  <nav class="navbar nav-masthead navbar-dark navbar-expand-lg text-center barra" id="mainNav">
+    <a class="navbar-brand mx-auto" href="">
+          <img id="logo" src="../assets/img/logoIngSoft.PNG" height="50" class="d-inline-block align-top" alt="Cuidado animal">
+      </a>
+      <button class="navbar-toggler collapsed navbar-toggler-right text-center" type="button" data-toggle="collapse" data-target="#navbarTogglerCA" aria-controls="navbarTogglerCA" aria-halflings-expandes="false" aria-label="Toggle navigation">
+          <span class="nav-icon navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerCA">
+        <div class="navbar-nav mx-auto text-center">
+            <a class="nav-item text-barra" href="busqueda.html"><img src="../assets/img/buscar-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Busqueda</a>
+            <a class="nav-item text-barra" href="login.html"><img src="../assets/img/login-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Login</a>
+            <a class="nav-item text-barra" href="registro.html"><img src="../assets/img/registro-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Registrarse</a>
+            <a class="nav-item text-barra" href="contacto.html"><img src="../assets/img/contacto-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Contactanos</a>
+        </div>
+      </div>
+  </nav>
+        <div class="text-center fondo1 offset-md-2 col-md-8 col-xs-12">
+        <form name="registroAdministrador" method="post">
+          <div class="row form-group d-flex justify-content-center mb-0 ">
+           <label class="tituloForm mb-0 mt-3">Registro de Administrador</label>
+          </div>
+          <div class="row form-group d-flex justify-content-center">
+            <div class="col-md-5 p-0 campo col-xs-12">
+              <label class="letraForm">Nombres</label>
+              <input type="text" class="form-control" name="nombres" placeholder="Nombres">
+            </div>
+            <div class="col-md-5 col-xs-12 p-0 campo ">
+              <label class="letraForm">Apellidos</label>
+              <input type="text" class="form-control" name="apellidos" placeholder="Apellidos">
+            </div>
+          </div>
+          <div class="row form-group d-flex justify-content-center">
+            <div class="col-md-5 col-xs-12 p-0 campo">
+              <label class="letraForm">Nombre de Usuario</label>
+              <input type="text" class="form-control" name="nomUsuario" placeholder="Nombre de usuario">
+            </div>
+            <div class="col-md-5 col-xs-12 p-0 campo">
+              <label class="letraForm" >Email</label>
+              <input type="email" class="form-control" name="email" placeholder="Email">
+            </div>
+          </div>
+          <div class="row form-group d-flex justify-content-center">
+            <div class="col-md-5 col-xs-12 p-0 campo">
+              <label class="letraForm">Contraseña</label>
+              <input type="password" class="form-control" name="nomUsuario" placeholder="Contraseña">
+              <small class="subLetraForm">
+                Debe contener de 8 a 10 caracteres.
+              </small>
+            </div>
+            <div class="col-md-5 col-xs-12 p-0 campo">
+              <label class="letraForm" >Confirma Contraseña</label>
+              <input type="password" class="form-control" name="email" placeholder="Contraseña">
+            </div>
+          </div>
+          <div class="row form-group d-flex justify-content-center">
+            <div class="col-md-5 col-xs-12 p-0 campo">
+              <label class="letraForm">Foto de Perfil</label>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="archivoImagen" onChange="mostrarArchivo()">
+                <label class="custom-file-label" id="tituloArch">Selecionar Archivo</label>
+              </div>
+            </div>
+          </div>
+          <div class="row form-group d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary mb-3"  onClick="location.href='registroVeterianaria.html'">Siguiente</button>
+          </div>
+        </form>
+      </div>
+    <script src="../assets/bootstrap/js/jquery.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/RegisAdmin.js"></script>
+  </body>
+</html>

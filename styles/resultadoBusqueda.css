@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* CSS Document */
+
+body
+{
+    background: url(../assets/img/fondo-busqueda.png);
+    background-size: cover;
+}
+.fondo1{
+    background:#FFF;
+    margin-top:100px;
+    border-radius:4px;
+    background-size: cover;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.color1{
+  color:#000;
+}
+.barra{
+  color:#000;
+}
+.text-barra{
+  color:#000;
+  margin-right: 10px;
+  font-size: 18px;
+  font-weight: bold;  
+}
+.titulo{
+  font-weight: bold;
+  font-size: 30px;
+}
+.subtitulo{
+  font-weight: bold;
+  font-size: 20px;
+}
+.texto{
+  font-weight: bold;
+  font-size: 15px;
+}
+.boton{
+  margin-bottom: 100px;
+}
+.nav-icon{
+  background-color: #007bff; 
+  border-radius: 2px;
+}
+.tabla{
+  background-color: #007bff; 
+}
