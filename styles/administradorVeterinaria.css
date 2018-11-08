@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+.color1{
+	color:#FFF;
+}
+.barra{
+	background-color: #007bff;
+}
+.text-barra1{
+	font-family: 'Fredoka One', cursive;
+	color:#FFF;
+}
+.text-barra{
+	color:#FFF;	
+}
+.enunciado{
+  font-weight: bold;
+  margin-bottom: 1px;
+}
+.contenido{
+	font-size: 15px;
+	margin-top: 0px;
+	margin-bottom: 1px;
+}
+.titulo{
+  font-weight: bold;
+  font-size: 30px;
+}
+.subtitulo{
+  font-weight: bold;
+  font-size: 20px;
+}
+.borde{
+  border: #DCDCDC 1px solid;
+      border-radius:4px;
+}
