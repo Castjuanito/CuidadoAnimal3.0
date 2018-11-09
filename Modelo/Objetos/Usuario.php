@@ -37,6 +37,9 @@ class Usuario
     $sql = "INSERT INTO usuario (user_name, password, nombre, apellido, emailadd, rol) VALUES(
             '$this->$user_name', '$this->$password', '$this->$nombre', '$this->$apellido', $this->$emailadd, $this->$rol)";
     $res = $this->$conBD->ejecutarconsulta($sql);
+    if ($res)
+      $this->$id = mysqli_insert_id($conBD);
+    return $res;
   }
 
   function UpdateUsuario (){

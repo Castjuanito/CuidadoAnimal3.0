@@ -24,7 +24,8 @@ class DetalleCaso{
   {
     $sql = "INSERT INTO detalle_caso (id_caso, info) VALUES ($this->$idCaso, '$this->$info')";
     $res = $conBD->ejecutarconsulta($sql);
-    $this->$id = mysqli_insert_id($conBD);
+    if ($res)
+      $this->$id = mysqli_insert_id($conBD);
     return $res;
   }
 
