@@ -17,13 +17,13 @@ class Usuario
 
   function __construct($user_name, $password, $nombre, $apellido, $emailadd, $rol)
   {
-    $this->$user_name = $user_name;
-    $this->$password = $password;
-    $this->$nombre = $nombre;
-    $this->$apellido = $apellido;
-    $this->$emailadd = $emailadd;
-    $this->$rol = $rol;
-    $this->$conBD = new conexion();
+    $this->user_name = $user_name;
+    $this->password = $password;
+    $this->nombre = $nombre;
+    $this->apellido = $apellido;
+    $this->emailadd = $emailadd;
+    $this->rol = $rol;
+    $this->conBD = new conexion();
   }
 
   function Usuario()
@@ -34,23 +34,23 @@ class Usuario
   public static function CrearUsuario ()
   {
     $sql = "INSERT INTO usuario (user_name, password, nombre, apellido, emailadd, rol) VALUES(
-            '$this->$user_name', '$this->$password', '$this->$nombre', '$this->$apellido', $this->$emailadd, $this->$rol)";
-    $res = $this->$conBD->ejecutarconsulta($sql);
+            '$this->user_name', '$this->password', '$this->nombre', '$this->apellido', $this->emailadd, $this->rol)";
+    $res = $this->conBD->ejecutarconsulta($sql);
     if ($res)
-      $this->$id = mysqli_insert_id($conBD);
+      $this->id = mysqli_insert_id($conBD);
     return $res;
   }
 
   function UpdateUsuario (){
-    $sql = "UPDATE usuario SET user_name = ". $this->$user_name . ", password = " . $this->$password . ", nombre = "
-           . $this->$nombre . ", apellido = ". $this->$apellido. ", emailadd = ". $this->emai . ", rol = ". $this->rol .
+    $sql = "UPDATE usuario SET user_name = ". $this->user_name . ", password = " . $this->password . ", nombre = "
+           . $this->nombre . ", apellido = ". $this->apellido. ", emailadd = ". $this->emailadd . ", rol = ". $this->rol .
            "WHERE usuario.id = ". $this->id;
     return $this->$conBD->ejecutarconsulta($sql);
   }
 
   public static function borrarUsuario ()
   {
-    $sql = "DELETE FROM usuario WHERE usuario.id = $this->$id ";
+    $sql = "DELETE FROM usuario WHERE usuario.id = $this->id ";
     return $this->$conBD->ejecutarconsulta($sql);
   }
 
