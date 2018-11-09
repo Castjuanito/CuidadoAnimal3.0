@@ -3,23 +3,25 @@
 /**
  *
  */
+ include_once "../Modelo/Objetos/conexion.php";
+
 class DuenoMascota
 {
-  var $user_name;
-  var $password;
-  var $nombre;
-  var $apellido;
-  var $emailadd;
-  var $connection;
+  private $user_name;
+  private $password;
+  private $nombre;
+  private $apellido;
+  private $emailadd;
+  private $connection;
 
   function __construct($user_name, $password, $nombre, $apellido,$emailadd)
   {
-    $this->$user_name;
-    $this->$password;
-    $this->$nombre;
-    $this->$apellido;
-    $this->$emailadd;
-    $this->connection = new conexion() ;
+    $this->user_name;
+    $this->password;
+    $this->nombre;
+    $this->apellido;
+    $this->emailadd;
+    $this->onnection = new conexion() ;
   }
 
   public function create_DuenoMascota()

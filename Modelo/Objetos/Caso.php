@@ -3,17 +3,17 @@ include_once "../Modelo/Objetos/conexion.php";
 
 
 class Caso{
-  var $idHistoria;
-  var $titulo;
-  var $descripcion;
-  var $id;
-  var $conBD;
+  private $idHistoria;
+  private $titulo;
+  private $descripcion;
+  private $id;
+  private $conBD;
 
   function __construct ($idHistoria, $titulo, $descripcion)
   {
-    $this->$conBD = new conexion();
-    $this->$idHistoria = $idHistoria;
-    $this->$titulo = $titulo;
+    $this->conBD = new conexion();
+    $this->idHistoria = $idHistoria;
+    $this->titulo = $titulo;
     $this->descripcion = $descripcion;
   }
 

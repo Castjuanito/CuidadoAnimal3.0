@@ -5,12 +5,13 @@
  */
 class Mascota
 {
-  var $dueño_mas_id;
-  var $nombre;
-  var $especie;
-  var $raza;
-  var $fecha_nacimiento;
-  var $color;
+  private $id;
+  private $dueno_mas_id;
+  private $nombre;
+  private $especie;
+  private $raza;
+  private $fecha_nacimiento;
+  private $color;
 
   function __construct()
   {

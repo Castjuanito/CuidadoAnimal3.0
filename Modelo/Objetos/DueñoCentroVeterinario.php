@@ -2,17 +2,18 @@
 /**
  *
  */
-include_once "../Modelo/Objetos/Conexion.php" ;
+ include_once "../Modelo/Objetos/conexion.php";
+
 
 
 class DuenoCentroVeterinario
 {
-  var $user_name;
-  var $password;
-  var $nombre;
-  var $apellido;
-  var $emailadd;
-  var $connection;
+  private $user_name;
+  private $password;
+  private $nombre;
+  private $apellido;
+  private $emailadd;
+  private $connection;
 
 
   function __construct($user_name,$password,$nombre,$apellido,$emailadd){

@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS detalle_caso (
   caso_id int NOT NULL,
   PRIMARY KEY(id),
   info VARCHAR(500)
-  FOREIGN KEY (caso_id) REFERENCES mascota(id),
+  FOREIGN KEY (caso_id) REFERENCES caso(id),
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 /*--------------------------------------------------------------------------------------------*/

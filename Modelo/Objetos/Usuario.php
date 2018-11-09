@@ -6,14 +6,14 @@ include_once "../Modelo/Objetos/conexion.php";
  */
 class Usuario
 {
-  var $id;
-  var $user_name;
-  var $password;
-  var $nombre;
-  var $apellido;
-  var $emailadd;
-  var $rol;
-  var $conBD;
+  private $id;
+  private $user_name;
+  private $password;
+  private $nombre;
+  private $apellido;
+  private $emailadd;
+  private $rol;
+  private $conBD;
 
   function __construct($id, $user_name, $password, $nombre, $apellido, $emailadd, $rol)
   {
@@ -34,7 +34,6 @@ class Usuario
 
   function CrearUsuario ()
   {
-    $sql =
   }
 }
 
