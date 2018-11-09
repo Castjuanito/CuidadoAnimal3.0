@@ -17,13 +17,13 @@ class Usuario
 
   function __construct($user_name, $password, $nombre, $apellido, $emailadd, $rol)
   {
-    $this->$user_name = $user_name;
-    $this->$password = $password;
-    $this->$nombre = $nombre;
-    $this->$apellido = $apellido;
-    $this->$emailadd = $emailadd;
-    $this->$rol = $rol;
-    $this->$conBD = new conexion();
+    $this->user_name = $user_name;
+    $this->password = $password;
+    $this->nombre = $nombre;
+    $this->apellido = $apellido;
+    $this->emailadd = $emailadd;
+    $this->rol = $rol;
+    $this->conBD = new conexion();
   }
 
   function Usuario()
