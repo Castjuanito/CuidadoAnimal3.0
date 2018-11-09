@@ -6,14 +6,14 @@ include_once "../Modelo/Objetos/conexion.php";
  */
 class Usuario
 {
-  var $id;
-  var $user_name;
-  var $password;
-  var $nombre;
-  var $apellido;
-  var $emailadd;
-  var $rol;
-  var $conBD;
+  private $id;
+  private $user_name;
+  private $password;
+  private $nombre;
+  private $apellido;
+  private $emailadd;
+  private $rol;
+  private $conBD;
 
   function __construct($id, $user_name, $password, $nombre, $apellido, $emailadd, $rol)
   {
@@ -24,7 +24,7 @@ class Usuario
     $this->$apellido = $apellido;
     $this->$emailadd = $emailadd;
     $this->$rol = $rol;
-    $conBD = new conexion();
+    $this->$conBD = new conexion();
   }
 
   function Usuario()
@@ -32,9 +32,15 @@ class Usuario
 
   }
 
-  function CrearUsuario ()
+  public static function CrearUsuario ()
   {
-    $sql =
+    $sql = "INSERT INTO usuario (user_name, password, nombre, apellido, emailadd, rol) VALUES(
+            '$this->$user_name', '$this->$password', '$this->$nombre', '$this->$apellido', $this->$emailadd, $this->$rol)";
+    $res = $this->$conBD->ejecutarconsulta($sql);
+  }
+
+  function UpdateUsuario (){
+    $sql = "UPDATE usuario SET "
   }
 }
 

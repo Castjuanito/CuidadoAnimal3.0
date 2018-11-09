@@ -92,6 +92,8 @@ CREATE TABLE IF NOT EXISTS detalle_caso (
   id INT AUTO_INCREMENT,
   PRIMARY KEY(id),
   info VARCHAR(500)
+  id_caso INT NOT NULL,
+  FOREIGN KEY (id_caso) REFERENCES caso(id), 
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 /*--------------------------------------------------------------------------------------------*/
