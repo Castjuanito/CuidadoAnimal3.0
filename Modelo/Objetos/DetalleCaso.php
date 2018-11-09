@@ -11,8 +11,8 @@ class DetalleCaso{
   function __construct ($idCaso, $info)
   {
     $conBD = new conexion();
-    $this->$idCaso = $idCaso;
-    $this->$info = $info;
+    $this->idCaso = $idCaso;
+    $this->info = $info;
   }
 
   function Caso ()
@@ -22,22 +22,22 @@ class DetalleCaso{
 
   public static function crearCaso()
   {
-    $sql = "INSERT INTO detalle_caso (id_caso, info) VALUES ($this->$idCaso, '$this->$info')";
+    $sql = "INSERT INTO detalle_caso (id_caso, info) VALUES ($this->idCaso, '$this->info')";
     $res = $conBD->ejecutarconsulta($sql);
     if ($res)
-      $this->$id = mysqli_insert_id($conBD);
+      $this->id = mysqli_insert_id($conBD);
     return $res;
   }
 
   public static function actualizarCaso ()
   {
-    $sql = "UPDATE detalle_caso SET id_caso = ". $this->$idCaso .",  info = " .$this->$info. ")";
+    $sql = "UPDATE detalle_caso SET id_caso = ". $this->idCaso .",  info = " .$this->info. ")";
     return $conBD->ejecutarconsulta($sql);
   }
 
   public static function borrarCaso()
   {
-    $sql = "DELETE FROM detalle_caso WHERE detalle_caso.id = ". $this->$id;
+    $sql = "DELETE FROM detalle_caso WHERE detalle_caso.id = ". $this->id;
     return $conBD->ejecutarconsulta($sql);
   }
 

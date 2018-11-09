@@ -36,7 +36,7 @@
     }
     public function update_Admin()
     {
-      $sql = "UPDATE usuario user_name = '$this->user_name',  password = '$this->password', nombre = '$this->nombre', apellido = '$this->apellido', emailadd = '$this->emailadd'  WHERE USUARIO.ID = $this->$id";
+      $sql = "UPDATE usuario user_name = '$this->user_name',  password = '$this->password', nombre = '$this->nombre', apellido = '$this->apellido', emailadd = '$this->emailadd'  WHERE USUARIO.ID = $this->id";
       return  $this->connection->ejecutarconsulta($sql);
     }
     public function findAll()

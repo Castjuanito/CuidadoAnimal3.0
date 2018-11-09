@@ -34,30 +34,30 @@ class Usuario
   public static function CrearUsuario ()
   {
     $sql = "INSERT INTO usuario (user_name, password, nombre, apellido, emailadd, rol) VALUES(
-            '$this->$user_name', '$this->$password', '$this->$nombre', '$this->$apellido', $this->$emailadd, $this->$rol)";
-    $res = $this->$conBD->ejecutarconsulta($sql);
+            '$this->user_name', '$this->password', '$this->nombre', '$this->apellido', $this->emailadd, $this->rol)";
+    $res = $this->conBD->ejecutarconsulta($sql);
     if ($res)
-      $this->$id = mysqli_insert_id($conBD);
+      $this->id = mysqli_insert_id($conBD);
     return $res;
   }
 
   function UpdateUsuario (){
-    $sql = "UPDATE usuario SET user_name = ". $this->$user_name . ", password = " . $this->$password . ", nombre = "
-           . $this->$nombre . ", apellido = ". $this->$apellido. ", emailadd = ". $this->emai . ", rol = ". $this->rol .
+    $sql = "UPDATE usuario SET user_name = ". $this->user_name . ", password = " . $this->password . ", nombre = "
+           . $this->nombre . ", apellido = ". $this->apellido. ", emailadd = ". $this->emai . ", rol = ". $this->rol .
            "WHERE usuario.id = ". $this->id;
-    return $this->$conBD->ejecutarconsulta($sql);
+    return $this->conBD->ejecutarconsulta($sql);
   }
 
   public static function borrarUsuario ()
   {
-    $sql = "DELETE FROM usuario WHERE usuario.id = $this->$id ";
-    return $this->$conBD->ejecutarconsulta($sql);
+    $sql = "DELETE FROM usuario WHERE usuario.id = $this->id ";
+    return $this->conBD->ejecutarconsulta($sql);
   }
 
   public static function getById($id)
   {
     $sql = "SELECT * FROM usuario WHERE usuario.id = $id";
-    $consulta = $this->$conBD->ejecutarconsulta($sql);
+    $consulta = $this->conBD->ejecutarconsulta($sql);
     $fila = mysqli_fetch_array($consulta);
     $usuarioObj = new Usuario();
     $usuarioObj->setId($fila["id"]);
