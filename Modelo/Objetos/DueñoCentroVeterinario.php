@@ -2,7 +2,7 @@
 /**
  *
  */
-include_once "../modelo/objetos/conexion.php" 
+include_once "../Modelo/Objetos/Conexion.php" ;
 
 
 class DuenoCentroVeterinario
@@ -12,32 +12,43 @@ class DuenoCentroVeterinario
   var $nombre;
   var $apellido;
   var $emailadd;
-  var $connection = new conexion();
+  var $connection;
 
 
-  function __construct(){
-  $this->connection = new conexion();
-  }
-  public function create_DueñoCentroVeterinario($value='')
-  {
-
-  }
-  public function delete_DueñoCentroVeterinario($value='')
-  {
+  function __construct($user_name,$password,$nombre,$apellido,$emailadd){
+    $this->$user_name;
+    $this->$password;
+    $this->$nombre;
+    $this->$apellido;
+    $this->$emailadd;
+    $this->connection = new conexion();
 
   }
-  public function update_DueñoCentroVeterinario($value='')
+  public function crearDueñoCentroVeterinario()
   {
-    // code...
+    $sql= "INSERT INTO usuario (user_name,password,nombre,apellido,emailadd,rol) VALUES ('$this->user_name','$this->password','$this->apellido','dueñoClinica')";
+    return $this->connection->ejecutarconsulta($sql);
+  }
+  public function eliminarDueñoCentroVeterinario($id)
+  {
+    $sql = "DELETE * FROM usuario WHERE USUARIO.ID = " .$id;
+    $this->connection->ejecutarconsulta($sql);
+  }
+  public function actualizarDueñoCentroVeterinario()
+  {
+    $sql = "UPDATE usuario user_name = '$this->user_name',  password = '$this->password', nombre = '$this->nombre', apellido = '$this->apellido', emailadd = '$this->emailadd'  WHERE USUARIO.ID = $this->$id";
+    return  $this->connection->ejecutarconsulta($sql);
   }
   public function findAll($value='')
   {
-    // code...
+    $sql = "SELECT * FROM usuario WHERE USUARIO.ROL =". 'dueñoClinica';
+    $this->connection->ejecutarconsulta($sql);
   }
 
-  public function fingById($value='')
+  public function fingById($id)
   {
-    // code...
+    $sql = "SELECT * FROM usuario WHERE USUARIO.ID = '$id'  AND rol = 'dueñoMascota'";
+    $this->connection->ejecutarconsulta($sql);
   }
 
 

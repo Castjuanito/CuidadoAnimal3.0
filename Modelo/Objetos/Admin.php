@@ -12,34 +12,40 @@
     var $connection;
 
 
-    function __construct(){
-    $this->connection = new conexion() ;
-    }
-    public function create_Admin($value='')
-    {
+    function __construct($user_name,$password,$nombre,$apellido,$emailadd){
+      $this->$user_name;
+      $this->$password;
+      $this->$nombre;
+      $this->$apellido;
+      $this->$emailadd;
+      $this->connection = new conexion() ;
 
     }
-    public function delete_Admin($value='')
+    public function create_Admin()
     {
-
+      $sql= "INSERT INTO usuario (user_name,password,nombre,apellido,emailadd,rol) VALUES ('$this->user_name','$this->password','$this->apellido','admin')";
+      return $this->connection->ejecutarconsulta($sql);
     }
-    public function update_Admin($value='')
+    public function delete_Admin($id)
     {
-      // code...
+      $sql = "DELETE * FROM usuario WHERE USUARIO.ID = " .$id;
+      $this->connection->ejecutarconsulta($sql);
     }
-    public function findAll($value='')
+    public function update_Admin()
     {
-      // code...
+      $sql = "UPDATE usuario user_name = '$this->user_name',  password = '$this->password', nombre = '$this->nombre', apellido = '$this->apellido', emailadd = '$this->emailadd'  WHERE USUARIO.ID = $this->$id";
+      return  $this->connection->ejecutarconsulta($sql);
     }
-
-    public function fingById($value='')
+    public function findAll()
     {
-      // code...
+      $sql = "SELECT * FROM usuario WHERE USUARIO.ROL =". 'admin';
+      $this->connection->ejecutarconsulta($sql);
     }
 
-    
-
+    public function fingById($id)
+    {
+    $sql = "SELECT * FROM usuario WHERE USUARIO.ID = " .$id;
+    $this->connection->ejecutarconsulta($sql);
+    }
   }
-
-
  ?>
