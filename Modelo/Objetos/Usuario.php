@@ -43,7 +43,7 @@ class Usuario
 
   function UpdateUsuario (){
     $sql = "UPDATE usuario SET user_name = ". $this->user_name . ", password = " . $this->password . ", nombre = "
-           . $this->nombre . ", apellido = ". $this->apellido. ", emailadd = ". $this->emai . ", rol = ". $this->rol .
+           . $this->nombre . ", apellido = ". $this->apellido. ", emailadd = ". $this->emailadd . ", rol = ". $this->rol .
            "WHERE usuario.id = ". $this->id;
     return $this->conBD->ejecutarconsulta($sql);
   }
