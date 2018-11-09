@@ -7,9 +7,6 @@ password VARCHAR (512) NOT NULL,
 nombre VARCHAR (50),
 apellido VARCHAR (50),
 emailadd VARCHAR (255) NOT NULL UNIQUE,
-ciudad VARCHAR (50),
-localidad VARCHAR (50),
-barrio VARCHAR(50),
 rol ENUM ('medicoVet','dueñoMascota','admin','dueñoClinica') NOT NULL,
 PRIMARY KEY(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
@@ -90,10 +87,10 @@ CREATE TABLE IF NOT EXISTS caso (
 
 CREATE TABLE IF NOT EXISTS detalle_caso (
   id INT AUTO_INCREMENT,
+  caso_id int NOT NULL,
   PRIMARY KEY(id),
   info VARCHAR(500)
-  id_caso INT NOT NULL,
-  FOREIGN KEY (id_caso) REFERENCES caso(id), 
+  FOREIGN KEY (caso_id) REFERENCES caso(id),
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 /*--------------------------------------------------------------------------------------------*/
