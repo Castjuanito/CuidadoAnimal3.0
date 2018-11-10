@@ -31,7 +31,7 @@ class login
         {
           if ($rol == 'duenoClinica')
           {
-            setcookie('Owner', $usuarioObj, time()+600);
+            setcookie("owner", $usuarioObj->getByUsername(), time()+600);
             header('Location: registroCentroVeterinario.php');
           }elseif ($rol == 'duenoMascota') {
             $res = $usuarioObj->CrearUsuario();
@@ -58,7 +58,6 @@ class login
 
   function crearVeterinaria()
   {
-    $idOwner = Usuario::getByUsername($_COOKIE['Owner']->getUsername());
     $nombre = $_POST['nombre'];
     $direccion = $_POST['direccion'];
     $ciudad = $_POST['ciudad'];
@@ -68,11 +67,13 @@ class login
     $horaF = $_POST['horaF'].":".$_POST['minF'];
     $tipo = $_POST['tipo'];
 
-    if (!empty($nombre) && isset($_COOKIE['Owner']) && $tipo != 0)
+    if (!empty($nombre) && isset($_COOKIE['owner']) && $tipo != 0)
     {
       $res = $_COOKIE['Owner']->CrearUsuario();
       if ($res)
       {
+        $propietario = Usuario::getByUsername( $_COOKIE['owner'] );
+        $idOwner = $propietario->getId();
         $CentroVet = new CentroVeterinario($idOwner,$nombre,$direccion,$ciudad,$localidad,$barrio,$horaI,$horaF,$tipo);
         $res2 = $CentroVet->crearCentroVeterinario();
         if ($res2)
@@ -95,7 +96,7 @@ class login
       }
       if ($tipo == 0)
       {
-        echo $this->errStyle."Escoja el tipo de veterinaria</span>";  
+        echo $this->errStyle."Escoja el tipo de veterinaria</span>";
       }
       else {
         echo $this->errStyle."No puede estar en esta página sin tener datos de usuario llenados.</span>";
