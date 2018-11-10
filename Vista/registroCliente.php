@@ -9,6 +9,14 @@
   <title>Registro Administrador</title>
 </head>
 <body>
+  <?php
+  include_once "../Controlador/Funcionalidades/login.php";
+  if (isset($_POST["ingresar"]))
+  {
+  	$login = new login();
+  	$login->registrarUsuario();
+  }
+  ?>
   <!-- Inicio Navbar -->
   <!--Barra de navegacion-->
   <nav class="navbar nav-masthead navbar-dark navbar-expand-lg text-center barra" id="mainNav">

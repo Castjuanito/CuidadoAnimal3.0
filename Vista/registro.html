@@ -11,6 +11,14 @@
 <body>
   <!-- Inicio Navbar -->
   <!--Barra de navegacion-->
+  <?php
+  include_once "../Controlador/Funcionalidades/login.php";
+  if (isset($_POST["ingresar"]))
+  {
+  	$login = new login();
+  	$login->validarIngreso();
+  }
+  ?>
   <nav class="navbar nav-masthead navbar-dark sticky-top navbar-expand-lg text-center barra" id="mainNav">
       <a class="navbar-brand mx-auto" href="">
           <img id="logo" src="../assets/img/logoIngSoft.PNG" height="50" class="d-inline-block align-top" alt="Cuidado animal">

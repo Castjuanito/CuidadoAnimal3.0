@@ -13,9 +13,10 @@ class Usuario
   private $apellido;
   private $emailadd;
   private $rol;
+  private $telefono;
   private $conBD;
 
-  function __construct($user_name, $password, $nombre, $apellido, $emailadd, $rol)
+  function __construct($user_name, $password, $nombre, $apellido, $emailadd, $rol, $telefono)
   {
     $this->user_name = $user_name;
     $this->password = $password;
@@ -23,6 +24,7 @@ class Usuario
     $this->apellido = $apellido;
     $this->emailadd = $emailadd;
     $this->rol = $rol;
+    $this->telefono = $telefono;
     $this->conBD = new conexion();
   }
 
@@ -34,7 +36,8 @@ class Usuario
   public static function CrearUsuario ()
   {
     $sql = "INSERT INTO usuario (user_name, password, nombre, apellido, emailadd, rol) VALUES(
-            '$this->user_name', '$this->password', '$this->nombre', '$this->apellido', $this->emailadd, $this->rol)";
+            '$this->user_name', '$this->password', '$this->nombre', '$this->apellido', '$this->emailadd',
+            '$this->rol', $this->telefono )";
     $res = $this->conBD->ejecutarconsulta($sql);
     if ($res)
       $this->id = mysqli_insert_id($conBD);
@@ -44,7 +47,7 @@ class Usuario
   function UpdateUsuario (){
     $sql = "UPDATE usuario SET user_name = ". $this->user_name . ", password = " . $this->password . ", nombre = "
            . $this->nombre . ", apellido = ". $this->apellido. ", emailadd = ". $this->emailadd . ", rol = ". $this->rol .
-           "WHERE usuario.id = ". $this->id;
+           ", telefono = ".$this->telefono. " WHERE usuario.id = ". $this->id;
     return $this->conBD->ejecutarconsulta($sql);
   }
 
@@ -67,6 +70,7 @@ class Usuario
     $usuarioObj->setNombre($fila["nombre"]);
     $usuarioObj->setEmailadd($fila["emailadd"]);
     $usuarioObj->setRol($fila["rol"]);
+    $usuarioObj->setTelefono($fila["telefono"]);
     return $usuarioObj;
   }
   public static function getByUsername($user_name)
@@ -224,6 +228,31 @@ class Usuario
     public function setRol($rol)
     {
         $this->rol = $rol;
+
+        return $this;
+    }
+
+
+    /**
+     * Get the value of Telefono
+     *
+     * @return mixed
+     */
+    public function getTelefono()
+    {
+        return $this->telefono;
+    }
+
+    /**
+     * Set the value of Telefono
+     *
+     * @param mixed telefono
+     *
+     * @return self
+     */
+    public function setTelefono($telefono)
+    {
+        $this->telefono = $telefono;
 
         return $this;
     }

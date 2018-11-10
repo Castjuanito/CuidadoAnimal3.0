@@ -17,6 +17,7 @@ class login
     $apellido = $_POST['apellido'];
     $email = $_POST['email'];
     $rol  = $_POST['rol'];
+    $telefono = $_POST['telefono'];
     if (!empty($username) && !empty($password) && !empty($rol))
     {
       $usuarioObj = new Usuario();
@@ -29,6 +30,7 @@ class login
         $usuarioObj->setApellido($apellido);
         $usuarioObj->setEmailadd($email);
         $usuarioObj->setRol($rol);
+        $usuarioObj->setTelefono($telefono);
         $usuarioObj->CrearUsuario();
         echo "Usuario registrado exitosamente.";
       }
