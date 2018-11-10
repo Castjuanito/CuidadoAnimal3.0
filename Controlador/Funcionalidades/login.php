@@ -11,12 +11,13 @@ class login
 
   function registrarUsuario()
   {
-    $username = $POST['username'];
-    $password = $POST['password'];
-    $nombre = $POST['nombre'];
-    $apellido = $POST['apellido'];
-    $email = $POST['email'];
-    $rol  = $POST['rol'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $nombre = $_POST['nombre'];
+    $apellido = $_POST['apellido'];
+    $email = $_POST['email'];
+    $rol  = $_POST['rol'];
+    $telefono = $_POST['telefono'];
     if (!empty($username) && !empty($password) && !empty($rol))
     {
       $usuarioObj = new Usuario();
@@ -29,6 +30,7 @@ class login
         $usuarioObj->setApellido($apellido);
         $usuarioObj->setEmailadd($email);
         $usuarioObj->setRol($rol);
+        $usuarioObj->setTelefono($telefono);
         $usuarioObj->CrearUsuario();
         echo "Usuario registrado exitosamente.";
       }
@@ -43,8 +45,8 @@ class login
 
   function validarIngreso()
   {
-    $username = $POST['username'];
-    $password = $POST['password'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
     if (!empty($username) && !empty($password))
     {
       $usuarioObj = new Usuario();

@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +12,14 @@
 	<title>Login</title>
 </head>
 <body>
+<?php
+include_once "../Controlador/Funcionalidades/login.php";
+if (isset($_POST["ingresar"]))
+{
+	$login = new login();
+	$login->validarIngreso();
+}
+?>
 	<!-- Inicio Navbar -->
 	<!--Barra de navegacion-->
 	<nav class="navbar nav-masthead navbar-dark sticky-top navbar-expand-lg text-center barra" id="mainNav">
@@ -40,7 +51,7 @@
     			<label for="palabraFormText">Contraseña</label>
     			<input class="form-control" id="palabraFormControlInput" placeholder="Contraseña">
  		 	</div>
- 		 	<button type="button" class="btn btn-primary btn-buscar">Ingresar</button>
+ 		 	<button type="button" class="btn btn-primary btn-buscar" name="ingresar">Ingresar</button>
   		</div>
       </form>
   	</div>
