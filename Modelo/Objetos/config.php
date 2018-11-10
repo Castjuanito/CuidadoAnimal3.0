@@ -1,6 +1,6 @@
 <?php
-define('USUARIO_DB', 'admin');
-define('USUARIO_PASS', '12345');
+define('USUARIO_DB', 'root');
+define('USUARIO_PASS', '');
 define('HOST_DB', 'localhost');
-define('NOMBRE_DB', 'Banco');
+define('NOMBRE_DB', 'CidadoAnimal');
 ?>

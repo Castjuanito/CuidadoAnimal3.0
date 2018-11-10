@@ -25,7 +25,11 @@ class MedicoVeterinario
   public function create_Admin()
   {
     $sql= "INSERT INTO usuario (user_name,password,nombre,apellido,emailadd,rol) VALUES ('$this->user_name','$this->password','$this->apellido','medicoVet')";
-    return $this->connection->ejecutarconsulta($sql);
+    $res = $this->connection->ejecutarconsulta($sql);
+    if ($res) {
+      $this->id = mysqli_insert_id($this->connection);
+    }
+    return $res;
   }
   public function delete_Admin($id)
   {
@@ -34,7 +38,7 @@ class MedicoVeterinario
   }
   public function update_Admin()
   {
-    $sql = "UPDATE usuario user_name = '$this->user_name',  password = '$this->password', nombre = '$this->nombre', apellido = '$this->apellido', emailadd = '$this->emailadd'  WHERE USUARIO.ID = $this->id";
+    $sql = "UPDATE usuario SET user_name = '$this->user_name',  password = '$this->password', nombre = '$this->nombre', apellido = '$this->apellido', emailadd = '$this->emailadd'  WHERE USUARIO.ID = $this->id";
     return  $this->connection->ejecutarconsulta($sql);
   }
   public function findAll()

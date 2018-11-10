@@ -25,7 +25,15 @@ class Caso{
   public static function crearCaso()
   {
     $sql = "INSERT INTO CASO (IDHISTORIA, TITULO, DESCRIPCION) VALUES ($this->idHistoria, '$this->titulo', '$this->descripcion')";
-    return $conBD->ejecutarconsulta($sql);
+    $res = $this->connection->ejecutarconsulta($sql);
+    if ($res) {
+      $this->id = mysqli_insert_id($this->connection);
+    }
+    return $res;$res = $this->connection->ejecutarconsulta($sql);
+    if ($res) {
+      $this->id = mysqli_insert_id($this->connection);
+    }
+    return $res;
   }
 
   public static function actualizarCaso ()

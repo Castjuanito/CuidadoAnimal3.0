@@ -28,7 +28,11 @@ class DuenoCentroVeterinario
   public function crearDueñoCentroVeterinario()
   {
     $sql= "INSERT INTO usuario (user_name,password,nombre,apellido,emailadd,rol) VALUES ('$this->user_name','$this->password','$this->apellido','dueñoClinica')";
-    return $this->connection->ejecutarconsulta($sql);
+    $res = $this->connection->ejecutarconsulta($sql);
+    if ($res) {
+      $this->id = mysqli_insert_id($this->connection);
+    }
+    return $res;
   }
   public function eliminarDueñoCentroVeterinario($id)
   {
@@ -37,7 +41,7 @@ class DuenoCentroVeterinario
   }
   public function actualizarDueñoCentroVeterinario()
   {
-    $sql = "UPDATE usuario user_name = '$this->user_name',  password = '$this->password', nombre = '$this->nombre', apellido = '$this->apellido', emailadd = '$this->emailadd'  WHERE USUARIO.ID = $this->id";
+    $sql = "UPDATE usuario SET user_name =  " . $this->user_name . ",  password = " .  $this->password . ", nombre =" . $this->nombre . ", apellido = " . $this->apellido . ", emailadd =" . $this->emailadd . "WHERE USUARIO.ID = " . $this->id;
     return  $this->connection->ejecutarconsulta($sql);
   }
   public function findAll($value='')

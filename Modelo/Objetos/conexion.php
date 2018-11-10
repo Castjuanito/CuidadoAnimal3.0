@@ -3,9 +3,6 @@ include_once __DIR__."/config.php";
 class conexion
 {
     var $con; // conexion de la base de datos
-    function conexion()
-    {
-    }
     public static function conectarBD()
     {
     }

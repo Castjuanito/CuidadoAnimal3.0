@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS servicio (
 CREATE TABLE IF NOT EXISTS palabra_clave (
   id INT AUTO_INCREMENT,
   PRIMARY KEY(id),
-  nonbre VARCHAR(50)
+  nombre VARCHAR(50)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 /*--------------------------------------------------------------------------------------------*/
