@@ -20,10 +20,10 @@
         </button>
     <div class="collapse navbar-collapse" id="navbarTogglerCA">
         <div class="navbar-nav mx-auto text-center">
-            <a class="nav-item text-barra" href="busqueda.html"><img src="../assets/img/buscar-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Busqueda</a>
-            <a class="nav-item text-barra" href="login.html"><img src="../assets/img/login-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Login</a>
-            <a class="nav-item text-barra" href="registro.html"><img src="../assets/img/registro-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Registrarse</a>
-            <a class="nav-item text-barra" href="contacto.html"><img src="../assets/img/contacto-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Contactanos</a>
+            <a class="nav-item text-barra" href="busqueda.php"><img src="../assets/img/buscar-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Busqueda</a>
+            <a class="nav-item text-barra" href="login.php"><img src="../assets/img/login-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Login</a>
+            <a class="nav-item text-barra" href="registro.php"><img src="../assets/img/registro-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Registrarse</a>
+            <a class="nav-item text-barra" href="contacto.php"><img src="../assets/img/contacto-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Contactanos</a>
         </div>
       </div>
   </nav>
@@ -37,7 +37,7 @@
             <!--Campo Nombre-->
             <div class="col-md-5 col-sm-12 p-0 campo">
               <label class="letraForm">Nombre</label>
-              <input type="text" class="form-control" name="nombres" placeholder="Nombre">
+              <input type="text" class="form-control" name="nombre" placeholder="Nombre">
             </div>
             <!--Fin Campo Nombre-->
             <!--Campo Logotipo-->
@@ -67,13 +67,13 @@
             <!--Campo Ciudad-->
             <div class="col-md-5 col-sm-12 p-0 campo">
               <label class="letraForm">Ciudad</label>
-              <input type="text" class="form-control" name="Ciudad" placeholder="Ciudad">
+              <input type="text" class="form-control" name="ciudad" placeholder="Ciudad">
             </div>
             <!--Fin Campo Ciudad-->
             <!--Campo Campo Localidad-->
             <div class="col-md-5 col-sm-12 p-0 campo">
               <label class="letraForm">Localidad</label>
-              <input type="text" class="form-control" name="Localidad" placeholder="Localidad">
+              <input type="text" class="form-control" name="localidad" placeholder="localidad">
             </div>
             <!--Fin Campo Localidad-->
           </div>
@@ -81,31 +81,13 @@
             <!--Campo Bario-->
             <div class="col-md-5 col-sm-12 p-0 campo">
               <label class="letraForm">Barrio</label>
-              <input type="text" class="form-control" name="Barrio" placeholder="Barrio">
+              <input type="text" class="form-control" name="barrio" placeholder="barrio">
             </div>
             <!--Fin Campo Barrio-->
             <!--Campo Direccion-->
             <div class="col-md-5 col-sm-12 p-0 campo">
-              <label class="letraForm">Dirección</label>
-              <div class="row">
-                <!--Calle o carrera-->
-                <select class="form-control col-2 ml-3 px-2">
-                  <option>Cll</option>
-                    <option>Crr</option>
-                </select>
-                <!--Fin call o carrera-->
-                <!--Numero de calle o carrera-->
-                <input type="text" class="form-control col-2 ml-3 px-2" name="num1" placeholder="00">
-                <!--Fin Numero de calle o carrera-->
-                <label class="letraForm col-1 mx-0 px-2">No</label>
-                <!--Numero 1 dirección-->
-                <input type="text" class="form-control col-2 ml-2 px-2" name="num2" placeholder="00">
-                <!--Fin Numero 1 dirección-->
-                <label class="letraForm col-1 px-2">-</label>
-                <!--Numero 2 dirección-->
-                <input type="text" class="form-control col-2 mx-0 px-2" name="num3" placeholder="00">
-                <!--Fin Numero 2 dirección-->
-              </div>
+              <label class="letraForm">Direccion</label>
+              <input type="text" class="form-control" name="Direccion" placeholder="Direccion">
             </div>
             <!--Fin Campo Direccion-->
           </div>
@@ -116,15 +98,15 @@
               <label class="tituloForm mb-2 mt-0">Horario de atención</label>
               <div class="row">
               <!--Campo hora y minuto de inicio labor veterinaria-->
-                  <select class="form-control col-2 ml-3 px-2" id="hora1"></select>
+                  <select class="form-control col-2 ml-3 px-2" id="horaI"></select>
                 <label class="letraForm mx-2">:</label>
-                  <select class="form-control col-2 ml-0 px-2" id="minu1"></select>
+                  <select class="form-control col-2 ml-0 px-2" id="minI"></select>
               <!--Fin nCampo hora inicio labor veterinaria-->
                 <label class="letraForm col-1 d-flex justify-content-center mx-2">a</label>
               <!--Campo hora final de labor veterinaria-->
-                  <select class="form-control col-2 ml-0 px-2" id="hora2"></select>
+                  <select class="form-control col-2 ml-0 px-2" id="horaF"></select>
                 <label class="letraForm mx-2">:</label>
-                  <select class="form-control col-2 ml-0 px-2" id="minu2"></select>
+                  <select class="form-control col-2 ml-0 px-2" id="minF"></select>
               <!--Fin Campo hora final de labor veterinaria-->
               </div>
               <div class="row">
