@@ -26,7 +26,7 @@
             	<a class="nav-item nav-link text-light" href="homeCliente.php"><img src="../assets/img/home.svg" class="d-inline-block align-top mx-1" width="25" height="25"> Inicio </a>
             	<a class="nav-item nav-link text-light" href="mascotasCliente.php"><img src="../assets/img/mascota.svg" class="d-inline-block align-top mx-1" width="25" height="25">Mis Mascotas</a>
             	<a class="nav-item nav-link text-light" href="cuentaCliente.php"><img src="../assets/img/cliente.svg" class="d-inline-block align-top mx-1" width="25" height="25">Mi cuenta</a>
-              <a class="nav-item nav-link text-light" href="cuentaCliente.php"><img src="../assets/img/veterinario.svg" class="d-inline-block align-top mx-1" width="25" height="25">Veterinarias</a>
+              <a class="nav-item nav-link text-light" href="veterinariasVisitadas.php"><img src="../assets/img/veterinario.svg" class="d-inline-block align-top mx-1" width="25" height="25">Veterinarias</a>
         	</div>
         	<div class="d-flex flex-row justify-content-center">
         		<a class="mr-2 text-light" href=""><img src="../assets/img/Salir.svg" class="d-inline-block align-top mx-1" width="25" height="25">Salir</a>
@@ -35,64 +35,73 @@
 	</nav>
   <div class="container">
       <div class="titulo text-center my-4">
-      <p>Mascotas</p>
+      <p>Clientes</p>
     </div>
     <div class="row text-center justify-content-center">
-    <div class="text-center col-md-4"><p class="subtitulo">Filtrar resultados:</p></div>
-    <div class="row col-md-4 p-2">
-          <div class="col-8"><select class="form-control" id="filtroCasos">
-              <option></option>
-          </select></div>
+      <div class="text-center col-md-4"><p class="subtitulo">Filtrar resultados:</p></div>
+        <div class="row col-md-4 p-2">
+          <div class="col-8">
+            <select class="form-control" id="filtroCasos">
+            <option></option>
+            </select>
+          </div>
           <div class="col-4"> <button class="btn btn-primary">Filtrar</button></div> 
         </div>
-    <div class="row col-md-4 p-2">
+        <div class="row col-md-4 p-2">
           <div class="col-8"><input class="form-control" type="text" id="cedula"></div>
           <div class="col-4"> <button class="btn btn-primary">Buscar</button></div> 
         </div>
-        </div>
+      </div>
     <div class="row">
-      <div class="p-4 col-md-4">   
-      <div class="list-group" id="list-tab" role="tablist">
-      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">
-                <p class="enunciado">Numero de placa</p>
-                <p class="contenido">Nombre</p>
-                <p class="contenido">Edad</p>
+        <div class="p-4 col-md-4">   
+          <div class="list-group" id="list-tab" role="tablist">
+              <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">
+                <p class="enunciado">Id</p>
+                <p class="contenido">Fecha</p>
+                <p class="contenido">Nombre mascota</p>
               </a>
               <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">
                 <p class="enunciado">Id</p>
-                <p class="contenido">Nombre</p>
-                <p class="contenido">Edad</p>
+                <p class="contenido">Fecha</p>
+                <p class="contenido">Nombre mascota asignado al nombre veterianario</p>
               </a>
               <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">
                 <p class="enunciado">Id</p>
-                <p class="contenido">Nombre</p>
-                <p class="contenido">Edad</p>
+                <p class="contenido">Fecha</p>
+                <p class="contenido">Nombre mascota asignado al nombre veterianario</p>
               </a>
               <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">
                 <p class="enunciado">Id</p>
-                <p class="contenido">Nombre</p>
-                <p class="contenido">Edad</p>
+                <p class="contenido">Fecha</p>
+                <p class="contenido">Nombre mascota asignado al nombre veterianario</p>
               </a>
       </div>
-      <div class="justify-content-center">
-            <button type="button" class="btn btn-success col-md-12 boton" onClick="location.href='registroVeterinario.php'">Nueva mascota</button>
-          </div>
       </div>
       <div class="col-md-8 p-4 borde my-4">
       <div class="tab-content" id="nav-tabContent">
               <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
                 <h6>Id: 0000</h6>
-                <h6>Nombre: yyy</h6>
+                <h6>Veterianrio: yyy</h6>
+                <h6>Mascota: xxx</h6>
+                <h6>Duaño: zzz</h6>
                 <img src="../Imagenes/logoVet.png" width="250" height="250" >
                 <h6>Detalle:</h6>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus cumque itaque voluptatibus eveniet cum, accusamus nihil voluptate ratione consectetur, animi optio hic odio, saepe unde voluptates blanditiis sunt dolores. Fugit?</p>
-                <button type="button" class="btn btn-info col-md-4 boton" onClick="location.href='registroCliente.php'">Historial</button>
+                <button type="button" class="btn btn-primary col-md-4 boton" onClick="location.href='registroCliente.php'">Eliminar Veterinario</button>
               </div>
-              <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
+              <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                <h6>Id: 0000</h6>
+                <h6>Veterianrio: yyy</h6>
+                <h6>Detalle:</h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus cumque itaque voluptatibus eveniet cum, accusamus nihil voluptate ratione consectetur, animi optio hic odio, saepe unde voluptates blanditiis sunt dolores. Fugit?</p>
+              </div>
               <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
               <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
             </div>
       </div>
+      <div class="col-md-4 offset-md-4 my-4">
+            <button type="button" class="btn btn-primary col-md-12 boton" onClick="location.href='registroCliente.php'">Nuevo caso</button>
+          </div>
       </div>
     <script src="../assets/bootstrap/js/jquery.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
