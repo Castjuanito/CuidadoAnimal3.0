@@ -5,6 +5,8 @@ include_once "../Modelo/Objetos/Usuario.php";
  */
 class login
 {
+  var $errStyle = "<span style='border-radius: 5px; color:red;border-style:inset;background-color: rgba(219, 55, 38, 0.56);' >";
+  var $successStyle = "<span style='border-radius: 5px; color:rgb(7, 64, 5);border-style:inset;background-color: rgba(13, 193, 36, 0.57);' >";
   public function __construct()
   {
   }
@@ -19,7 +21,6 @@ class login
     $email = $_POST['correo'];
     $rol  = $_POST['rol'];
     $telefono = $_POST['telefono'];
-    echo "rol: ". $rol. "<br>";
     if (!empty($username) && !empty($password) && !empty($rol) && !empty($password2) )
     {
       if ($password == $password2)
@@ -30,21 +31,21 @@ class login
         {
           $res = $usuarioObj->CrearUsuario();
           if ($res)
-            echo "Usuario registrado exitosamente.";
+            echo $this->successStyle. "Usuario registrado exitosamente.</span>";
           else {
-            echo "Error en la creación.";
+            echo $this->errStyle."Error en la creación.</span>";
           }
         }
         else{
-          echo "El nombre de usuario ya existe, por favor intente con otro.";
+          echo $this->errStyle."El nombre de usuario ya existe, por favor intente con otro.<span>";
         }
       }
       else {
-        echo "las contraseñas no coinciden";
+        echo $this->errStyle."Las contraseñas no coinciden.</span>";
       }
     }
     else {
-      echo "Por favor, ingrese los campos obligatorios";
+      echo $this->errStyle."Por favor, ingrese los campos obligatorios.</span>";
     }
   }
 
@@ -59,18 +60,18 @@ class login
       {
         if ($consulta->getPassword() == $password )
         {
-          echo "ingreso exitoso<br>";
+          echo "Ingreso exitoso";
         }
         else {
-          echo "Contraseña incorrecta";
+          echo $this->errStyle."Contraseña incorrecta.</span>";
         }
       }
       else{
-        echo "El usuario no existe";
+        echo $this->errStyle."El usuario no existe.</span>";
       }
     }
     else {
-      echo "ingrese los campos obligatorios";
+      echo $this->errStyle."Por favor, ingrese los campos obligatorios.</span>";
     }
   }
 }

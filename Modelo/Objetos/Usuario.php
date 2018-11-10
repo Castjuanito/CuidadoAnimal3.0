@@ -38,7 +38,6 @@ class Usuario
             '$this->user_name', '$this->password', '$this->nombre', '$this->apellido', '$this->emailadd',
             '$this->rol', $this->telefono )";
     $res = $conBD->ejecutarconsulta($sql);
-    echo $this->rol;
     //if ($res)
       //this->id = $conBD->insert_id;
     return $res;

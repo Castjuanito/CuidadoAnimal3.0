@@ -1,3 +1,6 @@
+<?php
+  $_POST['rol'] = 'duenoMascota';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
