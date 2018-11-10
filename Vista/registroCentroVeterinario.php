@@ -57,6 +57,14 @@
               <input type="text" class="form-control" name="telefono" placeholder="telefono">
             </div>
             <!--Fin Campo Telefono-->
+            <div class="col-md-5 col-sm-12 p-0 campo">
+              <select class="form-control" id="tipo" name="tipo">
+                <option Value="0">seleccione</option>
+          				<option Value="consultorio">Consultorio</option>
+                	<option Value="clinica">Clinica</option>
+                	<option Value="hospital">Hospital</option>
+        			</select>
+            </div>
           </div>
           <!--Fin Fila 1 Datos Principales-->
           <!--Fila 2 datos de ubicación-->
