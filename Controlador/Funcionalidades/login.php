@@ -13,29 +13,29 @@ class login
   {
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $password = $_POST['password2']
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
     $email = $_POST['email'];
     $rol  = $_POST['rol'];
     $telefono = $_POST['telefono'];
-    if (!empty($username) && !empty($password) && !empty($rol))
+    if (!empty($username) && !empty($password) && !empty($rol) && !empty($password2) )
     {
-      $usuarioObj = new Usuario();
-      $consulta = $usuarioObj->getByUsername($username);
-      if ($consulta->num_rows < 1)
+      if ($password == $password2)
       {
-        $usuarioObj->setUserName($username);
-        $usuarioObj->setPassword($password);
-        $usuarioObj->setNombre($nombre);
-        $usuarioObj->setApellido($apellido);
-        $usuarioObj->setEmailadd($email);
-        $usuarioObj->setRol($rol);
-        $usuarioObj->setTelefono($telefono);
-        $usuarioObj->CrearUsuario();
-        echo "Usuario registrado exitosamente.";
+        $usuarioObj = new Usuario($username, $password, $nombre, $apellido, $email, $rol, $telefono);
+        $consulta = Usuario::getByUsername($username);
+        if ($consulta == false)
+        {
+          $usuarioObj->CrearUsuario();
+          echo "Usuario registrado exitosamente.";
+        }
+        else{
+          echo "El nombre de usuario ya existe, por favor intente con otro.";
+        }
       }
-      else{
-        echo "El nombre de usuario ya existe, por favor intente con otro.";
+      else {
+        echo "las contraseñas no coinciden";
       }
     }
     else {
@@ -49,25 +49,23 @@ class login
     $password = $_POST['password'];
     if (!empty($username) && !empty($password))
     {
-      $usuarioObj = new Usuario();
-      $consulta = $usuarioObj->getByUsername($username);
-      if ($consulta->num_rows > 0)
+      $consulta = Usuario::getByUsername($username);
+      if ($consulta != false)
       {
-        $fila = mysqli_fetch_array($consulta);
-        if ($fila["user_name"] == $username )
+        if ($consulta->getPassword() == $password )
         {
-          if ($fila["password"] == $password )
-          {
-            echo "ingreso exitoso";
-          }
-          else {
-            echo "Contraseña incorrecta";
-          }
+          echo "ingreso exitoso<br>";
         }
-        else{
-          echo "ususario incorrecto";
+        else {
+          echo "Contraseña incorrecta";
         }
       }
+      else{
+        echo "El usuario no existe";
+      }
+    }
+    else {
+      echo "ingrese los campos obligatorios";
     }
   }
 }

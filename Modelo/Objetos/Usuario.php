@@ -14,7 +14,6 @@ class Usuario
   private $emailadd;
   private $rol;
   private $telefono;
-  private $conBD;
 
   function __construct($user_name, $password, $nombre, $apellido, $emailadd, $rol, $telefono)
   {
@@ -25,7 +24,6 @@ class Usuario
     $this->emailadd = $emailadd;
     $this->rol = $rol;
     $this->telefono = $telefono;
-    $this->conBD = new conexion();
   }
 
   function Usuario()
@@ -35,7 +33,7 @@ class Usuario
 
   public static function CrearUsuario ()
   {
-    $sql = "INSERT INTO usuario (user_name, password, nombre, apellido, emailadd, rol) VALUES(
+    $sql = "INSERT INTO usuario (user_name, password, nombre, apellido, emailadd, rol, telefono) VALUES(
             '$this->user_name', '$this->password', '$this->nombre', '$this->apellido', '$this->emailadd',
             '$this->rol', $this->telefono )";
     $res = $this->conBD->ejecutarconsulta($sql);
@@ -60,21 +58,36 @@ class Usuario
   public static function getById($id)
   {
     $sql = "SELECT * FROM usuario WHERE usuario.id = $id";
-    $consulta = $this->conBD->ejecutarconsulta($sql);
-    $fila = mysqli_fetch_array($consulta);
-    $usuarioObj = new Usuario();
-    $usuarioObj->setId($fila["id"]);
-    $usuarioObj->setPassword($fila["password"]);
-    $usuarioObj->setUserName($fila["user_name"]);
-    $usuarioObj->setApellido($fila["apellido"]);
-    $usuarioObj->setNombre($fila["nombre"]);
-    $usuarioObj->setEmailadd($fila["emailadd"]);
-    $usuarioObj->setRol($fila["rol"]);
-    $usuarioObj->setTelefono($fila["telefono"]);
-    return $usuarioObj;
+    $conBD = new conexion();
+    $consulta = $conBD->ejecutarconsulta($sql);
+    if ($consulta->num_rows >= 1)
+    {
+      $fila = mysqli_fetch_array($consulta);
+      $usuarioObj = new Usuario($fila["user_name"],$fila["password"],$fila["nombre"], $fila["emailadd"],
+                              $fila["apellido"], $fila["rol"], $fila["telefono"]);
+      $usuarioObj->setId($fila["id"]);
+      return $usuarioObj;
+    }
+    else {
+      return false;
+    }
   }
   public static function getByUsername($user_name)
   {
+    $sql = "SELECT * FROM usuario WHERE usuario.user_name = '$user_name'";
+    $conBD = new conexion();
+    $consulta = $conBD->ejecutarconsulta($sql);
+    if ($consulta->num_rows >= 1)
+    {
+      $fila = mysqli_fetch_array($consulta);
+      $usuarioObj = new Usuario($fila["user_name"],$fila["password"],$fila["nombre"], $fila["emailadd"],
+                              $fila["apellido"], $fila["rol"], $fila["telefono"]);
+      $usuarioObj->setId($fila["id"]);
+      return $usuarioObj;
+    }
+    else{
+      return false;
+    }
   }
 
     /**
@@ -87,6 +100,10 @@ class Usuario
         return $this->id;
     }
 
+    public function setId($id)
+    {
+      $this->id = $id;
+    }
 
     /**
      * Get the value of User Name

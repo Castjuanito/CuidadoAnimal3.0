@@ -12,14 +12,6 @@
 	<title>Login</title>
 </head>
 <body>
-<?php
-include_once "../Controlador/Funcionalidades/login.php";
-if (isset($_POST["ingresar"]))
-{
-	$login = new login();
-	$login->validarIngreso();
-}
-?>
 	<!-- Inicio Navbar -->
 	<!--Barra de navegacion-->
 	<nav class="navbar nav-masthead navbar-dark sticky-top navbar-expand-lg text-center barra" id="mainNav">
@@ -42,16 +34,27 @@ if (isset($_POST["ingresar"]))
 		<div class="col-md-4 col-sm-12 fondo1">
 			<p class="text-center titulo">Cuidado Animal</p>
 			<p class="text-center subtitulo">Ingresa con tu nombre de usuario y contraseña</p>
+			<?php
+			include_once "../Controlador/Funcionalidades/login.php";
+			if (isset($_POST['ingresar']))
+			{
+				$login = new login();
+				$login->validarIngreso();
+			}
+			else {
+				echo "no lo fui :(<br>";
+			}
+			?>
  		 	<div class="form-group texto">
         <form action="" name="login" method="post">
     			<label for="palabraFormText">Usuario</label>
-    			<input class="form-control" id="palabraFormControlInput" placeholder="Nombre de usuario">
+    			<input class="form-control" id="palabraFormControlInput" placeholder="Nombre de usuario" name="username">
  		 	</div>
  		 	<div class="form-group texto">
     			<label for="palabraFormText">Contraseña</label>
-    			<input class="form-control" id="palabraFormControlInput" placeholder="Contraseña">
+    			<input class="form-control" id="palabraFormControlInput" placeholder="Contraseña" name="password">
  		 	</div>
- 		 	<button type="button" class="btn btn-primary btn-buscar" name="ingresar">Ingresar</button>
+ 		 	<button type="submit" class="btn btn-primary btn-buscar" name="ingresar">Ingresar</button>
   		</div>
       </form>
   	</div>
