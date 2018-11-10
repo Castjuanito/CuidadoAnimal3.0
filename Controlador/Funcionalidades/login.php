@@ -32,7 +32,7 @@ class login
           if ($rol == 'duenoClinica')
           {
             setcookie('Owner', $usuarioObj, time()+600);
-            header('Location: registroVeterinaria.php');
+            header('Location: registroCentroVeterinario.php');
           }elseif ($rol == 'duenoMascota') {
             $res = $usuarioObj->CrearUsuario();
             if ($res)
