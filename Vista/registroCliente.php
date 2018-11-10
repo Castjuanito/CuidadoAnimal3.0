@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="../styles/registroAdministrador.css">
-  <title>Registro Administrador</title>
+  <title>Registro Cliente</title>
 </head>
 <body>
   <?php
@@ -42,12 +42,12 @@
       </div>
       <div class="row form-group d-flex justify-content-center">
         <div class="col-md-5 col-xs-12 p-0 campo">
-          <label class="letraForm">Nombres</label>
+          <label class="letraForm">Nombre y apellido</label>
           <input type="text" class="form-control" name="nombres" placeholder="Nombres">
         </div>
         <div class="col-md-5 col-xs-12 p-0 campo">
-          <label class="letraForm">Apellidos</label>
-          <input type="text" class="form-control" name="apellidos" placeholder="Apellidos">
+          <label class="letraForm">Nombre de usuario</label>
+          <input type="text" class="form-control" name="nUsuario" placeholder="nUsuario">
         </div>
       </div>
       <div class="row form-group d-flex justify-content-center">
@@ -59,61 +59,20 @@
           </div>
         </div>
         <div class="col-md-5 col-xs-12 p-0 campo">
-          <label class="letraForm">Telefono</label>
-          <input type="text" class="form-control" name="Telefono" placeholder="Telefono">
+          <label class="letraForm">Correo Electronioco</label>
+          <input type="text" class="form-control" name="correo" placeholder="correo">
         </div>
       </div>
-      <!--Fila 2 datos de ubicación-->
-          <div class="row d-flex justify-content-center mb-0">
-           <label class="tituloForm mb-0 mt-3">Ubicación</label>
-          </div>
-          <div class="row form-group d-flex justify-content-center">
-            <!--Campo Ciudad-->
-            <div class="col-md-5 col-xs-12 p-0 campo">
-              <label class="letraForm">Ciudad</label>
-              <input type="text" class="form-control" name="Ciudad" placeholder="Ciudad">
-            </div>
-            <!--Fin Campo Ciudad-->
-            <!--Campo Campo Localidad-->
-            <div class="col-md-5 col-xs-12 p-0 campo">
-              <label class="letraForm">Localidad</label>
-              <input type="text" class="form-control" name="Localidad" placeholder="Localidad">
-            </div>
-            <!--Fin Campo Localidad-->
-          </div>
-          <div class="row form-group d-flex justify-content-center">
-            <!--Campo Bario-->
-            <div class="col-md-5 col-xs-12 p-0 campo">
-              <label class="letraForm">Barrio</label>
-              <input type="text" class="form-control" name="Barrio" placeholder="Barrio">
-            </div>
-            <!--Fin Campo Barrio-->
-            <!--Campo Direccion-->
-            <div class="col-md-5 col-xs-12 p-0 campo">
-              <label class="letraForm">Dirección</label>
-              <div class="row">
-                <!--Calle o carrera-->
-                <select class="form-control col-2 ml-3 px-2">
-                  <option>Cll</option>
-                    <option>Crr</option>
-                </select>
-                <!--Fin call o carrera-->
-                <!--Numero de calle o carrera-->
-                <input type="text" class="form-control col-2 ml-3 px-2" name="num1" placeholder="00">
-                <!--Fin Numero de calle o carrera-->
-                <label class="letraForm col-1 mx-0 px-2">No</label>
-                <!--Numero 1 dirección-->
-                <input type="text" class="form-control col-2 ml-2 px-2" name="num2" placeholder="00">
-                <!--Fin Numero 1 dirección-->
-                <label class="letraForm col-1 px-2">-</label>
-                <!--Numero 2 dirección-->
-                <input type="text" class="form-control col-2 mx-0 px-2" name="num3" placeholder="00">
-                <!--Fin Numero 2 dirección-->
-              </div>
-            </div>
-            <!--Fin Campo Direccion-->
-          </div>
-          <!--Fin Fila 2 datos de ubicación-->
+      <div class="row form-group d-flex justify-content-center">
+        <div class="col-md-5 col-xs-12 p-0 campo">
+          <label class="letraForm">Contraseña</label>
+          <input type="text" class="form-control" name="nombres" placeholder="Nombres">
+        </div>
+        <div class="col-md-5 col-xs-12 p-0 campo">
+          <label class="letraForm">Confirmar contraseña</label>
+          <input type="text" class="form-control" name="apellidos" placeholder="Apellidos">
+        </div>
+      </div>
       <div class="row form-group d-flex justify-content-center">
         <button type="submit" class="btn btn-primary mb-3">Finalizar Registro</button>
       </div>
