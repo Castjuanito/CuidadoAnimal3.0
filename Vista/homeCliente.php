@@ -13,7 +13,7 @@
 	<!--Barra de navegacion-->
 	<nav class="navbar nav-masthead navbar-dark sticky-top navbar-expand-lg text-center barra" id="mainNav">
 
-    	<a class="navbar-brand mx-auto js-scroll-trigger" href="homeCliente.html">
+    	<a class="navbar-brand mx-auto js-scroll-trigger" href="homeCliente.php">
         	<img id="logo" src="../assets/img/logoIngSoft2.PNG" height="40" class="d-inline-block align-top" alt="Cuidado animal">
     	</a>
 
@@ -23,9 +23,9 @@
 
     	<div class="collapse navbar-collapse" id="navbarTogglerCA">
         <div class="navbar-nav mx-auto text-center">
-            	<a class="nav-item nav-link text-light" href="homeCliente.html"><img src="../assets/img/home.svg" class="d-inline-block align-top mx-1" width="25" height="25"> Inicio </a>
-            	<a class="nav-item nav-link text-light" href="mascotasCliente.html"><img src="../assets/img/mascota.svg" class="d-inline-block align-top mx-1" width="25" height="25">Mis Mascotas</a>
-            	<a class="nav-item nav-link text-light" href="cuentaCliente.html"><img src="../assets/img/cliente.svg" class="d-inline-block align-top mx-1" width="25" height="25">Mi cuenta</a>
+            	<a class="nav-item nav-link text-light" href="homeCliente.php"><img src="../assets/img/home.svg" class="d-inline-block align-top mx-1" width="25" height="25"> Inicio </a>
+            	<a class="nav-item nav-link text-light" href="mascotasCliente.php"><img src="../assets/img/mascota.svg" class="d-inline-block align-top mx-1" width="25" height="25">Mis Mascotas</a>
+            	<a class="nav-item nav-link text-light" href="cuentaCliente.php"><img src="../assets/img/cliente.svg" class="d-inline-block align-top mx-1" width="25" height="25">Mi cuenta</a>
         	</div>
         	<div class="d-flex flex-row justify-content-center">
         		<a class="mr-2 text-light" href=""><img src="../assets/img/Salir.svg" class="d-inline-block align-top mx-1" width="25" height="25">Salir</a>
@@ -64,8 +64,8 @@
       </form>
       </div>
       <div class="col-md-4 col-sm-12 offset-md-2 fondo1 justify-content-center">
-      <div class="col-12 my-4"><button type="button" class="btn btn-primary col-md-12 boton" onClick="location.href='notificacionesCliente.html'">Notificaciones</button></div>
-      <div class="md-12 my-4"><button type="button" class="btn btn-primary col-md-12 boton" onClick="location.href='nuevaMascota.html'">Nueva mascota</button></div>
+      <div class="col-12 my-4"><button type="button" class="btn btn-primary col-md-12 boton" onClick="location.href='notificacionesCliente.php'">Notificaciones</button></div>
+      <div class="md-12 my-4"><button type="button" class="btn btn-primary col-md-12 boton" onClick="location.href='nuevaMascota.php'">Nueva mascota</button></div>
       </div>
     </div>
   </div>

@@ -28,10 +28,10 @@
         </button>
     <div class="collapse navbar-collapse" id="navbarTogglerCA">
           <div class="navbar-nav mx-auto text-center">
-            <a class="nav-item text-barra" href="busqueda.html"><img src="../assets/img/buscar-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Busqueda</a>
-            <a class="nav-item text-barra" href="login.html"><img src="../assets/img/login-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Login</a>
-            <a class="nav-item text-barra" href="registro.html"><img src="../assets/img/registro-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Registrarse</a>
-            <a class="nav-item text-barra" href="contacto.html"><img src="../assets/img/contacto-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Contactanos</a>
+            <a class="nav-item text-barra" href="busqueda.php"><img src="../assets/img/buscar-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Busqueda</a>
+            <a class="nav-item text-barra" href="login.php"><img src="../assets/img/login-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Login</a>
+            <a class="nav-item text-barra" href="registro.php"><img src="../assets/img/registro-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Registrarse</a>
+            <a class="nav-item text-barra" href="contacto.php"><img src="../assets/img/contacto-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Contactanos</a>
         </div>
       </div>
   </nav>
@@ -39,8 +39,8 @@
     <div class="col-md-4 col-sm-12 fondo1">
       <p class="text-center titulo">Cuidado Animal</p>
       <p class="text-center subtitulo">Elige el tipo de usuario con el que quieres registrarte</p>
-      <button type="button" class="btn btn-primary col-md-12 my-5" onClick="location.href='resgitroAdministrador.html'">Administrador de veterinaria</button>
-      <button type="button" class="btn btn-primary col-md-12 boton" onClick="location.href='registroCliente.html'">Dueño de mascota</button>
+      <button type="button" class="btn btn-primary col-md-12 my-5" onClick="location.href='resgitroAdministrador.php'">Administrador de veterinaria</button>
+      <button type="button" class="btn btn-primary col-md-12 boton" onClick="location.href='registroCliente.php'">Dueño de mascota</button>
       </div>
     </div>
     <script src="../assets/bootstrap/js/jquery.js"></script>
