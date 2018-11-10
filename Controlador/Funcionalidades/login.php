@@ -68,7 +68,7 @@ class login
     $horaF = $_POST['horaF'].":".$_POST['minF'];
     $tipo = $_POST['tipo'];
 
-    if (!empty($nombre) && isset($_COOKIE['Owner']))
+    if (!empty($nombre) && isset($_COOKIE['Owner']) && $tipo != 0)
     {
       $res = $_COOKIE['Owner']->CrearUsuario();
       if ($res)
@@ -92,6 +92,10 @@ class login
       if (empty($nombre))
       {
         echo $this->errStyle."Inserte el nombre de su veterinaria</span>";
+      }
+      if ($tipo == 0)
+      {
+        echo $this->errStyle."Escoja el tipo de veterinaria</span>";  
       }
       else {
         echo $this->errStyle."No puede estar en esta página sin tener datos de usuario llenados.</span>";

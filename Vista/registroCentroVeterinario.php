@@ -32,6 +32,14 @@
           <div class="row d-flex justify-content-center mb-0">
            <label class="tituloForm mb-0 mt-3">Registro de Veterinaria</label>
           </div>
+          <?php
+          include_once "../Controlador/Funcionalidades/login.php";
+          if (isset($_POST['registrar']))
+          {
+          	$login = new login();
+          	$login->crearVeterinaria();
+          }
+          ?>
           <!--Fila 1 Datos Principales-->
           <div class="row form-group d-flex justify-content-center">
             <!--Campo Nombre-->
@@ -120,7 +128,7 @@
           <!--Fin Fila horario de atención-->
           </div>
           <div class="row form-group d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary mb-3">Finalizar Registro</button>
+            <button type="submit" class="btn btn-primary mb-3" name="registrar">Finalizar Registro</button>
           </div>
         </form>
       </div>
