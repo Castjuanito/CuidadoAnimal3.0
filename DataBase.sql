@@ -7,7 +7,7 @@ password VARCHAR (512) NOT NULL,
 nombre VARCHAR (50),
 apellido VARCHAR (50),
 emailadd VARCHAR (255) NOT NULL UNIQUE,
-rol ENUM ('medicoVet','dueñoMascota','admin','dueñoClinica') NOT NULL,
+rol ENUM ('medicoVet','duenoMascota','admin','duenoClinica') NOT NULL,
 telefono INT,
 PRIMARY KEY(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

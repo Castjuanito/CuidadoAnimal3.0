@@ -13,12 +13,13 @@ class login
   {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $password = $_POST['password2']
+    $password2 = $_POST['password2'];
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
-    $email = $_POST['email'];
+    $email = $_POST['correo'];
     $rol  = $_POST['rol'];
     $telefono = $_POST['telefono'];
+    echo "rol: ". $rol. "<br>";
     if (!empty($username) && !empty($password) && !empty($rol) && !empty($password2) )
     {
       if ($password == $password2)
@@ -27,8 +28,12 @@ class login
         $consulta = Usuario::getByUsername($username);
         if ($consulta == false)
         {
-          $usuarioObj->CrearUsuario();
-          echo "Usuario registrado exitosamente.";
+          $res = $usuarioObj->CrearUsuario();
+          if ($res)
+            echo "Usuario registrado exitosamente.";
+          else {
+            echo "Error en la creación.";
+          }
         }
         else{
           echo "El nombre de usuario ya existe, por favor intente con otro.";

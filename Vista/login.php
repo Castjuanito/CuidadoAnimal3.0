@@ -41,9 +41,6 @@
 				$login = new login();
 				$login->validarIngreso();
 			}
-			else {
-				echo "no lo fui :(<br>";
-			}
 			?>
  		 	<div class="form-group texto">
         <form action="" name="login" method="post">

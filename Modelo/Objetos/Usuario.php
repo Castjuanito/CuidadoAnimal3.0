@@ -31,14 +31,16 @@ class Usuario
 
   }
 
-  public static function CrearUsuario ()
+  public function CrearUsuario ()
   {
+    $conBD = new conexion();
     $sql = "INSERT INTO usuario (user_name, password, nombre, apellido, emailadd, rol, telefono) VALUES(
             '$this->user_name', '$this->password', '$this->nombre', '$this->apellido', '$this->emailadd',
             '$this->rol', $this->telefono )";
-    $res = $this->conBD->ejecutarconsulta($sql);
-    if ($res)
-      $this->id = mysqli_insert_id($conBD);
+    $res = $conBD->ejecutarconsulta($sql);
+    echo $this->rol;
+    //if ($res)
+      //this->id = $conBD->insert_id;
     return $res;
   }
 

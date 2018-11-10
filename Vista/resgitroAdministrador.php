@@ -57,6 +57,10 @@
       </div>
       <div class="row form-group d-flex justify-content-center">
         <div class="col-md-5 col-xs-12 p-0 campo">
+          <label class="letraForm">Nombre de usuario</label>
+          <input type="text" class="form-control" name="username" placeholder="nombre de usuario">
+        </div>
+        <div class="col-md-5 col-xs-12 p-0 campo">
           <label class="letraForm">Telefono</label>
           <input type="text" class="form-control" name="telefono" placeholder="telefono">
         </div>
