@@ -16,7 +16,7 @@ PRIMARY KEY(id)
 
 CREATE TABLE IF NOT EXISTS centro_veterinario (
 id INT AUTO_INCREMENT,
-dueño_id INT,
+dueno_id INT,
 nombre VARCHAR (50) NOT NULL UNIQUE,
 direccion VARCHAR (300),
 ciudad VARCHAR (50),
@@ -26,7 +26,7 @@ horaI time(2),
 horaF time(2),
 tipo ENUM ('consultorio','clinica','hospital') NOT NULL,
 PRIMARY KEY (id),
-FOREIGN KEY (dueño_id) REFERENCES usuario(id)
+FOREIGN KEY (dueno_id) REFERENCES usuario(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 /*--------------------------------------------------------------------------------------------*/

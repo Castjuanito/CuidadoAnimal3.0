@@ -1,5 +1,6 @@
 <?php
 include_once "../Modelo/Objetos/Usuario.php";
+include_once "../Modelo/Objetos/CentroVeterinario.php";
 /**
  *
  */
@@ -31,7 +32,7 @@ class login
         {
           if ($rol == 'duenoClinica')
           {
-            setcookie("owner", $usuarioObj->getByUsername(), time()+600);
+            setcookie("owner", serialize($usuarioObj), time()+3600);
             header('Location: registroCentroVeterinario.php');
           }elseif ($rol == 'duenoMascota') {
             $res = $usuarioObj->CrearUsuario();
@@ -58,6 +59,8 @@ class login
 
   function crearVeterinaria()
   {
+    $propi = unserialize($_COOKIE['owner']);
+    $propi->setTelefono((int)$propi->getTelefono());
     $nombre = $_POST['nombre'];
     $direccion = $_POST['direccion'];
     $ciudad = $_POST['ciudad'];
@@ -67,23 +70,23 @@ class login
     $horaF = $_POST['horaF'].":".$_POST['minF'];
     $tipo = $_POST['tipo'];
 
-    if (!empty($nombre) && isset($_COOKIE['owner']) && $tipo != 0)
+    if (!empty($nombre) && isset($_COOKIE['owner']) && $tipo != '0')
     {
-      $res = $_COOKIE['Owner']->CrearUsuario();
-      if ($res)
+      if ($propi->CrearUsuario())
       {
-        $propietario = Usuario::getByUsername( $_COOKIE['owner'] );
+        $propietario = Usuario::getByUsername($propi->getUserName());
         $idOwner = $propietario->getId();
         $CentroVet = new CentroVeterinario($idOwner,$nombre,$direccion,$ciudad,$localidad,$barrio,$horaI,$horaF,$tipo);
-        $res2 = $CentroVet->crearCentroVeterinario();
+        $res2 = $CentroVet->CrearCentroVeterinario();
         if ($res2)
         {
-          unset($_COOKIE['Owner']);
-          setcookie('Owner', null, -1);
-          echo $this->successStyle."Usuario creado exitosamente </span>";
+          unset($_COOKIE['owner']);
+          setcookie('owner', null, -1);
+          echo $this->successStyle."Veterinaria creado exitosamente </span>";
         }
         else {
           echo $this->errStyle."Error en la creación de la veterinaria.</span>";
+          Usuario::deleteById($idOwner);
         }
       }
       else {

@@ -56,6 +56,18 @@ class Usuario
     return $this->conBD->ejecutarconsulta($sql);
   }
 
+  public static function deleteByUsername ($username)
+  {
+    $sql = "DELETE FROM usuario WHERE usuario.user_name =".$username;
+    return $this->conBD->ejecutarconsulta($sql);
+  }
+
+  public static function deleteById ($id)
+  {
+    $sql = "DELETE FROM usuario WHERE usuario.id =".$id;
+    return $this->conBD->ejecutarconsulta($sql);
+  }
+
   public static function getById($id)
   {
     $sql = "SELECT * FROM usuario WHERE usuario.id = $id";

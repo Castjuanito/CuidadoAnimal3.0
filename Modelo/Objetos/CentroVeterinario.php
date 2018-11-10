@@ -31,13 +31,17 @@ class CentroVeterinario
     $this->horaF=$horaF;
     $this->tipo=$tipo;
   }
+
   public function CrearCentroVeterinario()
   {
     $connection = new conexion();
-    $sql= "INSERT INTO centro_veterinario (dueño_id,nombre,direccion,ciudad,localidad,barrio,horaI,horaF,tipo) VALUES ($this->$dueno_id,'$this->nombre','$this->direccion','$this->ciudad','$this->$ocalidad','$this->barrio','$this->horaI','$this->horaF','$this->tipo')";
+    $sql= "INSERT INTO centro_veterinario (dueno_id,nombre,direccion,ciudad,localidad,barrio,horaI,horaF,tipo)
+           VALUES ($this->dueno_id,'$this->nombre','$this->direccion','$this->ciudad','$this->localidad',
+            '$this->barrio','$this->horaI','$this->horaF','$this->tipo')";
     $res = $connection->ejecutarconsulta($sql);
     return $res;
   }
+
   public function BorrarCentroVeterinario($id)
   {
     $sql = "DELETE * FROM centro_veterinario WHERE CENTRO_VETERINARIO.ID = " .$id;

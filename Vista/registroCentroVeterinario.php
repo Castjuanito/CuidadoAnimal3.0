@@ -68,10 +68,10 @@
             <div class="col-md-5 col-sm-12 p-0 campo">
                 <label class="letraForm">Tipo</label>
               <select class="form-control" id="tipo" name="tipo">
-                <option Value="0">seleccione</option>
-          				<option Value="consultorio">Consultorio</option>
-                	<option Value="clinica">Clinica</option>
-                	<option Value="hospital">Hospital</option>
+                <option value="0">seleccione</option>
+          				<option value="consultorio">Consultorio</option>
+                	<option value="clinica">Clinica</option>
+                	<option value="hospital">Hospital</option>
         			</select>
             </div>
           </div>
@@ -115,7 +115,7 @@
               <label class="tituloForm mb-2 mt-0">Horario de atención</label>
               <div class="row">
               <!--Campo hora y minuto de inicio labor veterinaria-->
-                  <select class="form-control col-2 ml-3 px-2 name="horaI"  id="horaI"">
+                  <select class="form-control col-2 ml-3 px-2" name="horaI"  id="horaI">
                     <option></option>
                     <option>1</option>
                     <option>2</option>
