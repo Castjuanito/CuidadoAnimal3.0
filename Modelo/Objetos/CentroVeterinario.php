@@ -4,7 +4,7 @@
  */
 include_once "../Modelo/Objetos/conexion.php";
 
-class centro_veterinario
+class CentroVeterinario
 {
   private $id;
   private $dueno_id;
@@ -30,24 +30,20 @@ class centro_veterinario
     $this->horaI=$horaI;
     $this->horaF=$horaF;
     $this->tipo=$tipo;
-    $this->connection = new conexion();
-
   }
-  public function create_Admin()
+  public function CrearCentroVeterinario()
   {
+    $connection = new conexion();
     $sql= "INSERT INTO centro_veterinario (dueño_id,nombre,direccion,ciudad,localidad,barrio,horaI,horaF,tipo) VALUES ($this->$dueno_id,'$this->nombre','$this->direccion','$this->ciudad','$this->$ocalidad','$this->barrio','$this->horaI','$this->horaF','$this->tipo')";
-    $res = $this->connection->ejecutarconsulta($sql);
-    if ($res) {
-      $this->id = mysqli_insert_id($this->connection);
-    }
+    $res = $connection->ejecutarconsulta($sql);
     return $res;
   }
-  public function delete_Admin($id)
+  public function BorrarCentroVeterinario($id)
   {
     $sql = "DELETE * FROM centro_veterinario WHERE CENTRO_VETERINARIO.ID = " .$id;
     $this->connection->ejecutarconsulta($sql);
   }
-  public function update_Admin()
+  public function ActualizarCentroVeterinario()
   {
     $sql = "UPDATE centro_veterinario SET dueño_id =". $this->$dueno_id . ",nombre = ". $this->nombre .",direccion = ". $this->direccion .",ciudad = ". $this->ciudad .",localidad = ". $this->$ocalidad .",barrio = ". $this->barrio .",horaI = ". $this->horaI .",horaF = ". $this->horaF .",tipo = ".$this->tipo ." WHERE USUARIO.ID =". $this->id;
     return  $this->connection->ejecutarconsulta($sql);
@@ -58,10 +54,28 @@ class centro_veterinario
     $this->connection->ejecutarconsulta($sql);
   }
 
-  public function fingById($id)
+  public function findById($id)
   {
   $sql = "SELECT * FROM centro_veterinario WHERE CENTRO_VETERINARIO.ID = " . $id;
   $this->connection->ejecutarconsulta($sql);
+  }
+
+  public function findByName($nombre)
+  {
+    $conBD = new conexion();
+    $sql = "SELECT * FROM centro_veterinario WHERE centro_veterinario.nombre = " . $nombre;
+    $consulta = $conBD->ejecutarconsulta($sql);
+    if ($consulta->num_rows >= 1)
+    {
+      $fila = mysqli_fetch_array($consulta);
+      $CentroVet = new CentroVeterinario($fila["dueno_id"],$fila["nombre"],$fila["direccion"], $fila["ciudad"],
+                              $fila["localidad"], $fila["barrio"], $fila["horaI"], $fila["horaF"], $fila["tipo"]);
+      $CentroVet->setId($fila["id"]);
+      return $CentroVet;
+    }
+    else{
+      return false;
+    }
   }
     /**
      * Get the value of Id

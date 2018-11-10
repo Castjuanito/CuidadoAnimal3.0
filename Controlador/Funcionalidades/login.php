@@ -29,12 +29,19 @@ class login
         $consulta = Usuario::getByUsername($username);
         if ($consulta == false)
         {
-          $res = $usuarioObj->CrearUsuario();
-          if ($res)
-            echo $this->successStyle. "Usuario registrado exitosamente.</span>";
-          else {
-            echo $this->errStyle."Error en la creación.</span>";
+          if ($rol == 'duenoClinica')
+          {
+            setcookie('Owner', $usuarioObj, time()+600);
+            header('Location: registroVeterinaria.php');
+          }elseif ($rol == 'duenoMascota') {
+            $res = $usuarioObj->CrearUsuario();
+            if ($res)
+              echo $this->successStyle. "Usuario registrado exitosamente.</span>";
+            else {
+              echo $this->errStyle."Error en la creación.</span>";
+            }
           }
+
         }
         else{
           echo $this->errStyle."El nombre de usuario ya existe, por favor intente con otro.<span>";
@@ -49,6 +56,50 @@ class login
     }
   }
 
+  function crearVeterinaria()
+  {
+    $idOwner = Usuario::getByUsername($_COOKIE['Owner']->getUsername());
+    $nombre = $_POST['nombre'];
+    $direccion = $_POST['direccion'];
+    $ciudad = $_POST['ciudad'];
+    $localidad = $_POST['localidad'];
+    $barrio = $_POST['barrio'];
+    $horaI = $_POST['horaI'];
+    $horaF = $_POST['horaF'];
+    $tipo = $_POST['tipo'];
+
+    if (!empty($nombre) && isset($_COOKIE['Owner']))
+    {
+      $res = $_COOKIE['Owner']->CrearUsuario();
+      if ($res)
+      {
+        $CentroVet = new CentroVeterinario($idOwner,$nombre,$direccion,$ciudad,$localidad,$barrio,$horaI,$horaF,$tipo);
+        $res2 = $CentroVet->crearCentroVeterinario();
+        if ($res2)
+        {
+          unset($_COOKIE['Owner']);
+          setcookie('Owner', null, -1);
+          echo $this->successStyle."Usuario creado exitosamente </span>";
+        }
+        else {
+          echo $this->errStyle."Error en la creación de la veterinaria.</span>";
+        }
+      }
+      else {
+        echo $this->errStyle."Error en la creación de usuario.</span>";
+      }
+    }else {
+      if (empty($nombre))
+      {
+        echo $this->errStyle."Inserte el nombre de su veterinaria</span>";
+      }
+      else {
+        echo $this->errStyle."No puede estar en esta página sin tener datos de usuario llenados.</span>";
+      }
+    }
+}
+
+
   function validarIngreso()
   {
     $username = $_POST['username'];
@@ -60,7 +111,10 @@ class login
       {
         if ($consulta->getPassword() == $password )
         {
-          echo "Ingreso exitoso";
+          if ($consulta->getRol() == 'duenoClinica')
+          {
+            header('Location: homeAdministrador.php');
+          }
         }
         else {
           echo $this->errStyle."Contraseña incorrecta.</span>";
