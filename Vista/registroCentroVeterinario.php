@@ -58,6 +58,7 @@
             </div>
             <!--Fin Campo Telefono-->
             <div class="col-md-5 col-sm-12 p-0 campo">
+                <label class="letraForm">Tipo</label>
               <select class="form-control" id="tipo" name="tipo">
                 <option Value="0">seleccione</option>
           				<option Value="consultorio">Consultorio</option>
@@ -106,15 +107,211 @@
               <label class="tituloForm mb-2 mt-0">Horario de atención</label>
               <div class="row">
               <!--Campo hora y minuto de inicio labor veterinaria-->
-                  <select class="form-control col-2 ml-3 px-2" id="horaI"></select>
+                  <select class="form-control col-2 ml-3 px-2 name="horaI"  id="horaI"">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                  </select>
                 <label class="letraForm mx-2">:</label>
-                  <select class="form-control col-2 ml-0 px-2" id="minI"></select>
+                  <select class="form-control col-2 ml-0 px-2" id="minI" name="minI">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                    <option>25</option>
+                    <option>26</option>
+                    <option>27</option>
+                    <option>28</option>
+                    <option>29</option>
+                    <option>30</option>
+                    <option>31</option>
+                    <option>32</option>
+                    <option>33</option>
+                    <option>34</option>
+                    <option>35</option>
+                    <option>36</option>
+                    <option>37</option>
+                    <option>38</option>
+                    <option>39</option>
+                    <option>40</option>
+                    <option>41</option>
+                    <option>42</option>
+                    <option>43</option>
+                    <option>44</option>
+                    <option>45</option>
+                    <option>46</option>
+                    <option>47</option>
+                    <option>48</option>
+                    <option>49</option>
+                    <option>50</option>
+                    <option>41</option>
+                    <option>42</option>
+                    <option>43</option>
+                    <option>44</option>
+                    <option>45</option>
+                    <option>46</option>
+                    <option>47</option>
+                    <option>48</option>
+                    <option>49</option>
+                    <option>50</option>
+                    <option>51</option>
+                    <option>52</option>
+                    <option>53</option>
+                    <option>54</option>
+                    <option>55</option>
+                    <option>56</option>
+                    <option>57</option>
+                    <option>58</option>
+                    <option>59</option>
+                    <option>60</option>
+                  </select>
               <!--Fin nCampo hora inicio labor veterinaria-->
                 <label class="letraForm col-1 d-flex justify-content-center mx-2">a</label>
               <!--Campo hora final de labor veterinaria-->
-                  <select class="form-control col-2 ml-0 px-2" id="horaF"></select>
+                  <select class="form-control col-2 ml-0 px-2" id="horaF" name="horaF">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                  </select>
                 <label class="letraForm mx-2">:</label>
-                  <select class="form-control col-2 ml-0 px-2" id="minF"></select>
+                  <select class="form-control col-2 ml-0 px-2" id="minF" name="minF">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                    <option>25</option>
+                    <option>26</option>
+                    <option>27</option>
+                    <option>28</option>
+                    <option>29</option>
+                    <option>30</option>
+                    <option>31</option>
+                    <option>32</option>
+                    <option>33</option>
+                    <option>34</option>
+                    <option>35</option>
+                    <option>36</option>
+                    <option>37</option>
+                    <option>38</option>
+                    <option>39</option>
+                    <option>40</option>
+                    <option>41</option>
+                    <option>42</option>
+                    <option>43</option>
+                    <option>44</option>
+                    <option>45</option>
+                    <option>46</option>
+                    <option>47</option>
+                    <option>48</option>
+                    <option>49</option>
+                    <option>50</option>
+                    <option>41</option>
+                    <option>42</option>
+                    <option>43</option>
+                    <option>44</option>
+                    <option>45</option>
+                    <option>46</option>
+                    <option>47</option>
+                    <option>48</option>
+                    <option>49</option>
+                    <option>50</option>
+                    <option>51</option>
+                    <option>52</option>
+                    <option>53</option>
+                    <option>54</option>
+                    <option>55</option>
+                    <option>56</option>
+                    <option>57</option>
+                    <option>58</option>
+                    <option>59</option>
+                    <option>60</option>
+                  </select>
               <!--Fin Campo hora final de labor veterinaria-->
               </div>
               <div class="row">
