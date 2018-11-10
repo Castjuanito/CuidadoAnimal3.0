@@ -96,7 +96,7 @@
             <!--Campo Direccion-->
             <div class="col-md-5 col-sm-12 p-0 campo">
               <label class="letraForm">Direccion</label>
-              <input type="text" class="form-control" name="Direccion" placeholder="Direccion">
+              <input type="text" class="form-control" name="direccion" placeholder="direccion">
             </div>
             <!--Fin Campo Direccion-->
           </div>
@@ -108,6 +108,7 @@
               <div class="row">
               <!--Campo hora y minuto de inicio labor veterinaria-->
                   <select class="form-control col-2 ml-3 px-2 name="horaI"  id="horaI"">
+                    <option></option>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -136,6 +137,7 @@
                   </select>
                 <label class="letraForm mx-2">:</label>
                   <select class="form-control col-2 ml-0 px-2" id="minI" name="minI">
+                    <option></option>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -212,6 +214,7 @@
                 <label class="letraForm col-1 d-flex justify-content-center mx-2">a</label>
               <!--Campo hora final de labor veterinaria-->
                   <select class="form-control col-2 ml-0 px-2" id="horaF" name="horaF">
+                    <option></option>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -240,6 +243,7 @@
                   </select>
                 <label class="letraForm mx-2">:</label>
                   <select class="form-control col-2 ml-0 px-2" id="minF" name="minF">
+                    <option></option>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
