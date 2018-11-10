@@ -28,18 +28,27 @@
       </div>
   </nav>
             <div class="text-center fondo1 offset-md-2 col-md-8 col-xs-12">
-    <form id="regisVete">
+    <form id="regisVete" action="" method="post" name="regisVete">
       <div class="row d-flex justify-content-center mb-0">
        <label class="tituloForm mb-0 mt-3">Registro de Administrador</label>
       </div>
+      <?php
+      include_once "../Controlador/Funcionalidades/login.php";
+      if (isset($_POST['registrar']))
+      {
+        $_POST['rol'] = 'duenoClinica';
+      	$login = new login();
+      	$login->registrarUsuario();
+      }
+      ?>
       <div class="row form-group d-flex justify-content-center">
         <div class="col-md-5 col-xs-12 p-0 campo">
           <label class="letraForm">Nombre</label>
-          <input type="text" class="form-control" name="nombres" placeholder="Nombres">
+          <input type="text" class="form-control" name="nombre" placeholder="Nombres">
         </div>
         <div class="col-md-5 col-xs-12 p-0 campo">
           <label class="letraForm">Apellido</label>
-          <input type="text" class="form-control" name="Apellido" placeholder="nUsuario">
+          <input type="text" class="form-control" name="apellido" placeholder="nUsuario">
         </div>
       </div>
       <div class="row form-group d-flex justify-content-center">
@@ -68,15 +77,15 @@
       <div class="row form-group d-flex justify-content-center">
         <div class="col-md-5 col-xs-12 p-0 campo">
           <label class="letraForm">Contraseña</label>
-          <input type="password" class="form-control" name="contrasena" placeholder="">
+          <input type="password" class="form-control" name="password" placeholder="">
         </div>
         <div class="col-md-5 col-xs-12 p-0 campo">
           <label class="letraForm">Confirmar contraseña</label>
-          <input type="password" class="form-control" name="confcontrasena" placeholder="">
+          <input type="password" class="form-control" name="password2" placeholder="">
         </div>
       </div>
       <div class="row form-group d-flex justify-content-center">
-        <button type="submit" class="btn btn-primary mb-3">Finalizar Registro</button>
+        <button type="submit" class="btn btn-primary mb-3" name="registrar">Finalizar Registro</button>
       </div>
     </form>
   </div>
