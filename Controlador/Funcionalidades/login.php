@@ -5,7 +5,7 @@ include_once "../Modelo/Objetos/Usuario.php";
  */
 class login
 {
-  var $errStyle = "<span style='border-radius: 5px; color:red;border-style:inset;background-color: rgba(219, 55, 38, 0.56);' >";
+  var $errStyle = "<span style='border-radius: 5px; color:rgb(153, 24, 24);border-style:inset;background-color: rgba(219, 55, 38, 0.56);' >";
   var $successStyle = "<span style='border-radius: 5px; color:rgb(7, 64, 5);border-style:inset;background-color: rgba(13, 193, 36, 0.57);' >";
   public function __construct()
   {
@@ -32,7 +32,7 @@ class login
           if ($rol == 'duenoClinica')
           {
             setcookie('Owner', $usuarioObj, time()+600);
-            header('Location: registroVeterinaria.php');
+            header('Location: registroCentroVeterinario.php');
           }elseif ($rol == 'duenoMascota') {
             $res = $usuarioObj->CrearUsuario();
             if ($res)
@@ -64,8 +64,8 @@ class login
     $ciudad = $_POST['ciudad'];
     $localidad = $_POST['localidad'];
     $barrio = $_POST['barrio'];
-    $horaI = $_POST['horaI'];
-    $horaF = $_POST['horaF'];
+    $horaI = $_POST['horaI'].":".$_POST['minI'];
+    $horaF = $_POST['horaF'].":".$_POST['minF'];
     $tipo = $_POST['tipo'];
 
     if (!empty($nombre) && isset($_COOKIE['Owner']))
