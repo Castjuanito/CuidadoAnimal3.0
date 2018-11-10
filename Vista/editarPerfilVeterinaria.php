@@ -1,33 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="stylesheet" href="../styles/registroAdministrador.css">
-  <title>Registro Administrador</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../styles/administradorVeterinaria.css">
+	<title>Home</title>
 </head>
 <body>
-  <!-- Inicio Navbar -->
-  <!--Barra de navegacion-->
-  <nav class="navbar nav-masthead navbar-dark navbar-expand-lg text-center barra" id="mainNav">
-    <a class="navbar-brand mx-auto" href="">
-          <img id="logo" src="../assets/img/logoIngSoft.PNG" height="50" class="d-inline-block align-top" alt="Cuidado animal">
-      </a>
-      <button class="navbar-toggler collapsed navbar-toggler-right text-center" type="button" data-toggle="collapse" data-target="#navbarTogglerCA" aria-controls="navbarTogglerCA" aria-halflings-expandes="false" aria-label="Toggle navigation">
-          <span class="nav-icon navbar-toggler-icon"></span>
+	<!-- Inicio Navbar -->
+	<!--Barra de navegacion-->
+	<nav class="navbar nav-masthead navbar-dark sticky-top navbar-expand-lg text-center barra" id="mainNav">
+
+    	<a class="navbar-brand mx-auto js-scroll-trigger" href="homeAdministrador.php">
+        	<img id="logo" src="../assets/img/logoIngSoft2.PNG" height="40" class="d-inline-block align-top" alt="Cuidado animal">
+    	</a>
+
+    	<button class="navbar-toggler collapsed navbar-toggler-right text-center" type="button" data-toggle="collapse" data-target="#navbarTogglerCA" aria-controls="navbarTogglerCA" aria-halflings-expandes="false" aria-label="Toggle navigation">
+        	<span class="nav-icon navbar-toggler-icon"></span>
         </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerCA">
+
+    	<div class="collapse navbar-collapse" id="navbarTogglerCA">
         <div class="navbar-nav mx-auto text-center">
-            <a class="nav-item text-barra" href="busqueda.html"><img src="../assets/img/buscar-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Busqueda</a>
-            <a class="nav-item text-barra" href="login.html"><img src="../assets/img/login-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Login</a>
-            <a class="nav-item text-barra" href="registro.html"><img src="../assets/img/registro-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Registrarse</a>
-            <a class="nav-item text-barra" href="contacto.html"><img src="../assets/img/contacto-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Contactanos</a>
-        </div>
-      </div>
-  </nav>
-    <div class="text-center fondo1 offset-md-2 col-md-8 col-xs-12">
+            	<a class="nav-item nav-link text-light" href="homeAdministrador.php"><img src="../assets/img/home.svg" class="d-inline-block align-top mx-1" width="25" height="25"> Inicio </a>
+            	<a class="nav-item nav-link text-light" href="casosAdministrador.php"><img src="../assets/img/casos.svg" class="d-inline-block align-top mx-1" width="25" height="25">Casos</a>
+            	<a class="nav-item nav-link text-light" href="veterinarios.php"><img src="../assets/img/veterinario.svg" class="d-inline-block align-top mx-1" width="25" height="25">Veterinarios</a>
+            	<a class="nav-item nav-link text-light" href="mascotas-administrador.php"><img src="../assets/img/mascota.svg" class="d-inline-block align-top mx-1" width="25" height="25">Mascotas</a>
+            	<a class="nav-item nav-link text-light" href="clientes.php"><img src="../assets/img/cliente.svg" class="d-inline-block align-top mx-1" width="25" height="25">Clientes</a>
+        	</div>
+        	<div class="d-flex flex-row justify-content-center">
+        		<a class="mr-2 text-light" href=""><img src="../assets/img/Salir.svg" class="d-inline-block align-top mx-1" width="25" height="25">Salir</a>
+       		</div>
+    	</div>
+	</nav>
+<div class="text-center fondo1 offset-md-2 col-md-8 col-xs-12">
         <form name="registroVeterianrio" method="post">
           <div class="row d-flex justify-content-center mb-0">
            <label class="tituloForm mb-0 mt-3">Registro de Veterinaria</label>

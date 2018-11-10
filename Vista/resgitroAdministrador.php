@@ -6,17 +6,9 @@
   <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="../styles/registroAdministrador.css">
-  <title>Registro Cliente</title>
+  <title>Registro Administrador</title>
 </head>
 <body>
-  <?php
-  include_once "../Controlador/Funcionalidades/login.php";
-  if (isset($_POST["ingresar"]))
-  {
-  	$login = new login();
-  	$login->registrarUsuario();
-  }
-  ?>
   <!-- Inicio Navbar -->
   <!--Barra de navegacion-->
   <nav class="navbar nav-masthead navbar-dark navbar-expand-lg text-center barra" id="mainNav">
@@ -28,14 +20,14 @@
         </button>
     <div class="collapse navbar-collapse" id="navbarTogglerCA">
         <div class="navbar-nav mx-auto text-center">
-          <a class="nav-item text-barra" href="busqueda.php"><img src="../assets/img/buscar-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Busqueda</a>
+            <a class="nav-item text-barra" href="busqueda.php"><img src="../assets/img/buscar-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Busqueda</a>
             <a class="nav-item text-barra" href="login.php"><img src="../assets/img/login-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Login</a>
             <a class="nav-item text-barra" href="registro.php"><img src="../assets/img/registro-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Registrarse</a>
             <a class="nav-item text-barra" href="contacto.php"><img src="../assets/img/contacto-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Contactanos</a>
         </div>
       </div>
   </nav>
-    <div class="text-center fondo1 offset-md-2 col-md-8 col-xs-12">
+            <div class="text-center fondo1 offset-md-2 col-md-8 col-xs-12">
     <form id="regisVete">
       <div class="row d-flex justify-content-center mb-0">
        <label class="tituloForm mb-0 mt-3">Registro de Cliente</label>
@@ -86,6 +78,6 @@
   </div>
     <script src="../assets/bootstrap/js/jquery.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../js/RegisCliente.js"></script>
+    <script src="../js/RegisAdmin.js"></script>
   </body>
 </html>

@@ -13,7 +13,7 @@
 	<!--Barra de navegacion-->
 	<nav class="navbar nav-masthead navbar-dark sticky-top navbar-expand-lg text-center barra" id="mainNav">
 
-    	<a class="navbar-brand mx-auto js-scroll-trigger" href="homeAdministrador.html">
+    	<a class="navbar-brand mx-auto js-scroll-trigger" href="homeAdministrador.php">
         	<img id="logo" src="../assets/img/logoIngSoft2.PNG" height="40" class="d-inline-block align-top" alt="Cuidado animal">
     	</a>
 
@@ -23,11 +23,11 @@
 
     	<div class="collapse navbar-collapse" id="navbarTogglerCA">
           <div class="navbar-nav mx-auto text-center">
-            	<a class="nav-item nav-link text-light" href="homeAdministrador.html"><img src="../assets/img/home.svg" class="d-inline-block align-top mx-1" width="25" height="25"> Inicio </a>
-            	<a class="nav-item nav-link text-light" href="casosAdministrador.html"><img src="../assets/img/casos.svg" class="d-inline-block align-top mx-1" width="25" height="25">Casos</a>
-            	<a class="nav-item nav-link text-light" href="veterinarios.html"><img src="../assets/img/veterinario.svg" class="d-inline-block align-top mx-1" width="25" height="25">Veterinarios</a>
-            	<a class="nav-item nav-link text-light" href="mascotas-administrador.html"><img src="../assets/img/mascota.svg" class="d-inline-block align-top mx-1" width="25" height="25">Mascotas</a>
-            	<a class="nav-item nav-link text-light" href="clientes.html"><img src="../assets/img/cliente.svg" class="d-inline-block align-top mx-1" width="25" height="25">Clientes</a>
+            	<a class="nav-item nav-link text-light" href="homeAdministrador.php"><img src="../assets/img/home.svg" class="d-inline-block align-top mx-1" width="25" height="25"> Inicio </a>
+            	<a class="nav-item nav-link text-light" href="casosAdministrador.php"><img src="../assets/img/casos.svg" class="d-inline-block align-top mx-1" width="25" height="25">Casos</a>
+            	<a class="nav-item nav-link text-light" href="veterinarios.php"><img src="../assets/img/veterinario.svg" class="d-inline-block align-top mx-1" width="25" height="25">Veterinarios</a>
+            	<a class="nav-item nav-link text-light" href="mascotas-administrador.php"><img src="../assets/img/mascota.svg" class="d-inline-block align-top mx-1" width="25" height="25">Mascotas</a>
+            	<a class="nav-item nav-link text-light" href="clientes.php"><img src="../assets/img/cliente.svg" class="d-inline-block align-top mx-1" width="25" height="25">Clientes</a>
         	</div>
         	<div class="d-flex flex-row justify-content-center">
         		  <a class="mr-2 text-light" href=""><img src="../assets/img/Salir.svg" class="d-inline-block align-top mx-1" width="25" height="25">Salir</a>
