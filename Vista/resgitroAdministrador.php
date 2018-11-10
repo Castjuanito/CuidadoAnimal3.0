@@ -76,7 +76,7 @@
         </div>
       </div>
       <div class="row form-group d-flex justify-content-center">
-        <button type="submit" class="btn btn-primary mb-3">Finalizar Registro</button>
+        <button type="submit" class="btn btn-primary mb-3">Siguiente</button>
       </div>
     </form>
   </div>
