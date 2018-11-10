@@ -45,6 +45,12 @@
       				<option></option>
     			</select>
  		 	</div>
+			<div class="form-group texto">
+    			<label for="servicioFormSelect">Localidad</label>
+    			<select class="form-control" id="localidadSelect">
+      				<option></option>
+    			</select>
+ 		 	</div>
  		 	<div class="form-group texto">
     			<label for="servicioFormSelect">Barrio</label>
     			<select class="form-control" id="barrioSelect">
