@@ -30,7 +30,7 @@
             <div class="text-center fondo1 offset-md-2 col-md-8 col-xs-12">
     <form id="regisVete">
       <div class="row d-flex justify-content-center mb-0">
-       <label class="tituloForm mb-0 mt-3">Registro de Cliente</label>
+       <label class="tituloForm mb-0 mt-3">Registro de Administrador</label>
       </div>
       <div class="row form-group d-flex justify-content-center">
         <div class="col-md-5 col-xs-12 p-0 campo">
