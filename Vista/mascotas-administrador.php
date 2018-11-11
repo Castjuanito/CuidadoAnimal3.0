@@ -44,15 +44,15 @@
           <div class="col-8"><select class="form-control" id="filtroCasos">
               <option></option>
           </select></div>
-          <div class="col-4"> <button class="btn btn-primary">Filtrar</button></div> 
+          <div class="col-4"> <button class="btn btn-primary">Filtrar</button></div>
         </div>
     <div class="row col-md-4 p-2">
           <div class="col-8"><input class="form-control" type="text" id="cedula"></div>
-          <div class="col-4"> <button class="btn btn-primary">Buscar</button></div> 
+          <div class="col-4"> <button class="btn btn-primary">Buscar</button></div>
         </div>
         </div>
     <div class="row">
-      <div class="p-4 col-md-4">   
+      <div class="p-4 col-md-4">
       <div class="list-group" id="list-tab" role="tablist">
       <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">
                 <p class="enunciado">Id</p>
@@ -96,9 +96,6 @@
               <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
             </div>
       </div>
-      <div class="col-md-4 offset-md-4 my-4">
-            <button type="button" class="btn btn-success col-md-12 boton" onClick="location.href='registroCliente.php'">Nuevo caso</button>
-          </div>
       </div>
     <script src="../assets/bootstrap/js/jquery.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>

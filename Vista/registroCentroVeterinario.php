@@ -68,10 +68,10 @@
             <div class="col-md-5 col-sm-12 p-0 campo">
                 <label class="letraForm">Tipo</label>
               <select class="form-control" id="tipo" name="tipo">
-                <option value="0">seleccione</option>
-          				<option value="consultorio">Consultorio</option>
-                	<option value="clinica">Clinica</option>
-                	<option value="hospital">Hospital</option>
+                <option Value="0">seleccione</option>
+          				<option Value="consultorio">Consultorio</option>
+                	<option Value="clinica">Clinica</option>
+                	<option Value="hospital">Hospital</option>
         			</select>
             </div>
           </div>
