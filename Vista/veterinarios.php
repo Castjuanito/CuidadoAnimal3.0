@@ -85,7 +85,7 @@
                 <img src="../Imagenes/logoVet.png" width="250" height="250" >
                 <h6>Detalle:</h6>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus cumque itaque voluptatibus eveniet cum, accusamus nihil voluptate ratione consectetur, animi optio hic odio, saepe unde voluptates blanditiis sunt dolores. Fugit?</p>
-                <button type="button" class="btn btn-warning col-md-4 boton" onClick="location.href='registroCliente.php'">Editar Veterinario</button>
+                <button type="button" class="btn btn-warning col-md-4 boton" onClick="location.href='editarveterinario.php'">Editar Veterinario</button>
                 <button type="button" class="btn btn-danger col-md-4 boton" onClick="location.href='registroCliente.php'">Eliminar Veterinario</button>
               </div>
             </div>
