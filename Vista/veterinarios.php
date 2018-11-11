@@ -1,3 +1,6 @@
+<?php
+  session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,22 +57,18 @@
     <div class="row">
       <div class="p-4 col-md-4">
       <div class="list-group" id="list-tab" role="tablist">
-      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">
-                <p class="enunciado">Id</p>
-                <p class="contenido">Nombre</p>
-              </a>
-              <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">
-                <p class="enunciado">Id</p>
-                <p class="contenido">Fecha</p>
-              </a>
-              <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">
-                <p class="enunciado">Id</p>
-                <p class="contenido">Fecha</p>
-              </a>
-              <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">
-                <p class="enunciado">Id</p>
-                <p class="contenido">Fecha</p>
-              </a>
+        <?php
+        include_once '../Controlador/Funcionalidades/c_adminVeterinaria.php';
+        $admin = new c_adminVeterinaria();
+        $empleados = $admin->encontrarEmpleados();
+        for ($i=0; $i <count($empleados) ; $i++)
+        {
+          echo "<a class='list-group-item list-group-item-action active' id='list-home-list' data-toggle='list' href='#list-home' role='tab' aria-controls='home'>";
+          echo "<p class='enunciado'>".$empleados[$i]->getId()."</p>";
+          echo "<p class='contenido'>".$empleados[$i]->getNombre()."</p>";
+          echo "</a>";
+        }
+        ?>
       </div>
       <div class="justify-content-center">
             <button type="button" class="btn btn-success col-md-12 boton" onClick="location.href='registroVeterinario.php'">Nuevo veterianario</button>
@@ -89,9 +88,6 @@
                 <button type="button" class="btn btn-warning col-md-4 boton" onClick="location.href='registroCliente.php'">Editar Veterinario</button>
                 <button type="button" class="btn btn-danger col-md-4 boton" onClick="location.href='registroCliente.php'">Eliminar Veterinario</button>
               </div>
-              <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
-              <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
-              <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
             </div>
       </div>
       </div>

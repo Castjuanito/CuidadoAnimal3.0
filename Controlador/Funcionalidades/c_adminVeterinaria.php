@@ -3,7 +3,6 @@ include_once '../Modelo/Objetos/CentroVeterinario.php';
 include_once '../Controlador/Funcionalidades/registro.php';
 include_once '../Modelo/Objetos/Usuario.php';
 include_once '../Modelo/Objetos/Empleado.php';
-session_start();
   /**
    *
    */
@@ -36,14 +35,18 @@ session_start();
 
     public function encontrarEmpleados()
     {
-      $id_admin = Usuario::getByUsername($_SESSION['username'])->getId();
+      $id_admin = Usuario::getByUsername($_SESSION['username'])->getId() ;
       $consulta = Empleado::findEmpleados($id_admin);
+      $id_empleados = [];
       $empleados = [];
       if ($consulta->num_rows >= 1)
       {
-        while ($fila = $mysqli_fetch_array()) {
-          $empleados[] = $fila;
+        while ($fila = mysqli_fetch_array($consulta)) {
+          $id_empleados[] = $fila['id_empleado'];
         }
+      }
+      for ($i=0; $i < count($id_empleados); $i++) {
+        $empleados[] = Usuario::getById($id_empleados[$i]);
       }
       return $empleados;
     }
