@@ -52,6 +52,15 @@
               </option>
             </select>
         </div>
+        <div class="justify-content-center">
+          <p class="subtitulo text-center">ID Mascota:</p>
+        </div>
+        <div class="col-md-8 offset-md-2 p-2">
+          <input type="text" class="form-control" name="idMascota" placeholder="ID Mascota">
+        </div>
+        <div class="col-md-8 offset-md-2 p-2 my-4">
+            <button type="button" class="btn btn-success col-md-12 boton" onClick="location.href='casosAdministrador.php'">Crear Caso</button>
+        </div>
         <div class="row">
           <div class="col-md-6">
 

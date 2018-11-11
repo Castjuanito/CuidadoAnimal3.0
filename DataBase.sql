@@ -35,6 +35,7 @@ barrio VARCHAR (50),
 horaI time(2),
 horaF time(2),
 tipo ENUM ('consultorio','clinica','hospital') NOT NULL,
+telefono INT,
 PRIMARY KEY (id),
 FOREIGN KEY (dueno_id) REFERENCES usuario(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

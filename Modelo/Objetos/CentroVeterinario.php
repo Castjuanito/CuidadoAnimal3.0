@@ -16,10 +16,11 @@ class CentroVeterinario
   private $horaI;
   private $horaF;
   private $tipo;
+  private $telefono;
   private $connection;
 
 
-  function __construct($dueno_id ,$nombre ,$direccion,$ciudad,$localidad,$barrio,$horaI,$horaF ,$tipo)
+  function __construct($dueno_id ,$nombre ,$direccion,$ciudad,$localidad,$barrio,$horaI,$horaF ,$tipo,$telefono)
   {
     $this->dueno_id=$dueno_id;
     $this->nombre=$nombre;
@@ -30,6 +31,7 @@ class CentroVeterinario
     $this->horaI=$horaI;
     $this->horaF=$horaF;
     $this->tipo=$tipo;
+    $this->telefono = $telefono;
   }
 
   public function CrearCentroVeterinario()
@@ -49,8 +51,14 @@ class CentroVeterinario
   }
   public function ActualizarCentroVeterinario()
   {
-    $sql = "UPDATE centro_veterinario SET dueño_id =". $this->$dueno_id . ",nombre = ". $this->nombre .",direccion = ". $this->direccion .",ciudad = ". $this->ciudad .",localidad = ". $this->$ocalidad .",barrio = ". $this->barrio .",horaI = ". $this->horaI .",horaF = ". $this->horaF .",tipo = ".$this->tipo ." WHERE USUARIO.ID =". $this->id;
-    return  $this->connection->ejecutarconsulta($sql);
+    $connection = new conexion();
+
+    $sql = "UPDATE centro_veterinario SET dueno_id = ". $this->dueno_id . " , nombre = '". $this->nombre ."' , direccion = '".
+            $this->direccion ."' , ciudad = '". $this->ciudad ."' , localidad = '". $this->localidad ."' , barrio = '".
+            $this->barrio ."' , horaI = '". $this->horaI ."' , horaF = '". $this->horaF ."' , tipo = '".$this->tipo .
+            "' , telefono =" . $this->telefono. " WHERE CENTRO_VETERINARIO.ID =". $this->id;
+
+    return  $connection->ejecutarconsulta($sql);
   }
   public function findAll()
   {
@@ -60,9 +68,22 @@ class CentroVeterinario
 
   public function findById($id)
   {
-  $sql = "SELECT * FROM centro_veterinario WHERE CENTRO_VETERINARIO.ID = " . $id;
-  $this->connection->ejecutarconsulta($sql);
+    $connection = new conexion();
+    $sql = "SELECT * FROM centro_veterinario WHERE CENTRO_VETERINARIO.ID = " . $id;
+    $consulta = $connection->ejecutarconsulta($sql);
+    if ($consulta->num_rows >= 1)
+    {
+      $fila = mysqli_fetch_array($consulta);
+      $CentroVet = new CentroVeterinario($fila["dueno_id"],$fila["nombre"],$fila["direccion"], $fila["ciudad"],
+                              $fila["localidad"], $fila["barrio"], $fila["horaI"], $fila["horaF"], $fila["tipo"], $telefono['telefono']);
+      $CentroVet->setId($fila["id"]);
+      return $CentroVet;
+    }
+    else{
+      return false;
+    }
   }
+
 
   public function findByName($nombre)
   {
@@ -73,7 +94,26 @@ class CentroVeterinario
     {
       $fila = mysqli_fetch_array($consulta);
       $CentroVet = new CentroVeterinario($fila["dueno_id"],$fila["nombre"],$fila["direccion"], $fila["ciudad"],
-                              $fila["localidad"], $fila["barrio"], $fila["horaI"], $fila["horaF"], $fila["tipo"]);
+                              $fila["localidad"], $fila["barrio"], $fila["horaI"], $fila["horaF"], $fila["tipo"], $fila['telefono']);
+      $CentroVet->setId($fila["id"]);
+      return $CentroVet;
+    }
+    else{
+      return false;
+    }
+  }
+
+
+  public function findByDueno($id_dueno)
+  {
+    $conBD = new conexion();
+    $sql = "SELECT * FROM centro_veterinario WHERE centro_veterinario.dueno_id = " . $id_dueno;
+    $consulta = $conBD->ejecutarconsulta($sql);
+    if ($consulta->num_rows >= 1)
+    {
+      $fila = mysqli_fetch_array($consulta);
+      $CentroVet = new CentroVeterinario($fila["dueno_id"],$fila["nombre"],$fila["direccion"], $fila["ciudad"],
+                              $fila["localidad"], $fila["barrio"], $fila["horaI"], $fila["horaF"], $fila["tipo"], $fila['telefono']);
       $CentroVet->setId($fila["id"]);
       return $CentroVet;
     }
@@ -341,6 +381,31 @@ class CentroVeterinario
     public function setConnection($connection)
     {
         $this->connection = $connection;
+
+        return $this;
+    }
+
+
+    /**
+     * Get the value of Telefono
+     *
+     * @return mixed
+     */
+    public function getTelefono()
+    {
+        return $this->telefono;
+    }
+
+    /**
+     * Set the value of Telefono
+     *
+     * @param mixed telefono
+     *
+     * @return self
+     */
+    public function setTelefono($telefono)
+    {
+        $this->telefono = $telefono;
 
         return $this;
     }
