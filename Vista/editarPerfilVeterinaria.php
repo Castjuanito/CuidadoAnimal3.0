@@ -37,7 +37,7 @@
 	<div class="text-center fondo1 offset-md-2 col-md-8 col-xs-12">
 			<form name="registroVeterianrio" method="post">
 				<div class="row d-flex justify-content-center mb-0">
-				 <label class="tituloForm mb-0 mt-3">Registro de Veterinaria</label>
+				 <label class="tituloForm mb-0 mt-3">Editar Veterinaria</label>
 				</div>
 				<?php
 				include_once "../Controlador/Funcionalidades/registro.php";
