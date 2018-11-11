@@ -33,11 +33,11 @@
        <label class="tituloForm mb-0 mt-3">Registro de Administrador</label>
       </div>
       <?php
-      include_once "../Controlador/Funcionalidades/login.php";
+      include_once "../Controlador/Funcionalidades/registro.php";
       if (isset($_POST['registrar']))
       {
         $_POST['rol'] = 'duenoClinica';
-      	$login = new login();
+      	$login = new registro();
       	$login->registrarUsuario();
       }
       ?>

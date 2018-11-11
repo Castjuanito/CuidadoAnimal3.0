@@ -64,8 +64,9 @@ class Usuario
 
   public static function deleteById ($id)
   {
+    $conBD = new conexion();
     $sql = "DELETE FROM usuario WHERE usuario.id =".$id;
-    return $this->conBD->ejecutarconsulta($sql);
+    return $conBD->ejecutarconsulta($sql);
   }
 
   public static function getById($id)

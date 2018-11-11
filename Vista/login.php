@@ -35,10 +35,10 @@
 			<p class="text-center titulo">Cuidado Animal</p>
 			<p class="text-center subtitulo">Ingresa con tu nombre de usuario y contraseña</p>
 			<?php
-			include_once "../Controlador/Funcionalidades/login.php";
+			include_once "../Controlador/Funcionalidades/registro.php";
 			if (isset($_POST['ingresar']))
 			{
-				$login = new login();
+				$login = new registro();
 				$login->validarIngreso();
 			}
 			?>
