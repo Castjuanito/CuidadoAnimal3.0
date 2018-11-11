@@ -85,6 +85,7 @@ CREATE TABLE IF NOT EXISTS mascota (
 /*--------------------------------------------------------------------------------------------*/
 
 CREATE TABLE IF NOT EXISTS caso (
+  id INT NOT NULL,
   mascota_id INT NOT NULL,
   medicoVet_id INT NOT NULL,
   calificacion INT,
