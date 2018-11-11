@@ -33,10 +33,10 @@
            <label class="tituloForm mb-0 mt-3">Registro de Veterinaria</label>
           </div>
           <?php
-          include_once "../Controlador/Funcionalidades/login.php";
+          include_once "../Controlador/Funcionalidades/registro.php";
           if (isset($_POST['registrar']))
           {
-          	$login = new login();
+          	$login = new registro();
           	$login->crearVeterinaria();
           }
           ?>
@@ -206,7 +206,7 @@
                     <option value="59">59</option>
                     <option value="60">60</option>
                   </select>
-                  <select class="form-control col-2 ml-3 px-2" name="horaI"  id="horaF">
+                  <select class="form-control col-2 ml-3 px-2" name="horaF"  id="horaF">
                     <option></option>
                     <option value="1">1</option>
                     <option value="2">2</option>

@@ -13,6 +13,16 @@ PRIMARY KEY(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 /*--------------------------------------------------------------------------------------------*/
+CREATE TABLE IF NOT EXISTS empleado (
+  id INT AUTO_INCREMENT,
+  id_dueno INT NOT NULL,
+  id_empleado INT NOT NULL UNIQUE,
+  especialidad VARCHAR (50),
+  PRIMARY KEY (id),
+  FOREIGN KEY (id_dueno) REFERENCES usuario(id),
+  FOREIGN KEY (id_dueno) REFERENCES usuario(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+/*--------------------------------------------------------------------------------------------*/
 
 CREATE TABLE IF NOT EXISTS centro_veterinario (
 id INT AUTO_INCREMENT,

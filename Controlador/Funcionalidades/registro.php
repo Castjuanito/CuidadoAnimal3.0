@@ -4,7 +4,7 @@ include_once "../Modelo/Objetos/CentroVeterinario.php";
 /**
  *
  */
-class login
+class registro
 {
   var $errStyle = "<span style='border-radius: 5px; color:rgb(153, 24, 24);border-style:inset;background-color: rgba(219, 55, 38, 0.56);' >";
   var $successStyle = "<span style='border-radius: 5px; color:rgb(7, 64, 5);border-style:inset;background-color: rgba(13, 193, 36, 0.57);' >";
@@ -22,6 +22,7 @@ class login
     $email = $_POST['correo'];
     $rol  = $_POST['rol'];
     $telefono = $_POST['telefono'];
+    $retval = false;
     if (!empty($username) && !empty($password) && !empty($rol) && !empty($password2) )
     {
       if ($password == $password2)
@@ -32,17 +33,17 @@ class login
         {
           if ($rol == 'duenoClinica')
           {
-            setcookie("owner", serialize($usuarioObj), time()+3600);
+            setcookie('owner', serialize($usuarioObj), time()+3600);
             header('Location: registroCentroVeterinario.php');
-          }elseif ($rol == 'duenoMascota') {
+          }elseif ($rol == 'duenoMascota' || $rol == 'medicoVet') {
             $res = $usuarioObj->CrearUsuario();
-            if ($res)
+            if ($res){
               echo $this->successStyle. "Usuario registrado exitosamente.</span>";
-            else {
+              $retval = true;
+            }else {
               echo $this->errStyle."Error en la creación.</span>";
             }
           }
-
         }
         else{
           echo $this->errStyle."El nombre de usuario ya existe, por favor intente con otro.<span>";
@@ -55,6 +56,7 @@ class login
     else {
       echo $this->errStyle."Por favor, ingrese los campos obligatorios.</span>";
     }
+    return $retval;
   }
 
   function crearVeterinaria()
@@ -121,6 +123,9 @@ class login
         {
           if ($consulta->getRol() == 'duenoClinica')
           {
+            session_start();
+            $_SESSION['rol'] = $consulta->getRol();
+            $_SESSION['username'] = $consulta->getUserName();
             header('Location: homeAdministrador.php');
           }
         }
@@ -136,6 +141,9 @@ class login
       echo $this->errStyle."Por favor, ingrese los campos obligatorios.</span>";
     }
   }
+
+
 }
+
 
 ?>
