@@ -44,15 +44,15 @@
           <div class="col-8"><select class="form-control" id="filtroCasos">
               <option></option>
           </select></div>
-          <div class="col-4"> <button class="btn btn-primary">Filtrar</button></div> 
+          <div class="col-4"> <button class="btn btn-primary">Filtrar</button></div>
         </div>
     <div class="row col-md-4 p-2">
           <div class="col-8"><input class="form-control" type="text" id="cedula"></div>
-          <div class="col-4"> <button class="btn btn-primary">Buscar</button></div> 
+          <div class="col-4"> <button class="btn btn-primary">Buscar</button></div>
         </div>
         </div>
     <div class="row">
-      <div class="p-4 col-md-4">   
+      <div class="p-4 col-md-4">
       <div class="list-group" id="list-tab" role="tablist">
       <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">
                 <p class="enunciado">Id</p>
@@ -86,14 +86,10 @@
                 <img src="../Imagenes/logoVet.png" width="250" height="250" >
                 <h6>Detalle:</h6>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus cumque itaque voluptatibus eveniet cum, accusamus nihil voluptate ratione consectetur, animi optio hic odio, saepe unde voluptates blanditiis sunt dolores. Fugit?</p>
+                <button type="button" class="btn btn-warning col-md-4 boton" onClick="location.href='registroCliente.php'">Editar Veterinario</button>
                 <button type="button" class="btn btn-danger col-md-4 boton" onClick="location.href='registroCliente.php'">Eliminar Veterinario</button>
               </div>
-              <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
-                <h6>Id: 0000</h6>
-                <h6>Veterianrio: yyy</h6>
-                <h6>Detalle:</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus cumque itaque voluptatibus eveniet cum, accusamus nihil voluptate ratione consectetur, animi optio hic odio, saepe unde voluptates blanditiis sunt dolores. Fugit?</p>
-              </div>
+              <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
               <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
               <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
             </div>
