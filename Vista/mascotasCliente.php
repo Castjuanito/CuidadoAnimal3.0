@@ -75,7 +75,7 @@
               </a>
       </div>
       <div class="justify-content-center">
-            <button type="button" class="btn btn-success col-md-12 boton" onClick="location.href='registroVeterinario.php'">Nueva mascota</button>
+            <button type="button" class="btn btn-success col-md-12 boton" onClick="location.href='registroMascota.php'">Nueva mascota</button>
           </div>
       </div>
       <div class="col-md-8 p-4 borde my-4">

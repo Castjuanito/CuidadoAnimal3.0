@@ -18,6 +18,10 @@ class conexion
         }
 
         $consulta = mysqli_query($this->con, $sql);
+        if (!$consulta)
+        {
+          echo "Error description: " . mysqli_error($this->con);
+        }
         mysqli_close($this->con);
         return $consulta;
     }

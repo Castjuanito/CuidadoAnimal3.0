@@ -71,6 +71,7 @@ class registro
     $horaI = $_POST['horaI'].":".$_POST['minI'];
     $horaF = $_POST['horaF'].":".$_POST['minF'];
     $tipo = $_POST['tipo'];
+    $telefono = $_POST['telefono'];
 
     if (!empty($nombre) && isset($_COOKIE['owner']) && $tipo != '0')
     {
@@ -78,7 +79,7 @@ class registro
       {
         $propietario = Usuario::getByUsername($propi->getUserName());
         $idOwner = $propietario->getId();
-        $CentroVet = new CentroVeterinario($idOwner,$nombre,$direccion,$ciudad,$localidad,$barrio,$horaI,$horaF,$tipo);
+        $CentroVet = new CentroVeterinario($idOwner,$nombre,$direccion,$ciudad,$localidad,$barrio,$horaI,$horaF,$tipo, $telefono);
         $res2 = $CentroVet->CrearCentroVeterinario();
         if ($res2)
         {

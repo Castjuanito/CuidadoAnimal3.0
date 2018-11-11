@@ -1,3 +1,6 @@
+<?php
+session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +12,11 @@
 	<title>Home</title>
 </head>
 <body>
+	<?php
+		include_once '../Controlador/Funcionalidades/c_adminVeterinaria.php';
+		$admin = new c_adminVeterinaria();
+		$veterinaria = $admin->getDatosVeterinaria();
+	 ?>
 	<!-- Inicio Navbar -->
 	<!--Barra de navegacion-->
 	<nav class="navbar nav-masthead navbar-dark sticky-top navbar-expand-lg text-center barra" id="mainNav">
@@ -40,11 +48,10 @@
 				 <label class="tituloForm mb-0 mt-3">Editar Veterinaria</label>
 				</div>
 				<?php
-				include_once "../Controlador/Funcionalidades/registro.php";
+				include_once "../Controlador/Funcionalidades/c_adminVeterinaria.php";
 				if (isset($_POST['registrar']))
 				{
-					$login = new registro();
-					$login->crearVeterinaria();
+					$admin->actualizarVeterinaria();
 				}
 				?>
 				<!--Fila 1 Datos Principales-->
@@ -52,7 +59,7 @@
 					<!--Campo Nombre-->
 					<div class="col-md-5 col-sm-12 p-0 campo">
 						<label class="letraForm">Nombre</label>
-						<input type="text" class="form-control" name="nombre" placeholder="Nombre">
+						<input type="text" class="form-control" name="nombre" placeholder="Nombre" <?php echo "value=".$veterinaria->getNombre(); ?>>
 					</div>
 					<!--Fin Campo Nombre-->
 					<!--Campo Logotipo-->
@@ -69,16 +76,16 @@
 					<!--Campo Telefono-->
 					<div class="col-md-5 col-sm-12 p-0 campo">
 						<label class="letraForm">Telefono</label>
-						<input type="text" class="form-control" name="telefono" placeholder="telefono">
+						<input type="text" class="form-control" name="telefono" placeholder="telefono" <?php echo "value=".$veterinaria->getTelefono() ?>>
 					</div>
 					<!--Fin Campo Telefono-->
 					<div class="col-md-5 col-sm-12 p-0 campo">
 							<label class="letraForm">Tipo</label>
 						<select class="form-control" id="tipo" name="tipo">
-							<option Value="0">seleccione</option>
-								<option Value="consultorio">Consultorio</option>
-								<option Value="clinica">Clinica</option>
-								<option Value="hospital">Hospital</option>
+							<option <?php echo "value=".$veterinaria->getTipo() ?>><?php echo $veterinaria->getTipo() ?></option>
+								<option value="consultorio">Consultorio</option>
+								<option value="clinica">Clinica</option>
+								<option value="hospital">Hospital</option>
 						</select>
 					</div>
 				</div>
@@ -91,13 +98,13 @@
 					<!--Campo Ciudad-->
 					<div class="col-md-5 col-sm-12 p-0 campo">
 						<label class="letraForm">Ciudad</label>
-						<input type="text" class="form-control" name="ciudad" placeholder="Ciudad">
+						<input type="text" class="form-control" name="ciudad" placeholder="Ciudad" <?php echo "value=".$veterinaria->getCiudad() ?>>
 					</div>
 					<!--Fin Campo Ciudad-->
 					<!--Campo Campo Localidad-->
 					<div class="col-md-5 col-sm-12 p-0 campo">
 						<label class="letraForm">Localidad</label>
-						<input type="text" class="form-control" name="localidad" placeholder="localidad">
+						<input type="text" class="form-control" name="localidad" placeholder="localidad" <?php echo "value=".$veterinaria->getLocalidad() ?>>
 					</div>
 					<!--Fin Campo Localidad-->
 				</div>
@@ -105,25 +112,30 @@
 					<!--Campo Bario-->
 					<div class="col-md-5 col-sm-12 p-0 campo">
 						<label class="letraForm">Barrio</label>
-						<input type="text" class="form-control" name="barrio" placeholder="barrio">
+						<input type="text" class="form-control" name="barrio" placeholder="barrio" <?php echo "value=".$veterinaria->getBarrio() ?>>
 					</div>
 					<!--Fin Campo Barrio-->
 					<!--Campo Direccion-->
 					<div class="col-md-5 col-sm-12 p-0 campo">
 						<label class="letraForm">Direccion</label>
-						<input type="text" class="form-control" name="direccion" placeholder="direccion">
+						<input type="text" class="form-control" name="direccion" placeholder="direccion" value='<?=$veterinaria->getDireccion()?>'>
 					</div>
 					<!--Fin Campo Direccion-->
 				</div>
 				<!--Fin Fila 2 datos de ubicación-->
 				<div class="row form-group d-flex justify-content-center">
 				<!--Fila horario de atención-->
+				<?php
+				$horaI = $veterinaria->getHoraI();
+				$horaF = $veterinaria->getHoraF();
+				 ?>
 					<div class="col-md-5 col-sm-12 p-0 campo">
 						<label class="tituloForm mb-2 mt-0">Horario de atención</label>
 						<div class="row">
 						<!--Campo hora y minuto de inicio labor veterinaria-->
 								<select class="form-control col-2 ml-3 px-2" name="horaI"  id="horaI">
-									<option></option>
+
+									<option <?php echo "value=".$horaI[0].$horaI[1] ?>><?php echo $horaI[0].$horaI[1] ?></option>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -139,11 +151,11 @@
 									<option value="13">13</option>
 									<option value="14">14</option>
 									<option value="15">15</option>
-									<option value="6">16</option>
-									<option value="7">17</option>
-									<option value="8">18</option>
-									<option value="9">19</option>
-									<option value="10">20</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
 									<option value="21">21</option>
 									<option value="22">22</option>
 									<option value="23">23</option>
@@ -151,7 +163,7 @@
 								</select>
 							<label class="letraForm mx-2">:</label>
 								<select class="form-control col-2 ml-0 px-2" id="minI" name="minI">
-									<option></option>
+									<option <?php echo "value=".$horaI[3].$horaI[4] ?> ><?php echo $horaI[3].$horaI[4] ?></option>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -167,11 +179,11 @@
 									<option value="13">13</option>
 									<option value="14">14</option>
 									<option value="15">15</option>
-									<option value="6">16</option>
-									<option value="7">17</option>
-									<option value="8">18</option>
-									<option value="9">19</option>
-									<option value="10">20</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
 									<option value="21">21</option>
 									<option value="22">22</option>
 									<option value="23">23</option>
@@ -214,35 +226,35 @@
 									<option value="60">60</option>
 								</select>
 								<select class="form-control col-2 ml-3 px-2" name="horaF"  id="horaF">
-									<option></option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-									<option value="6">6</option>
-									<option value="7">7</option>
-									<option value="8">8</option>
-									<option value="9">9</option>
+									<option <?php echo "value=".$horaF[0].$horaF[1]; ?>> <?php echo $horaF[0].$horaF[1]; ?></option>
+									<option value="00">00</option>
+									<option value="01">1</option>
+									<option value="02">2</option>
+									<option value="03">3</option>
+									<option value="04">4</option>
+									<option value="05">5</option>
+									<option value="06">6</option>
+									<option value="07">7</option>
+									<option value="08">8</option>
+									<option value="09">9</option>
 									<option value="10">10</option>
 									<option value="11">11</option>
 									<option value="12">12</option>
 									<option value="13">13</option>
 									<option value="14">14</option>
 									<option value="15">15</option>
-									<option value="6">16</option>
-									<option value="7">17</option>
-									<option value="8">18</option>
-									<option value="9">19</option>
-									<option value="10">20</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
 									<option value="21">21</option>
 									<option value="22">22</option>
 									<option value="23">23</option>
-									<option value="00">00</option>
 								</select>
 							<label class="letraForm mx-2">:</label>
 								<select class="form-control col-2 ml-0 px-2" id="minF" name="minF">
-									<option></option>
+									<option <?php echo "value=".$horaF[3].$horaF[4]; ?>><?php echo $horaF[3].$horaF[4]; ?></option>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -258,11 +270,11 @@
 									<option value="13">13</option>
 									<option value="14">14</option>
 									<option value="15">15</option>
-									<option value="6">16</option>
-									<option value="7">17</option>
-									<option value="8">18</option>
-									<option value="9">19</option>
-									<option value="10">20</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
 									<option value="21">21</option>
 									<option value="22">22</option>
 									<option value="23">23</option>

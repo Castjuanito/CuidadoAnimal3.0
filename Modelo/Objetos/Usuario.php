@@ -44,10 +44,11 @@ class Usuario
   }
 
   function UpdateUsuario (){
-    $sql = "UPDATE usuario SET user_name = ". $this->user_name . ", password = " . $this->password . ", nombre = "
-           . $this->nombre . ", apellido = ". $this->apellido. ", emailadd = ". $this->emailadd . ", rol = ". $this->rol .
-           ", telefono = ".$this->telefono. " WHERE usuario.id = ". $this->id;
-    return $this->conBD->ejecutarconsulta($sql);
+    $conBD = new conexion();
+    $sql = "UPDATE usuario SET user_name = '". $this->user_name . "', password = '" . $this->password . "', nombre = '"
+           . $this->nombre . "', apellido = '". $this->apellido. "', emailadd = '". $this->emailadd . "', rol = '". $this->rol .
+           "', telefono = ".$this->telefono. " WHERE usuario.id = ". $this->id;
+    return $conBD->ejecutarconsulta($sql);
   }
 
   public static function borrarUsuario ()

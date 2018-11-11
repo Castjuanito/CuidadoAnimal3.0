@@ -51,6 +51,86 @@ include_once '../Modelo/Objetos/Empleado.php';
       return $empleados;
     }
 
+    public function getDatosVeterinaria()
+    {
+      $id_admin = Usuario::getByUsername($_SESSION['username'])->getId() ;
+      $veterinaria = CentroVeterinario::findByDueno($id_admin);
+      return $veterinaria;
+    }
+
+    public function getDatosAdmin()
+    {
+      $id_admin = Usuario::getByUsername($_SESSION['username'])->getId() ;
+      $admin = Usuario::getById($id_admin);
+      return $admin;
+    }
+
+
+    public function actualizarVeterinaria()
+    {
+      $id_admin = Usuario::getByUsername($_SESSION['username'])->getId() ;
+      $veterinaria = CentroVeterinario::findByDueno($id_admin);
+      $veterinaria->setNombre($_POST['nombre']);
+      $veterinaria->setTelefono($_POST['telefono']);
+      $veterinaria->setTipo($_POST['tipo']);
+      $veterinaria->setCiudad($_POST['ciudad']);
+      $veterinaria->setLocalidad($_POST['localidad']);
+      $veterinaria->setBarrio($_POST['barrio']);
+      $veterinaria->setHoraI($_POST['horaI'].":".$_POST['minI']);
+      $veterinaria->setHoraF($_POST['horaF'].":".$_POST['minF']);
+      if ($veterinaria->ActualizarCentroVeterinario())
+      {
+        echo $this->successStyle."Datos actualizados.</span>";
+      }else {
+        echo $this->errStyle."No se pudo actualizar los datos </span>";
+      }
+    }
+
+    public function actualizarDatosAdmin()
+    {
+      $usuario = Usuario::getByUsername($_SESSION['username']);
+      $err = false;
+      $id_admin = $usuario->getId();
+      $password = $usuario->getPassword();
+      if (empty($_POST['username']))
+      {
+        echo $this->errStyle."El campo usuario no puede quedar en blanco.</span>";
+        $err = true;
+      }
+      if ($_POST['username'] != $_SESSION['username']) {
+        $user = Usuario::getByUsername($_POST['username']);
+        if (!$user)
+        {
+          echo $this->errStyle."El nombre de usuario ya existe.</span>";
+          $err = true;
+        }
+      }
+      if (!empty($_POST['password'])) {
+
+        if ( ($_POST['password'] == $_POST['password2'])) {
+          $password = $_POST['password'];
+        }
+        else{
+          echo $this->errStyle."Las contraseñas no coinciden.</span>";
+          $err = true;
+        }
+      }
+      if (!$err)
+      {
+        $admin = Usuario::getById($id_admin);
+        $admin->setNombre($_POST['nombre']);
+        $admin->setApellido($_POST['apellido']);
+        $admin->setEmailadd($_POST['correo']);
+        $admin->setUserName($_POST['username']);
+        $admin->setPassword($password);
+        if ($admin->UpdateUsuario())
+        {
+          echo $this->successStyle."Datos actualizados.</span>";
+        }else {
+          echo $this->errStyle."No se pudo actualizar los datos </span>";
+        }
+      }
+    }
 
   }
 
