@@ -29,7 +29,7 @@
               <a class="nav-item nav-link text-light" href="cuentaCliente.php"><img src="../assets/img/veterinario.svg" class="d-inline-block align-top mx-1" width="25" height="25">Veterinarias</a>
         	</div>
         	<div class="d-flex flex-row justify-content-center">
-        		<a class="mr-2 text-light" href=""><img src="../assets/img/Salir.svg" class="d-inline-block align-top mx-1" width="25" height="25">Salir</a>
+        		<a class="mr-2 text-light" href="login.php"><img src="../assets/img/Salir.svg" class="d-inline-block align-top mx-1" width="25" height="25">Salir</a>
        		</div>
     	</div>
 	</nav>
@@ -43,15 +43,15 @@
           <div class="col-8"><select class="form-control" id="filtroCasos">
               <option></option>
           </select></div>
-          <div class="col-4"> <button class="btn btn-primary">Filtrar</button></div> 
+          <div class="col-4"> <button class="btn btn-primary">Filtrar</button></div>
         </div>
     <div class="row col-md-4 p-2">
           <div class="col-8"><input class="form-control" type="text" id="cedula"></div>
-          <div class="col-4"> <button class="btn btn-primary">Buscar</button></div> 
+          <div class="col-4"> <button class="btn btn-primary">Buscar</button></div>
         </div>
         </div>
     <div class="row">
-      <div class="p-4 col-md-4">   
+      <div class="p-4 col-md-4">
       <div class="list-group" id="list-tab" role="tablist">
       <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">
                 <p class="enunciado">Numero de placa</p>

@@ -30,7 +30,7 @@
               <a class="nav-item nav-link text-light" href="clientes.php"><img src="../assets/img/cliente.svg" class="d-inline-block align-top mx-1" width="25" height="25">Clientes</a>
           </div>
           <div class="d-flex flex-row justify-content-center">
-              <a class="mr-2 text-light" href=""><img src="../assets/img/Salir.svg" class="d-inline-block align-top mx-1" width="25" height="25">Salir</a>
+              <a class="mr-2 text-light" href="login.php"><img src="../assets/img/Salir.svg" class="d-inline-block align-top mx-1" width="25" height="25">Salir</a>
           </div>
       </div>
    </nav>
@@ -43,7 +43,7 @@
           <p class="subtitulo text-center">Veterinario:</p>
         </div>
         <div class="col-md-8 offset-md-2 p-2">
-          <select name="selCombo" class="custom-select"> 
+          <select name="selCombo" class="custom-select">
               <option value="link pagina 1">
               </option>
               <option value="link pagina 1">
@@ -54,7 +54,7 @@
         </div>
         <div class="row">
           <div class="col-md-6">
-            
+
           </div>
         </div>
         </div>

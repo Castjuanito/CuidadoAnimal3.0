@@ -29,7 +29,7 @@
               <a class="nav-item nav-link text-light" href="veterinariasVisitadas.php"><img src="../assets/img/veterinario.svg" class="d-inline-block align-top mx-1" width="25" height="25">Veterinarias</a>
         	</div>
         	<div class="d-flex flex-row justify-content-center">
-        		<a class="mr-2 text-light" href=""><img src="../assets/img/Salir.svg" class="d-inline-block align-top mx-1" width="25" height="25">Salir</a>
+        		<a class="mr-2 text-light" href="salir.php"><img src="../assets/img/Salir.svg" class="d-inline-block align-top mx-1" width="25" height="25">Salir</a>
        		</div>
     	</div>
 	</nav>
@@ -45,32 +45,32 @@
             <option></option>
             </select>
           </div>
-          <div class="col-4"> <button class="btn btn-primary">Filtrar</button></div> 
+          <div class="col-4"> <button class="btn btn-primary">Filtrar</button></div>
         </div>
         <div class="row col-md-4 p-2">
           <div class="col-8"><input class="form-control" type="text" id="cedula"></div>
-          <div class="col-4"> <button class="btn btn-primary">Buscar</button></div> 
+          <div class="col-4"> <button class="btn btn-primary">Buscar</button></div>
         </div>
       </div>
     <div class="row">
-        <div class="p-4 col-md-4">   
+        <div class="p-4 col-md-4">
           <div class="list-group" id="list-tab" role="tablist">
               <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">
                 <p class="enunciado">Id</p>
                 <p class="contenido">Fecha</p>
                 <p class="contenido">Nombre mascota</p>
               </a>
-              <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">
+              <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="home">
                 <p class="enunciado">Id</p>
                 <p class="contenido">Fecha</p>
                 <p class="contenido">Nombre mascota asignado al nombre veterianario</p>
               </a>
-              <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">
+              <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="home">
                 <p class="enunciado">Id</p>
                 <p class="contenido">Fecha</p>
                 <p class="contenido">Nombre mascota asignado al nombre veterianario</p>
               </a>
-              <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">
+              <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="home">
                 <p class="enunciado">Id</p>
                 <p class="contenido">Fecha</p>
                 <p class="contenido">Nombre mascota asignado al nombre veterianario</p>

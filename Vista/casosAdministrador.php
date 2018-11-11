@@ -30,7 +30,7 @@
               <a class="nav-item nav-link text-light" href="clientes.php"><img src="../assets/img/cliente.svg" class="d-inline-block align-top mx-1" width="25" height="25">Clientes</a>
           </div>
           <div class="d-flex flex-row justify-content-center">
-              <a class="mr-2 text-light" href=""><img src="../assets/img/Salir.svg" class="d-inline-block align-top mx-1" width="25" height="25">Salir</a>
+              <a class="mr-2 text-light" href="login.php"><img src="../assets/img/Salir.svg" class="d-inline-block align-top mx-1" width="25" height="25">Salir</a>
           </div>
       </div>
    </nav>
@@ -46,15 +46,15 @@
             <option></option>
             </select>
           </div>
-          <div class="col-4"> <button class="btn btn-primary">Filtrar</button></div> 
+          <div class="col-4"> <button class="btn btn-primary">Filtrar</button></div>
         </div>
         <div class="row col-md-4 p-2">
           <div class="col-8"><input class="form-control" type="text" id="cedula"></div>
-          <div class="col-4"> <button class="btn btn-primary">Buscar</button></div> 
+          <div class="col-4"> <button class="btn btn-primary">Buscar</button></div>
         </div>
       </div>
     <div class="row">
-      <div class="p-4 col-md-4">   
+      <div class="p-4 col-md-4">
       <div class="list-group" id="list-tab" role="tablist">
       <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">
                 <p class="enunciado">Id</p>
@@ -87,7 +87,7 @@
                 <h6>Duaño: zzz</h6>
                 <h6>Detalle:</h6>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus cumque itaque voluptatibus eveniet cum, accusamus nihil voluptate ratione consectetur, animi optio hic odio, saepe unde voluptates blanditiis sunt dolores. Fugit?</p>
-                <div class="col-4"> <button class="btn btn-info">Ver historial</button></div> 
+                <div class="col-4"> <button class="btn btn-info">Ver historial</button></div>
               </div>
               <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
                 <h6>Id: 0000</h6>
@@ -96,7 +96,7 @@
                 <h6>Duaño: zzz</h6>
                 <h6>Detalle:</h6>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus cumque itaque voluptatibus eveniet cum, accusamus nihil voluptate ratione consectetur, animi optio hic odio, saepe unde voluptates blanditiis sunt dolores. Fugit?</p>
-                <div class="col-4"> <button class="btn btn-info">Ver historial</button></div> 
+                <div class="col-4"> <button class="btn btn-info">Ver historial</button></div>
               </div>
               <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
               <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
