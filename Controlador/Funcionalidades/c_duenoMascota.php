@@ -43,7 +43,7 @@ class c_duenoMascota
       }
     }
     for ($i=0; $i < count($id_mascotas); $i++) {
-      $mascotas[] = Mascota::findById($id_empleados[$i]);
+      $mascotas[] = Mascota::findById($id_mascotas[$i]);
     }
     return $mascotas;
   }
