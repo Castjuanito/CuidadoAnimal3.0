@@ -22,6 +22,7 @@ include_once '../Modelo/Objetos/Empleado.php';
       {
         $id_admin = Usuario::getByUsername($_SESSION['username'])->getId();
         $id_empleado = Usuario::getByUsername($_POST['username'])->getId();
+        echo $id_admin."---".$id_empleado."<br>";
         $empleado = new Empleado($id_admin,$id_empleado,$area);
         if($empleado->crearEmpleado())
         {
@@ -39,7 +40,7 @@ include_once '../Modelo/Objetos/Empleado.php';
       $consulta = Empleado::findEmpleados($id_admin);
       $id_empleados = [];
       $empleados = [];
-      if ($consulta->num_rows >= 1)
+      if (!($consulta->num_rows < 1))
       {
         while ($fila = mysqli_fetch_array($consulta)) {
           $id_empleados[] = $fila['id_empleado'];

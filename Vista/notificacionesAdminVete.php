@@ -40,19 +40,19 @@
 		</div>
 		<div class="row">
 			<div class="list-group p-4 col-md-4" id="list-tab" role="tablist">
-      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">
+      				<a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab">
               	<p class="enunciado">Solicitud de tralado</p>
               	<p class="contenido">El veterinario xxx ha hecho una solicitud de tralado para la mascota yyy</p>
               </a>
-              <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">
+              <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab">
               	<p class="enunciado">Solicitud de tralado</p>
               	<p class="contenido">El veterinario xxx ha hecho una solicitud de tralado para la mascota yyy</p>
               </a>
-              <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">
+              <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab">
 				      <p class="enunciado">Solicitud de tralado</p>
               	<p class="contenido">El veterinario xxx ha hecho una solicitud de tralado para la mascota yyy</p>
               </a>
-              <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">
+              <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab">
               	<p class="enunciado">Solicitud de tralado</p>
               	<p class="contenido">El veterinario xxx ha hecho una solicitud de tralado para la mascota yyy</p>
               </a>

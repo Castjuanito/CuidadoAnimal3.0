@@ -56,40 +56,53 @@
         </div>
     <div class="row">
       <div class="p-4 col-md-4">
-      <div class="list-group" id="list-tab" role="tablist">
+        <div class="list-group" id="list-tab" role="tablist">
         <?php
         include_once '../Controlador/Funcionalidades/c_adminVeterinaria.php';
         $admin = new c_adminVeterinaria();
         $empleados = $admin->encontrarEmpleados();
-        for ($i=0; $i <count($empleados) ; $i++)
+        $i=0;
+        echo "<a class='list-group-item list-group-item-action active' id='".$empleados[$i]->getId()."' data-toggle='list' href='#".$empleados[$i]->getUserName()."' role='tab'>";
+        echo "<p class='enunciado'>".$empleados[$i]->getId()."</p>";
+        echo "<p class='contenido'>".$empleados[$i]->getNombre()."</p>";
+        echo "</a>";
+        $i=$i+1;
+        for ($i; $i <count($empleados) ; $i++)
         {
-          echo "<a class='list-group-item list-group-item-action active' id='list-home-list' data-toggle='list' href='#list-home' role='tab' aria-controls='home'>";
+          echo "<a class='list-group-item list-group-item-action' id='".$empleados[$i]->getId()."' data-toggle='list' href='#".$empleados[$i]->getUserName()."' role='tab'>";
           echo "<p class='enunciado'>".$empleados[$i]->getId()."</p>";
           echo "<p class='contenido'>".$empleados[$i]->getNombre()."</p>";
           echo "</a>";
         }
         ?>
-      </div>
-      <div class="justify-content-center">
+        </div>
+      <div class="justify-content-center my-1">
             <button type="button" class="btn btn-success col-md-12 boton" onClick="location.href='registroVeterinario.php'">Nuevo veterianario</button>
-          </div>
       </div>
+    </div>
+
       <div class="col-md-8 p-4 borde my-4">
       <div class="tab-content" id="nav-tabContent">
-              <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-                <h6>Id: 0000</h6>
-                <h6>Nombre: yyy</h6>
-                <h6>Especialidad: yyy</h6>
-                <h6>Departamento: xxx</h6>
-                <h6>Correo: yyy</h6>
-                <img src="../Imagenes/logoVet.png" width="250" height="250" >
-                <h6>Detalle:</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus cumque itaque voluptatibus eveniet cum, accusamus nihil voluptate ratione consectetur, animi optio hic odio, saepe unde voluptates blanditiis sunt dolores. Fugit?</p>
-                <button type="button" class="btn btn-warning col-md-4 boton" onClick="location.href='registroCliente.php'">Editar Veterinario</button>
-                <button type="button" class="btn btn-danger col-md-4 boton" onClick="location.href='registroCliente.php'">Eliminar Veterinario</button>
+          <?php
+          include_once '../Controlador/Funcionalidades/c_adminVeterinaria.php';
+          $admin = new c_adminVeterinaria();
+          $empleados = $admin->encontrarEmpleados();
+          $i=0;
+          echo "<div class='tab-pane fade show active' id='".$empleados[$i]->getUserName()."' role='tabpanel' aria-labelledby='".$empleados[$i]->getId()."'>";
+          echo "<p class='contenido'>".$empleados[$i]->getNombre()."</p>";
+          echo "</div>";
+          $i=$i+1;
+          for ($i; $i <count($empleados) ; $i++)
+            {
+              echo "<div class='tab-pane fade show' id='".$empleados[$i]->getUserName()."' role='tabpanel' aria-labelledby='".$empleados[$i]->getId()."'>";
+              echo "<p class='contenido'>".$empleados[$i]->getNombre()."</p>";
+
+              echo "</div>";
+            }
+          ?>
+          <type="button" class="btn btn-danger col-md-4 boton" onClick="location.href='registroCliente.php'">Eliminar Veterinario</button>
               </div>
-            </div>
-      </div>
+          </div>
       </div>
       </div>
     <script src="../assets/bootstrap/js/jquery.js"></script>

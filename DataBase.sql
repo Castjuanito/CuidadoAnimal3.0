@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS mascota (
   nombre VARCHAR(50),
   especie VARCHAR(50),
   raza VARCHAR(50),
-  fecha_nacimiento DATETIME,
+  fecha_nacimiento DATE,
   genero VARCHAR(50),
   color VARCHAR(50),
   PRIMARY KEY(id),
@@ -86,6 +86,7 @@ CREATE TABLE IF NOT EXISTS mascota (
 /*--------------------------------------------------------------------------------------------*/
 
 CREATE TABLE IF NOT EXISTS caso (
+  id INT NOT NULL,
   mascota_id INT NOT NULL,
   medicoVet_id INT NOT NULL,
   calificacion INT,

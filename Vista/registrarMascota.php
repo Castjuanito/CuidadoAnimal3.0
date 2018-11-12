@@ -1,3 +1,6 @@
+<?php
+session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,35 +40,73 @@
   <form id="regisVete" form action="" name="regisVete" method="post">
     <div class="row d-flex justify-content-center mb-0">
      <label class="tituloForm mb-0 mt-3">Registro de Mascota</label>
+		 <?php
+		  include_once '../Controlador/Funcionalidades/c_duenoMascota.php';
+		  ?>
     </div>
     <div class="row form-group d-flex justify-content-center">
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Nombre</label>
-        <input type="text" class="form-control" name="nombreMascota" placeholder="Especie">
+        <input type="text" class="form-control" name="nombreMascota" placeholder="Especie" value="nombre">
       </div>
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Fecha nacimiento</label>
-        <input type="text" class="form-control" name="fechaNacimiento" placeholder="Fecha">
+				<div class="row justifyContentCenter">
+				<div class="">
+					<select class="form-control" name="dia">
+	        	<option value=""></option>
+						<?php
+						for($i=1; $i<32; $i++){
+							echo "<option value='".$i."'>".$i."</option>";
+						} ?>
+	        </select><br>
+					<label>dia</label>
+				</div>
+				<div class="">
+					<select class="form-control" name="mes">
+	        	<option value=""></option>
+						<?php
+						for($i=1; $i<13; $i++){
+							echo "<option value='".$i."'>".$i."</option>";
+						} ?>
+	        </select><br>
+					<label>mes</label>
+				</div>
+				<div class="">
+					<select class="form-control" name="ano">
+	        	<option value=""></option>
+						<?php
+						for($i=1900; $i<2018; $i++){
+							echo "<option value='".$i."'>".$i."</option>";
+						} ?>
+	        </select><br>
+					<label>año</label>
+				</div>
+				</div>
       </div>
     </div>
     <div class="row form-group d-flex justify-content-center">
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Especie</label>
-        <input type="text" class="form-control" name="especie" placeholder="Especie">
+        <input type="text" class="form-control" name="especie" placeholder="Especie" value="especie">
       </div>
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Raza</label>
-        <input type="text" class="form-control" name="raza" placeholder="Raza">
+        <input type="text" class="form-control" name="raza" placeholder="Raza" value="raza">
       </div>
     </div>
     <div class="row form-group d-flex justify-content-center">
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Genero</label>
-        <input type="text" class="form-control" name="genero" placeholder="Genero">
+				<select class="form-control" name="dia">
+					<option value=""></option>
+					<option value="hembra">Hembra</option>
+					<option value="macho">macho</option>
+				</select>
       </div>
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Color</label>
-        <input type="text" class="form-control" name="color" placeholder="Color">
+        <input type="text" class="form-control" name="color" placeholder="Color" value="color">
       </div>
     </div>
     <div class="row form-group d-flex justify-content-center">
