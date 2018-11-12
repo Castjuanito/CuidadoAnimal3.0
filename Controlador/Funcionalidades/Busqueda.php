@@ -6,13 +6,22 @@
  * Time: 09:15 PM
  */
 include_once '../Modelo/Objetos/Servicio.php';
-
+include_once '../Modelo/Objetos/Busqueda_m.php';
 
  function getServicios(){
-    echo "hola";
     $ser = new Servicio("","");
-    $ser->findAll();
-
+    return $ser->findAll();
 
 }
+
+function getCiudades(){
+
+    $ser = new Busqueda();
+    return $ser->findCiudades();
+
+}
+
+
+
 ?>
+

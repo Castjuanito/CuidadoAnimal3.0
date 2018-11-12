@@ -55,10 +55,8 @@ class Servicio
     public function findAll()
     {
         $conn= new conexion();
-        echo "car";
         $sql = "SELECT * FROM servicio ";
         return $conn->ejecutarconsulta($sql);
-        echo "car";
     }
 
 

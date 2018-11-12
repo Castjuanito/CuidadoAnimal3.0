@@ -1,6 +1,8 @@
 <?php
 include_once "../Controlador/Funcionalidades/Busqueda.php";
-    getServicios();
+    $ser = getServicios();
+    $cit = getCiudades();
+
 ?>
 
 
@@ -13,6 +15,56 @@ include_once "../Controlador/Funcionalidades/Busqueda.php";
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="stylesheet" href="../styles/busqueda.css">
 	<title>Busqueda</title>
+    <script>
+
+        function showLoc(str) {
+            if (str=="") {
+
+                showBar(str);
+
+            }
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+            } else { // code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function() {
+                console.log(this);
+
+                if (this.readyState==4 && this.status==200) {
+                    console.log("lol");
+                    document.getElementById("txtHint").innerHTML=this.responseText;
+                }
+                else console.log("lol1");
+
+            }
+            xmlhttp.open("GET","MostrarLoc.php?q="+str,true);
+            xmlhttp.send();
+        }
+
+        function showBar(str) {
+
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+            } else { // code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function() {
+                console.log(this);
+
+                if (this.readyState==4 && this.status==200) {
+                    console.log("lol");
+                    document.getElementById("txtHint2").innerHTML=this.responseText;
+                }
+                else console.log("lol1");
+
+            }
+            xmlhttp.open("GET","mostrarBar.php?q="+str,true);
+            xmlhttp.send();
+        }
+    </script>
 </head>
 <body>
 
@@ -43,32 +95,50 @@ include_once "../Controlador/Funcionalidades/Busqueda.php";
 			<div class="form-group texto">
     			<label for="servicioFormSelect">Servicio</label>
     			<select class="form-control" id="servicioSelect">
-      				<option></option>
+      				<option>Elija una opcion</option>
+
+                    <?php
+                        while($row = $ser->fetch_assoc()) {
+                            echo "<option value='". $row["id"] ."'> " . $row["nombre"]. "</option>";
+                        }
+                    ?>
+
     			</select>
  		 	</div>
         	<div class="form-group texto">
     			<label for="servicioFormSelect">Ciudad</label>
-    			<select class="form-control" id="ciudadSelect">
-      				<option></option>
+    			<select class="form-control" id="ciudadSelect" onchange="showLoc(this.value)">
+      				<option value="">Elija una opcion</option>
+
+                    <?php
+                    while($row = $cit->fetch_assoc()) {
+                        echo "<option value='". $row["id"] ."'> " . $row["nombre"]. "</option>";
+                    }
+                    ?>
+
     			</select>
  		 	</div>
-			<div class="form-group texto">
+			<div id="txtHint" class="form-group texto">
     			<label for="servicioFormSelect">Localidad</label>
-    			<select class="form-control" id="localidadSelect">
-      				<option></option>
-    			</select>
+    			<select class="form-control" id="localidadSelect"  onchange="showBar(this.value);">
+      				<option>Elija una opcion</option>
+                </select>
  		 	</div>
- 		 	<div class="form-group texto">
+ 		 	<div id="txtHint2" class="form-group texto">
     			<label for="servicioFormSelect">Barrio</label>
     			<select class="form-control" id="barrioSelect">
-      				<option></option>
+      				<option>Elija una opcion</option>
+
+
+
+
     			</select>
  		 	</div>
  		 	<div class="form-group texto">
     			<label for="palabraFormText">Palabras Clave (opcional)</label>
     			<input class="form-control" id="palabraFormControlInput" placeholder="pata rota, falta de apetito, moqueo">
  		 	</div>
- 		 	<button type="button" class="btn btn-primary btn-buscar">Buscar</button>
+ 		 	<button type="submit" class="btn btn-primary btn-buscar">Buscar</button>
       </form>
   		</div>
   	</div>
