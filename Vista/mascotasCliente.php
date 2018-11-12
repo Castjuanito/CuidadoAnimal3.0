@@ -1,3 +1,6 @@
+<?php
+session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,6 +40,11 @@
       <div class="titulo text-center my-4">
       <p>Mascotas</p>
     </div>
+		<?php
+		include_once '../Controlador/Funcionalidades/c_duenoMascota.php';
+		$dueno = new c_duenoMascota();
+		$mascotas = $dueno->encontrarMascotas();
+		 ?>
     <div class="row text-center justify-content-center">
     <div class="text-center col-md-4"><p class="subtitulo">Filtrar resultados:</p></div>
     <div class="row col-md-4 p-2">
