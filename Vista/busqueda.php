@@ -1,3 +1,9 @@
+<?php
+include_once "../Controlador/Funcionalidades/Busqueda.php";
+    getServicios();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +15,7 @@
 	<title>Busqueda</title>
 </head>
 <body>
+
 	<!-- Inicio Navbar -->
 	<!--Barra de navegacion-->
 	<nav class="navbar nav-masthead navbar-dark navbar-expand-lg text-center barra" id="mainNav">
