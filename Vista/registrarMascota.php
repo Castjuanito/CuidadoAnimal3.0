@@ -40,14 +40,19 @@ session_start();
   <form id="regisVete" form action="" name="regisVete" method="post">
     <div class="row d-flex justify-content-center mb-0">
      <label class="tituloForm mb-0 mt-3">Registro de Mascota</label>
-		 <?php
-		  include_once '../Controlador/Funcionalidades/c_duenoMascota.php';
-		  ?>
     </div>
     <div class="row form-group d-flex justify-content-center">
+      <?php
+ 		  include_once '../Controlador/Funcionalidades/c_duenoMascota.php';
+ 			if (isset($_POST['registrar']))
+ 			{
+ 				$dueno = new c_duenoMascota();
+ 				$dueno->agregarMascota();
+ 			}
+ 		  ?>
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Nombre</label>
-        <input type="text" class="form-control" name="nombreMascota" placeholder="Especie" value="nombre">
+        <input type="text" class="form-control" placeholder="Especie" name="nombreMascota">
       </div>
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Fecha nacimiento</label>
@@ -88,25 +93,25 @@ session_start();
     <div class="row form-group d-flex justify-content-center">
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Especie</label>
-        <input type="text" class="form-control" name="especie" placeholder="Especie" value="especie">
+        <input type="text" class="form-control" name="especie" placeholder="Especie">
       </div>
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Raza</label>
-        <input type="text" class="form-control" name="raza" placeholder="Raza" value="raza">
+        <input type="text" class="form-control" name="raza" placeholder="Raza">
       </div>
     </div>
     <div class="row form-group d-flex justify-content-center">
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Genero</label>
-				<select class="form-control" name="dia">
-					<option value=""></option>
+				<select class="form-control" name="genero">
+					<option value="0">-------</option>
 					<option value="hembra">Hembra</option>
 					<option value="macho">macho</option>
 				</select>
       </div>
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Color</label>
-        <input type="text" class="form-control" name="color" placeholder="Color" value="color">
+        <input type="text" class="form-control" name="color" placeholder="Color">
       </div>
     </div>
     <div class="row form-group d-flex justify-content-center">
