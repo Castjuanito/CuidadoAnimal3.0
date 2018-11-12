@@ -129,6 +129,13 @@ class registro
             $_SESSION['username'] = $consulta->getUserName();
             header('Location: homeAdministrador.php');
           }
+          if ($consulta->getRol() == 'duenoMascota')
+          {
+            session_start();
+            $_SESSION['rol'] = $consulta->getRol();
+            $_SESSION['username'] = $consulta->getUserName();
+            header('Location: homeCliente.php');
+          }
         }
         else {
           echo $this->errStyle."Contraseña incorrecta.</span>";

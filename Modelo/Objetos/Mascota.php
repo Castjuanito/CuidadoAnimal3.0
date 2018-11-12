@@ -14,7 +14,6 @@ class Mascota
   private $raza;
   private $fecha_nacimiento;
   private $color;
-  private $conn;
 
   function __construct($dueno_mas_id,$nombre,$especie,$raza,$fecha_nacimiento,$color)
   {
@@ -24,14 +23,14 @@ class Mascota
     $this->raza = $raza;
     $this->fecha_nacimiento = $fecha_nacimiento;
     $this->color = $color;
-    $this->conn = new conexion();
   }
   public function create_Mascota()
   {
+    $connection = new conexion();
     $sql= "INSERT INTO mascota (dueno_mas_id,nombre,especie,raza,fecha_nacimiento,color) VALUES ($this->dueno_mas_id,'$this->nombre','$this->especie','$this->raza','$this->fecha_nacimiento','$this->color')";
     $res = $this->connection->ejecutarconsulta($sql);
     if ($res) {
-      $this->id = mysqli_insert_id($this->connection);
+      $this->id = mysqli_insert_id($connection);
     }
     return $res;
   }
@@ -229,29 +228,6 @@ class Mascota
         return $this;
     }
 
-    /**
-     * Get the value of Conn
-     *
-     * @return mixed
-     */
-    public function getConn()
-    {
-        return $this->conn;
-    }
-
-    /**
-     * Set the value of Conn
-     *
-     * @param mixed conn
-     *
-     * @return self
-     */
-    public function setConn($conn)
-    {
-        $this->conn = $conn;
-
-        return $this;
-    }
 
 }
 ?>

@@ -1,3 +1,6 @@
+<?php
+session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,11 +40,14 @@
   <form id="regisVete" form action="" name="regisVete" method="post">
     <div class="row d-flex justify-content-center mb-0">
      <label class="tituloForm mb-0 mt-3">Registro de Mascota</label>
+		 <?php
+		  include_once '../Controlador/Funcionalidades/c_duenoMascota.php';
+		  ?>
     </div>
     <div class="row form-group d-flex justify-content-center">
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Nombre</label>
-        <input type="text" class="form-control" name="nombreMascota" placeholder="Especie">
+        <input type="text" class="form-control" name="nombreMascota" placeholder="Especie" value="nombre">
       </div>
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Fecha nacimiento</label>
@@ -51,11 +57,11 @@
     <div class="row form-group d-flex justify-content-center">
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Especie</label>
-        <input type="text" class="form-control" name="especie" placeholder="Especie">
+        <input type="text" class="form-control" name="especie" placeholder="Especie" value="especie">
       </div>
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Raza</label>
-        <input type="text" class="form-control" name="raza" placeholder="Raza">
+        <input type="text" class="form-control" name="raza" placeholder="Raza" value="raza">
       </div>
     </div>
     <div class="row form-group d-flex justify-content-center">
@@ -65,7 +71,7 @@
       </div>
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Color</label>
-        <input type="text" class="form-control" name="color" placeholder="Color">
+        <input type="text" class="form-control" name="color" placeholder="Color" value="color">
       </div>
     </div>
     <div class="row form-group d-flex justify-content-center">
