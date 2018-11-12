@@ -49,7 +49,7 @@
             <div id="calificacion" class="container d-flex justify-content-center"></div>
           </div>
           <div class="col-md-4 offset-md-4 my-4">
-            <button type="button" class="btn btn-primary col-md-12 boton" onClick="location.href='nuevoCasoVete.php'">Editar Perfil</button>
+            <button type="button" class="btn btn-primary col-md-12 boton" onClick="location.href='editarCliente.php'">Editar Perfil</button>
           </div>
         </div>
       </div>
