@@ -37,6 +37,7 @@ session_start();
        		</div>
     	</div>
 	</nav>
+  
   <div class="text-center fondo1 offset-md-2 col-md-8 col-xs-12">
 <form id="regisVete" action="" method="post" name="regisVete">
 <div class="row d-flex justify-content-center mb-0">

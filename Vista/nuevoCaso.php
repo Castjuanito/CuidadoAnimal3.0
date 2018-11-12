@@ -1,3 +1,6 @@
+<?php
+session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,18 +41,27 @@
       <div class="titulo text-center my-4">
         <p>Nuevo caso</p>
       </div>
+      <form class="" action="" method="post" name="nuevoCaso" id="nuevoCaso">
       <div class="justify-content-center">
         <div class="justify-content-center">
           <p class="subtitulo text-center">Veterinario:</p>
         </div>
         <div class="col-md-8 offset-md-2 p-2">
           <select name="selCombo" class="custom-select">
-              <option value="link pagina 1">
+              <option value="-1">
               </option>
-              <option value="link pagina 1">
-                <p>ID</p>
-                <p>Especialidad</p>
-              </option>
+              <?php
+              include_once '../Controlador/Funcionalidades/c_adminVeterinaria.php';
+              $admin = new c_adminVeterinaria();
+              $empleados = $admin->encontrarEmpleados();
+              if (!empty($empleados)){
+              for ($i=0; $i <count($empleados) ; $i++)
+              {
+                $especialidad = $admin->getEspecialidad($empleados[$i]->getId());
+                echo "<option value='".$empleados[$i]->getId()."'>Nombre: ".$empleados[$i]->getNombre()." - Especialadad: ".$especialidad."</option>";
+              }
+            }
+              ?>
             </select>
         </div>
         <div class="justify-content-center">
@@ -67,6 +79,7 @@
           </div>
         </div>
         </div>
+              </form>
         </div>
     <script src="../assets/bootstrap/js/jquery.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
