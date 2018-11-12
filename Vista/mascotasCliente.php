@@ -111,7 +111,7 @@ session_start();
 								echo "<div class='tab-pane fade show active' id='".$mascotas[$i]->getDuenoMasId()."' role='tabpanel' aria-labelledby='".$mascotas[$i]->getId()."'>";
 								echo "<h class='enunciado'>ID Mascota: </h><h class='contenido'>".$mascotas[$i]->getId()."</h><br>";
 								echo "<h class='enunciado'>Nombre: </h><h class='contenido'>".$mascotas[$i]->getNombre()."</h><br>";
-								echo "<h class='enunciado'>Numero de placa: </h><h class='contenido'>".$mascotass[$i]->getDuenoMasId()."</h><br>";
+								echo "<h class='enunciado'>Numero de placa: </h><h class='contenido'>".$mascotas[$i]->getDuenoMasId()."</h><br>";
 								echo "<img src='' width='250' height='250' ><br>";
 								echo "<h class='enunciado'>Especie: </h><h class='contenido'>".$mascotas[$i]->getEspecie()."</h><br>";
 								echo "<h class='enunciado'>Raza: </h><h class='contenido'>".$mascotas[$i]->getRaza()."</h><br>";

@@ -24,8 +24,8 @@ class Caso{
 
   public static function crearCaso()
   {
-    $connection = new conexion()
-    $sql = "INSERT INTO CASO (mascota_id, 	medicoVet_id	, calificacio , costo) VALUES
+    $connection = new conexion();
+    $sql = "INSERT INTO CASO (mascota_id, 	medicoVet_id	, calificacion , costo) VALUES
             ($this->mascota_id, $this->medico_id, $this->calificacion, $this->costo)";
     return $connection->ejecutarconsulta($sql);
 

@@ -23,7 +23,6 @@ include_once '../Modelo/Objetos/Caso.php';
       {
         $id_admin = Usuario::getByUsername($_SESSION['username'])->getId();
         $id_empleado = Usuario::getByUsername($_POST['username'])->getId();
-        echo $id_admin."---".$id_empleado."<br>";
         $empleado = new Empleado($id_admin,$id_empleado,$area);
         if($empleado->crearEmpleado())
         {

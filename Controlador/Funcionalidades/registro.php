@@ -136,6 +136,13 @@ class registro
             $_SESSION['username'] = $consulta->getUserName();
             header('Location: homeCliente.php');
           }
+          if ($consulta->getRol() == 'medicoVet')
+          {
+            session_start();
+            $_SESSION['rol'] = $consulta->getRol();
+            $_SESSION['username'] = $consulta->getUserName();
+            header('Location: homeVeterinario.php');
+          }
         }
         else {
           echo $this->errStyle."Contraseña incorrecta.</span>";
