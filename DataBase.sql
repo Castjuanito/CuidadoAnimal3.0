@@ -1,3 +1,17 @@
+DROP TABLE IF EXISTS barrio;
+DROP TABLE IF EXISTS localidad;
+DROP TABLE IF EXISTS ciudad;
+DROP TABLE IF EXISTS detalle_caso;
+DROP TABLE IF EXISTS caso;
+DROP TABLE IF EXISTS mascota;
+DROP TABLE IF EXISTS palabra_servicio;
+DROP TABLE IF EXISTS palabra_clave;
+DROP TABLE IF EXISTS servicio;
+DROP TABLE IF EXISTS centro_veterinario;
+DROP TABLE IF EXISTS empleado;
+DROP TABLE IF EXISTS usuario;
+
+
 /*--------------------------------------------------------------------------------------------*/
 
 CREATE TABLE IF NOT EXISTS usuario (
@@ -20,7 +34,7 @@ CREATE TABLE IF NOT EXISTS empleado (
   especialidad VARCHAR (50),
   PRIMARY KEY (id),
   FOREIGN KEY (id_dueno) REFERENCES usuario(id),
-  FOREIGN KEY (id_dueno) REFERENCES usuario(id)
+  FOREIGN KEY (id_empleado) REFERENCES usuario(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 /*--------------------------------------------------------------------------------------------*/
 
@@ -76,7 +90,7 @@ CREATE TABLE IF NOT EXISTS mascota (
   nombre VARCHAR(50),
   especie VARCHAR(50),
   raza VARCHAR(50),
-  fecha_nacimiento DATE,
+  fecha_nacimiento DATETIME,
   genero VARCHAR(50),
   color VARCHAR(50),
   PRIMARY KEY(id),
@@ -91,6 +105,7 @@ CREATE TABLE IF NOT EXISTS caso (
   medicoVet_id INT NOT NULL,
   calificacion INT,
   costo FLOAT,
+  PRIMARY KEY(id),
   FOREIGN KEY (mascota_id) REFERENCES mascota(id),
   FOREIGN KEY (medicoVet_id) REFERENCES usuario(id),
   UNIQUE (mascota_id, medicoVet_id),
@@ -105,7 +120,47 @@ CREATE TABLE IF NOT EXISTS detalle_caso (
   fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
   info VARCHAR(500),
   PRIMARY KEY(id),
+  info VARCHAR(500),
   FOREIGN KEY (caso_id) REFERENCES caso(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+/*--------------------------------------------------------------------------------------------*/
+
+ CREATE TABLE IF NOT EXISTS ciudad (
+  id INT AUTO_INCREMENT,
+  PRIMARY KEY(id),
+  nombre VARCHAR(500)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+/*--------------------------------------------------------------------------------------------*/
+
+ CREATE TABLE IF NOT EXISTS localidad (
+  id INT AUTO_INCREMENT,
+  ciudad_id int NOT NULL,
+  PRIMARY KEY(id),
+  nombre VARCHAR(500),
+  FOREIGN KEY (ciudad_id) REFERENCES ciudad(id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+/*--------------------------------------------------------------------------------------------*/
+
+ CREATE TABLE IF NOT EXISTS barrio (
+  id INT AUTO_INCREMENT,
+  localidad_id int NOT NULL,
+  PRIMARY KEY(id),
+  nombre VARCHAR(500),
+  FOREIGN KEY (localidad_id) REFERENCES localidad(id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+/*--------------------------------------------------------------------------------------------*/
+
+
+
+  INSERT INTO ciudad (id,nombre) VALUES (1,'Bogota');
+  INSERT INTO ciudad (id,nombre) VALUES (2,'Medellin');
+
+  INSERT INTO localidad (id,ciudad_id,nombre) VALUES (1,1,'Kennedy');
+
+  INSERT INTO barrio (id,localidad_id,nombre) VALUES (1,1,'Argelia');
 
 /*--------------------------------------------------------------------------------------------*/
