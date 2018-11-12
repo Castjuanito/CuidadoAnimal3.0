@@ -12,7 +12,7 @@ class c_duenoMascota
   public function agregarMascota()
   {
     $id_dueno = Usuario::getByUsername($_SESSION['username'])->getId();
-    $nombre = $_POST['nombre'];
+    $nombre = $_POST['nombreMascota'];
     $fecha_nacimiento = $_POST['ano']."-".$_POST['mes']."-".$_POST['dia'];
     $especie = $_POST['especie'];
     $raza = $_POST['raza'];
@@ -20,13 +20,32 @@ class c_duenoMascota
     $color = $_POST['color'];
     if (!empty($nombre) && !empty($especie))
     {
-      if (Mascota::create_Mascota($id_dueno,$nombre,$fecha_nacimiento,$especie,$raza,$genero,$color))
+      $mascota = new Mascota($id_dueno,$nombre,$especie,$raza,$fecha_nacimiento,$color,$genero);
+      if ($mascota->create_Mascota())
       {
-        echo $this->$successStyle."Mascota agregada.</span>";
+        echo $this->successStyle."Mascota agregada.</span>";
       }
     }else {
-      echo $this->$errStyle."Ingrese los datos obligatorios</span>";
+      echo $this->errStyle."Ingrese los datos obligatorios</span>";
     }
+  }
+
+  public function encontrarMascotas()
+  {
+    $id_dueno = Usuario::getByUsername($_SESSION['username'])->getId();
+    $consulta = Mascota::findMascotas($id_dueno);
+    $id_mascotas = [];
+    $mascotas = [];
+    if (!($consulta->num_rows < 1))
+    {
+      while ($fila = mysqli_fetch_array($consulta)) {
+        $id_mascotas[] = $fila['id'];
+      }
+    }
+    for ($i=0; $i < count($id_mascotas); $i++) {
+      $mascotas[] = Mascota::findById($id_mascotas[$i]);
+    }
+    return $mascotas;
   }
 
 }

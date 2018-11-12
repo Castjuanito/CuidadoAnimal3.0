@@ -1,6 +1,3 @@
-<?php
-session_start();
- ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,83 +36,62 @@ session_start();
   <div class="text-center fondo1 offset-md-2 col-md-8 col-xs-12">
   <form id="regisVete" form action="" name="regisVete" method="post">
     <div class="row d-flex justify-content-center mb-0">
-     <label class="tituloForm mb-0 mt-3">Registro de Mascota</label>
+     <label class="tituloForm mb-0 mt-3">Registro de Cliente</label>
     </div>
+    <?php
+    include_once "../Controlador/Funcionalidades/registro.php";
+    if (isset($_POST['registrar']))
+    {
+      $_POST['rol'] = 'duenoMascota';
+      $login = new registro();
+      $login->registrarUsuario();
+    }
+    ?>
     <div class="row form-group d-flex justify-content-center">
-      <?php
- 		  include_once '../Controlador/Funcionalidades/c_duenoMascota.php';
- 			if (isset($_POST['registrar']))
- 			{
- 				$dueno = new c_duenoMascota();
- 				$dueno->agregarMascota();
- 			}
- 		  ?>
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Nombre</label>
-        <input type="text" class="form-control" placeholder="Especie" name="nombreMascota">
+        <input type="text" class="form-control" name="nombre" placeholder="Nombres">
       </div>
       <div class="col-md-5 col-xs-12 p-0 campo">
-        <label class="letraForm">Fecha nacimiento</label>
-				<div class="row justifyContentCenter">
-				<div class="">
-					<select class="form-control" name="dia">
-	        	<option value=""></option>
-						<?php
-						for($i=1; $i<32; $i++){
-							echo "<option value='".$i."'>".$i."</option>";
-						} ?>
-	        </select><br>
-					<label>dia</label>
-				</div>
-				<div class="">
-					<select class="form-control" name="mes">
-	        	<option value=""></option>
-						<?php
-						for($i=1; $i<13; $i++){
-							echo "<option value='".$i."'>".$i."</option>";
-						} ?>
-	        </select><br>
-					<label>mes</label>
-				</div>
-				<div class="">
-					<select class="form-control" name="ano">
-	        	<option value=""></option>
-						<?php
-						for($i=1900; $i<2018; $i++){
-							echo "<option value='".$i."'>".$i."</option>";
-						} ?>
-	        </select><br>
-					<label>año</label>
-				</div>
-				</div>
+        <label class="letraForm">Apellido</label>
+        <input type="text" class="form-control" name="apellido" placeholder="nUsuario">
       </div>
     </div>
     <div class="row form-group d-flex justify-content-center">
       <div class="col-md-5 col-xs-12 p-0 campo">
-        <label class="letraForm">Especie</label>
-        <input type="text" class="form-control" name="especie" placeholder="Especie">
+        <label class="letraForm">Foto de perfil</label>
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="archivoImagen" onChange="mostrarArchivo()">
+          <label class="custom-file-label" id="tituloArch">Selecionar Archivo</label>
+        </div>
       </div>
       <div class="col-md-5 col-xs-12 p-0 campo">
-        <label class="letraForm">Raza</label>
-        <input type="text" class="form-control" name="raza" placeholder="Raza">
+        <label class="letraForm">Correo Electronico</label>
+        <input type="text" class="form-control" name="correo" placeholder="correo">
       </div>
     </div>
     <div class="row form-group d-flex justify-content-center">
       <div class="col-md-5 col-xs-12 p-0 campo">
-        <label class="letraForm">Genero</label>
-				<select class="form-control" name="genero">
-					<option value="0">-------</option>
-					<option value="hembra">Hembra</option>
-					<option value="macho">macho</option>
-				</select>
+        <label class="letraForm">Nombre de usuario</label>
+        <input type="text" class="form-control" name="username" placeholder="nombre de usuario">
       </div>
       <div class="col-md-5 col-xs-12 p-0 campo">
-        <label class="letraForm">Color</label>
-        <input type="text" class="form-control" name="color" placeholder="Color">
+        <label class="letraForm">Telefono</label>
+        <input type="text" class="form-control" name="telefono" placeholder="telefono">
       </div>
     </div>
     <div class="row form-group d-flex justify-content-center">
-      <button type="submit" class="btn btn-primary mb-3" name="registrar">Finalizar Registro</button>
+      <div class="col-md-5 col-xs-12 p-0 campo">
+        <label class="letraForm">Contraseña</label>
+        <input type="password" class="form-control" name="password" placeholder="">
+      </div>
+      <div class="col-md-5 col-xs-12 p-0 campo">
+        <label class="letraForm">Confirmar contraseña</label>
+        <input type="password" class="form-control" name="password2" placeholder="">
+      </div>
+    </div>
+    <div class="row form-group d-flex justify-content-center">
+      <button type="submit" class="btn btn-primary mb-3" name="registrar">confirmar</button>
     </div>
   </form>
 </div>

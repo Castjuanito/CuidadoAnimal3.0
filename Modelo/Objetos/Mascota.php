@@ -14,8 +14,9 @@ class Mascota
   private $raza;
   private $fecha_nacimiento;
   private $color;
+  private $genero;
 
-  function __construct($dueno_mas_id,$nombre,$especie,$raza,$fecha_nacimiento,$color)
+  function __construct($dueno_mas_id,$nombre,$especie,$raza,$fecha_nacimiento,$color,$genero)
   {
     $this->dueno_mas_id = $dueno_mas_id;
     $this->nombre = $nombre;
@@ -23,16 +24,13 @@ class Mascota
     $this->raza = $raza;
     $this->fecha_nacimiento = $fecha_nacimiento;
     $this->color = $color;
+    $this->genero = $genero;
   }
   public function create_Mascota()
   {
     $connection = new conexion();
-    $sql= "INSERT INTO mascota (dueno_mas_id,nombre,especie,raza,fecha_nacimiento,color) VALUES ($this->dueno_mas_id,'$this->nombre','$this->especie','$this->raza','$this->fecha_nacimiento','$this->color')";
-    $res = $this->connection->ejecutarconsulta($sql);
-    if ($res) {
-      $this->id = mysqli_insert_id($connection);
-    }
-    return $res;
+    $sql= "INSERT INTO mascota (dueno_mas_id,nombre,especie,raza,fecha_nacimiento,color,genero) VALUES ($this->dueno_mas_id,'$this->nombre','$this->especie','$this->raza','$this->fecha_nacimiento','$this->color','$this->genero')";
+    return $connection->ejecutarconsulta($sql);
   }
   public function delete_Mascota($id)
   {
@@ -50,12 +48,30 @@ class Mascota
     $this->connection->ejecutarconsulta($sql);
   }
 
-  public function fingById($id)
+  public function findById($id)
   {
+    $connection = new conexion();
     $sql = "SELECT * FROM mascota WHERE MASCOTA.ID = " .$id;
-  $this->connection->ejecutarconsulta($sql);
+    $consulta = $connection->ejecutarconsulta($sql);
+    if ($consulta->num_rows >= 1)
+    {
+      $fila = mysqli_fetch_array($consulta);
+      $mascota = new Mascota($fila["dueno_mas_id"],$fila["nombre"],$fila["especie"], $fila["raza"],
+                              $fila["fecha_nacimiento"], $fila["color"], $fila["genero"]);
+      $mascota->setId($fila["id"]);
+      return $mascota;
+    }
+    else {
+      return false;
+    }
   }
 
+  public function findMascotas($id_dueno)
+  {
+    $connection = new conexion();
+    $sql = "SELECT * FROM mascota WHERE MASCOTA.dueno_mas_id = " .$id_dueno;
+    return $connection->ejecutarconsulta($sql);
+  }
 
 
 

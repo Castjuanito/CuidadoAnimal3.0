@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS palabra_servicio (
 
 CREATE TABLE IF NOT EXISTS mascota (
   id INT AUTO_INCREMENT,
-  dueño_mas_id INT NOT NULL,
+  dueno_mas_id INT NOT NULL,
   nombre VARCHAR(50),
   especie VARCHAR(50),
   raza VARCHAR(50),
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS mascota (
   genero VARCHAR(50),
   color VARCHAR(50),
   PRIMARY KEY(id),
-  FOREIGN KEY (dueño_mas_id) REFERENCES usuario(id)
+  FOREIGN KEY (dueno_mas_id) REFERENCES usuario(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 /*--------------------------------------------------------------------------------------------*/

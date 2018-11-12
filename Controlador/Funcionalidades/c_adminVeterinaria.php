@@ -3,6 +3,7 @@ include_once '../Modelo/Objetos/CentroVeterinario.php';
 include_once '../Controlador/Funcionalidades/registro.php';
 include_once '../Modelo/Objetos/Usuario.php';
 include_once '../Modelo/Objetos/Empleado.php';
+include_once '../Modelo/Objetos/Caso.php';
   /**
    *
    */
@@ -34,6 +35,11 @@ include_once '../Modelo/Objetos/Empleado.php';
       }
     }
 
+    public function getEspecialidad($id_dueno)
+    {
+      $especialidad=Empleado::findEspecialidad($id_dueno);
+      return $especialidad;
+    }
     public function encontrarEmpleados()
     {
       $id_admin = Usuario::getByUsername($_SESSION['username'])->getId() ;
@@ -130,6 +136,25 @@ include_once '../Modelo/Objetos/Empleado.php';
         }else {
           echo $this->errStyle."No se pudo actualizar los datos </span>";
         }
+      }
+    }
+
+    public function crearCaso()
+    {
+      $usuario = Usuario::getByUsername($_SESSION['username']);
+      $id_mascota = $_POST['idMascota'];
+      $id_empleado = $_POST['idEmpleado'];
+      if (!empty($id_mascota) && !empty($id_empleado))
+      {
+        if (Mascota::findById())
+        {
+          $mascota = new Caso($id_mascota, $id_empleado);
+          $mascota->crearCaso();
+        }else {
+          echo $this->errStyle."El id de la mascota no existe</span>";
+        }
+      }else {
+        echo $this->errStyle."Ingrese todos los campos</span>";
       }
     }
 

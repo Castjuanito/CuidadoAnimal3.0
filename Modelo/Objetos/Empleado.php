@@ -32,6 +32,21 @@ include_once "../Modelo/Objetos/conexion.php";
       return $conBD->ejecutarConsulta($sql);
     }
 
+    function findEspecialidad($id_empleado)
+    {
+      $conBD = new conexion();
+      $sql = "SELECT * FROM empleado WHERE empleado.id_empleado =".$id_empleado;
+      $consulta = $conBD->ejecutarConsulta($sql);
+      if (!($consulta->num_rows < 1))
+      {
+        $fila = mysqli_fetch_array($consulta);
+        return $fila['especialidad'];
+      }
+      else {
+        return false;
+      }
+    }
+
     function findEmpleados($id_dueno)
     {
       $conBD = new conexion();
