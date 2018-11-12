@@ -1,9 +1,6 @@
 <?php
 session_start();
-<<<<<<< HEAD
-=======
 include_once '../Controlador/Funcionalidades/c_adminVeterinaria.php';
->>>>>>> 5c468f14bc5d21a5382dd8a1cb9cbafefef851ef
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +58,7 @@ include_once '../Controlador/Funcionalidades/c_adminVeterinaria.php';
           <p class="subtitulo text-center">Veterinario:</p>
         </div>
         <div class="col-md-8 offset-md-2 p-2">
-          <select name="selCombo" class="custom-select">
+          <select name="idEmpleado" class="custom-select">
               <option value="-1">
               </option>
               <?php

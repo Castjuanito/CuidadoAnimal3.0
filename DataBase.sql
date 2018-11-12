@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS empleado (
   especialidad VARCHAR (50),
   PRIMARY KEY (id),
   FOREIGN KEY (id_dueno) REFERENCES usuario(id),
-  FOREIGN KEY (id_dueno) REFERENCES usuario(id)
+  FOREIGN KEY (id_empleado) REFERENCES usuario(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 /*--------------------------------------------------------------------------------------------*/
 

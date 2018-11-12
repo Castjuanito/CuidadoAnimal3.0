@@ -4,6 +4,7 @@ include_once '../Controlador/Funcionalidades/registro.php';
 include_once '../Modelo/Objetos/Usuario.php';
 include_once '../Modelo/Objetos/Empleado.php';
 include_once '../Modelo/Objetos/Caso.php';
+include_once '../Modelo/Objetos/Mascota.php';
   /**
    *
    */
@@ -146,10 +147,16 @@ include_once '../Modelo/Objetos/Caso.php';
       $id_empleado = $_POST['idEmpleado'];
       if (!empty($id_mascota) && !empty($id_empleado))
       {
-        if (Mascota::findById())
+        if (Mascota::findById($id_mascota))
         {
-          $mascota = new Caso($id_mascota, $id_empleado);
-          $mascota->crearCaso();
+          $caso = new Caso($id_mascota, $id_empleado);
+          if ($caso->crearCaso())
+          {
+            header('Location: casosAdministrador.php');
+          }
+          else {
+            echo $this->errStyle."Error en la creacion de mascota</span>";
+          }
         }else {
           echo $this->errStyle."El id de la mascota no existe</span>";
         }
