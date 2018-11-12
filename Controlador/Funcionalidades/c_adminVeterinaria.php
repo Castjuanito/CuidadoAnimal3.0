@@ -34,6 +34,11 @@ include_once '../Modelo/Objetos/Empleado.php';
       }
     }
 
+    public function getEspecialidad($id_dueno)
+    {
+      $especialidad=Empleado::findEspecialidad($id_dueno);
+      return $especialidad;
+    }
     public function encontrarEmpleados()
     {
       $id_admin = Usuario::getByUsername($_SESSION['username'])->getId() ;
