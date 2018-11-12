@@ -5,50 +5,58 @@
 include_once "../Modelo/Objetos/conexion.php";
 class Servicio
 {
-  private $id;
-  private $centro_veterinario_id;
-  private $nombre;
-  private $conn;
+    private $id;
+    private $centro_veterinario_id;
+    private $nombre;
+    private $conn;
 
-  function __construct($id, $centro_veterinario_id,$nombre)
-  {
-    $this->id = $id;
-    $this->centro_veterinario_id = $centro_veterinario_id;
-    $this->nombre =$nombre;
-    $this->conn = new conexion();
+    function __construct($centro_veterinario_id, $nombre)
+    {
 
-  }
+        $this->centro_veterinario_id = $centro_veterinario_id;
+        $this->nombre = $nombre;
+        $this->conn = new conexion();
 
-  public static function crearCaso()
-  {
-    $sql = "INSERT INTO servicio (centro_veterinario_id,nombre) VALUES ('$this->centro_veterinario_id','$this->nombre')";
-    $res = $this->connection->ejecutarconsulta($sql);
-    if ($res) {
-      $this->id = mysqli_insert_id($this->connection);
     }
-    return $res;$res = $this->connection->ejecutarconsulta($sql);
-    if ($res) {
-      $this->id = mysqli_insert_id($this->connection);
+
+    public static function crearCaso()
+    {
+        $sql = "INSERT INTO servicio (centro_veterinario_id,nombre) VALUES ('$this->centro_veterinario_id','$this->nombre')";
+        $res = $this->connection->ejecutarconsulta($sql);
+        if ($res) {
+            $this->id = mysqli_insert_id($this->connection);
+        }
+        return $res;
+        $res = $this->connection->ejecutarconsulta($sql);
+        if ($res) {
+            $this->id = mysqli_insert_id($this->connection);
+        }
+        return $res;
     }
-    return $res;
-  }
 
-  public static function actualizarCaso ()
-  {
-    $sql = "UPDATE servicio SET centro_veterinario_id = " . $this->centro_veterinario_id . ", nombre = "  . $this->nombre . "WHERE SERVICIO.ID = " . $this->id;
-    return $this->conBD->ejecutarconsulta($sql);
-  }
+    public static function actualizarCaso()
+    {
+        $sql = "UPDATE servicio SET centro_veterinario_id = " . $this->centro_veterinario_id . ", nombre = " . $this->nombre . "WHERE SERVICIO.ID = " . $this->id;
+        return $this->conBD->ejecutarconsulta($sql);
+    }
 
-  public static function borrarCaso()
-  {
-    $sql = "DELETE FROM servicio WHERE SERVICIO.ID = "  . $this->id;
-    return $conBD->ejecutarconsulta($sql);
-  }
+    public static function borrarCaso()
+    {
+        $sql = "DELETE FROM servicio WHERE SERVICIO.ID = " . $this->id;
+        return $conBD->ejecutarconsulta($sql);
+    }
 
     public static function AgregarPalabraClave($palabraClave)
     {
-      $sql = "INSERT INTO servicio (centro_veterinario_id,nombre) VALUES ('$this->centro_veterinario_id','$this->nombre')";
-      return $this->connection->ejecutarconsulta($sql);
+        $sql = "INSERT INTO servicio (centro_veterinario_id,nombre) VALUES ('$this->centro_veterinario_id','$this->nombre')";
+        return $this->connection->ejecutarconsulta($sql);
+    }
+
+    public function findAll()
+    {
+        $conn= new conexion();
+        $sql = "SELECT * FROM servicio ";
+        return $conn->ejecutarconsulta($sql);
     }
 
 

@@ -1,9 +1,9 @@
 <?php
 
-define('USUARIO_DB', 'zero');
-define('USUARIO_PASS', '0000');
+define('USUARIO_DB', 'root');
+define('USUARIO_PASS', '');
 define('HOST_DB', 'localhost');
-define('NOMBRE_DB', 'cuidadoanimal');
+define('NOMBRE_DB', 'CuidadoAnimal');
 /*
 define('USUARIO_DB', 'zero');
 define('USUARIO_PASS', '0000');

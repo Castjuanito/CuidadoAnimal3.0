@@ -24,7 +24,6 @@ include_once '../Modelo/Objetos/Mascota.php';
       {
         $id_admin = Usuario::getByUsername($_SESSION['username'])->getId();
         $id_empleado = Usuario::getByUsername($_POST['username'])->getId();
-        echo $id_admin."---".$id_empleado."<br>";
         $empleado = new Empleado($id_admin,$id_empleado,$area);
         if($empleado->crearEmpleado())
         {
@@ -164,6 +163,28 @@ include_once '../Modelo/Objetos/Mascota.php';
         echo $this->errStyle."Ingrese todos los campos</span>";
       }
     }
+
+    public function getCasosVeterinaria()
+    {
+      $usuario = Usuario::getByUsername($_SESSION['username']);
+      $casos = [][];
+      $empleados = c_adminVeterinaria::encontrarEmpleados();
+      $n_empleados = count($empleados);
+      for ($i=0; $i < $n_empleados; $i++) { //Numero empleados veterina
+        $casosVet = Caso::getCasos($empleados[$i]->getId());
+        $n_casos = $casosVet->num_rows;
+        for ($j=0; $j < $n_casos; $j++) { //Numero casos por veterinario
+          $id_mascota = $casosVet[$j]->getMascotaId();
+          $mascota = Mascota::findById($id_mascota);
+          $casos[][0] = $mascota;//Mascota
+          $casos[][1] = $casosVet[$j];//Caso
+          $casos[][2] = $empleados[$i];//Empleado
+        }
+      }
+
+      return $casos;
+    }
+
 
   }
 
