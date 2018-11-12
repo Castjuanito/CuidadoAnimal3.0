@@ -1,5 +1,9 @@
 <?php
 session_start();
+<<<<<<< HEAD
+=======
+include_once '../Controlador/Funcionalidades/c_adminVeterinaria.php';
+>>>>>>> 5c468f14bc5d21a5382dd8a1cb9cbafefef851ef
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +18,10 @@ session_start();
 <body>
   <!-- Inicio Navbar -->
   <!--Barra de navegacion-->
+  <?php
+  $admin = new c_adminVeterinaria();
+  $empleados = $admin->encontrarEmpleados();
+   ?>
   <nav class="navbar nav-masthead navbar-dark sticky-top navbar-expand-lg text-center barra" id="mainNav">
 
       <a class="navbar-brand mx-auto js-scroll-trigger" href="homeAdministrador.php">
@@ -43,6 +51,12 @@ session_start();
       </div>
       <form class="" action="" method="post" name="nuevoCaso" id="nuevoCaso">
       <div class="justify-content-center">
+        <?php
+          if (isset($_POST['crear']))
+          {
+            $admin->crearCaso();
+          }
+         ?>
         <div class="justify-content-center">
           <p class="subtitulo text-center">Veterinario:</p>
         </div>
@@ -71,7 +85,7 @@ session_start();
           <input type="text" class="form-control" name="idMascota" placeholder="ID Mascota">
         </div>
         <div class="col-md-8 offset-md-2 p-2 my-4">
-            <button type="button" class="btn btn-success col-md-12 boton" onClick="location.href='casosAdministrador.php'">Crear Caso</button>
+            <button type="submit" name="crear" class="btn btn-success col-md-12 boton">Crear Caso</button>
         </div>
         <div class="row">
           <div class="col-md-6">
