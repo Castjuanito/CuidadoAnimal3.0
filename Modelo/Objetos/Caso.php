@@ -22,7 +22,7 @@ class Caso{
 
   }
 
-  public static function crearCaso()
+  public function crearCaso()
   {
     $connection = new conexion();
     $sql = "INSERT INTO CASO (mascota_id, 	medicoVet_id	, calificacion , costo) VALUES
@@ -31,7 +31,7 @@ class Caso{
 
   }
 
-  public static function actualizarCaso ()
+  public function actualizarCaso ()
   {
     $conBD = new conexion();
     $sql = "UPDATE caso SET mascota_id = " . $this->mascota_id . ", 	medicoVet_id	 = "  . $this->medico_id . ",
@@ -39,13 +39,25 @@ class Caso{
     return $conBD->ejecutarconsulta($sql);
   }
 
-  public static function borrarCaso()
+  public function borrarCaso()
   {
     $conBD = new conexion ();
     $sql = "DELETE FROM CASO WHERE CASO.ID = "  . $this->id;
     return $conBD->ejecutarconsulta($sql);
   }
 
+  public function getCasos($id_medico)
+  {
+    $conBD = new conexion();
+    $sql = "SELECT * FROM CASO WHERE CASO.medicoVet_id=". $id_medico;
+    return $conBD->ejecutarconsulta($sql);
+  }
+
+  public function getById($id_caso)
+  {
+    $conBD = new conexion();
+    $sql = "SELECT * FROM CASO WHERE CASO.id = ".$id_caso;
+  }
     /**
      * Get the value of Mascota Id
      *

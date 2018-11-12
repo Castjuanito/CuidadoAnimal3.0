@@ -93,18 +93,19 @@ CREATE TABLE IF NOT EXISTS caso (
   costo FLOAT,
   FOREIGN KEY (mascota_id) REFERENCES mascota(id),
   FOREIGN KEY (medicoVet_id) REFERENCES usuario(id),
-  UNIQUE (mascota_id, medicoVet_id)
+  UNIQUE (mascota_id, medicoVet_id),
+  PRIMARY KEY (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 /*--------------------------------------------------------------------------------------------*/
 
 CREATE TABLE IF NOT EXISTS detalle_caso (
   id INT AUTO_INCREMENT,
-  caso_id int NOT NULL,
+  caso_id INT NOT NULL,
   fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
   info VARCHAR(500),
   PRIMARY KEY(id),
-  FOREIGN KEY (caso_id) REFERENCES caso(id),
+  FOREIGN KEY (caso_id) REFERENCES caso(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 /*--------------------------------------------------------------------------------------------*/
