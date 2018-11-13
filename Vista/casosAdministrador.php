@@ -76,7 +76,7 @@
     			        ?>
     			</div>
           <div class="justify-content-center my-1">
-            <button type="button" class="btn btn-success col-md-12 boton" onClick="location.href='registroVeterinario.php'">Nuevo veterianario</button>
+            <button type="button" class="btn btn-success col-md-12 boton" onClick="location.href='nuevoCaso.php'">Nuevo Caso</button>
       </div>
       </div>
     			<div class="col-md-8 p-4 borde my-4">
@@ -95,9 +95,6 @@
                         echo "<h class='enunciado'>ID Caso: </h><h class='contenido'>".$casos[$i][1]->getId()."</h><br>";
                         echo "<h class='enunciado'>ID Veterinario: </h><h class='contenido'>".$casos[$i][2]->getId()."</h><br>";
                         echo "<h class='enunciado'>Nombre Veterinario: </h><h class='contenido'>".$casos[$i][2]->getNombre()."</h><br>";
-                        echo "<h class='enunciado'>Nombre Mascota: </h><h class='contenido'>".$empleados[$i]->getApellido()."</h><br>";
-                        echo "<h class='enunciado'>: </h><h class='contenido'>".$empleados[$i]->getEmailadd()."</h><br>";
-                        echo "<h class='enunciado'>Telefono: </h><h class='contenido'>".$empleados[$i]->getTelefono()."</h><br>";
     										echo "</div>";
     								}
                   }
