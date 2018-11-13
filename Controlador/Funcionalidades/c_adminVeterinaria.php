@@ -174,9 +174,9 @@ include_once '../Modelo/Objetos/Mascota.php';
           $casos[$count][0] = $mascota;//Mascota
           $casos[$count][1] = $casosVet[$j];//Caso
           $casos[$count][2] = $empleados[$i];//Empleado
+          $count = $count + 1;
         }
-      }
-
+      } 
       return $casos;
     }
 
