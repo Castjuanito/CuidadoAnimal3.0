@@ -17,16 +17,9 @@ class Caso{
     $this->costo = 0;
   }
 
-  public function crearCaso()
-  {
-<<<<<<< HEAD
-=======
-
-  }
 
   public function crearCaso()
   {
->>>>>>> 7f96eed7fbe94fe0da4e9711aca5785910f93f20
     $connection = new conexion();
     $sql = "INSERT INTO CASO (mascota_id, 	medicoVet_id	, calificacion , costo) VALUES
             ($this->mascota_id, $this->medico_id, $this->calificacion, $this->costo)";
@@ -53,7 +46,15 @@ class Caso{
   {
     $conBD = new conexion();
     $sql = "SELECT * FROM CASO WHERE CASO.medicoVet_id=". $id_medico;
-    return $conBD->ejecutarconsulta($sql);
+    $consulta = $conBD->ejecutarconsulta($sql);
+    $casos = [];
+    if (mysqli_num_rows($consulta) > 0)
+    {
+      while ($fila = mysqli_fetch_array($consulta)) {
+        $casos[] = Caso::getById($fila['id']);
+      }
+    }
+
   }
 
   public function getById($id_caso)

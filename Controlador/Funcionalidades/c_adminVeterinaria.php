@@ -167,20 +167,25 @@ include_once '../Modelo/Objetos/Mascota.php';
     public function getCasosVeterinaria()
     {
       $usuario = Usuario::getByUsername($_SESSION['username']);
-      $casos = [][];
+      $casos = [];
       $empleados = c_adminVeterinaria::encontrarEmpleados();
       $n_empleados = count($empleados);
       $count = 0;
       for ($i=0; $i < $n_empleados; $i++) { //Numero empleados veterina
         $casosVet = Caso::getCasos($empleados[$i]->getId());
-        $n_casos = $casosVet->num_rows;
+        $n_casos = count($casosVet);
+        if ($casosVet[0] != NULL)
+        {
         for ($j=0; $j < $n_casos; $j++) { //Numero casos por veterinario
+          $casos[$count] = [];
           $id_mascota = $casosVet[$j]->getMascotaId();
           $mascota = Mascota::findById($id_mascota);
           $casos[$count][0] = $mascota;//Mascota
           $casos[$count][1] = $casosVet[$j];//Caso
           $casos[$count][2] = $empleados[$i];//Empleado
+          $count = $count + 1;
         }
+      }
       }
 
       return $casos;
