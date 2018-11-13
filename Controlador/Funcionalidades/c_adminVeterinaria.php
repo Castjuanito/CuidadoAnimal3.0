@@ -187,7 +187,44 @@ include_once '../Modelo/Objetos/Mascota.php';
       return $casos;
     }
 
+    public function getMascotas()
+    {
+      $usuario = Usuario::getByUsername($_SESSION['username']);
+      $mascotas = [];
+      $empleados = c_adminVeterinaria::encontrarEmpleados();
+      $n_empleados = count($empleados);
+      $count = 0;
+      for ($i=0; $i < $n_empleados; $i++) { //Numero empleados veterina
+        $casosVet = Caso::getCasos($empleados[$i]->getId());
+        $n_casos = count($casosVet);
+          for ($j=0; $j < $n_casos; $j++) { //Numero casos por veterinario
+            $id_mascota = $casosVet[$j]->getMascotaId();
+            $mascotas[] = Mascota::findById($id_mascota);
+          }
+      }
+      return $mascotas;
+    }
 
-  }
+    public function getClientes()
+    {
+      $usuario = Usuario::getByUsername($_SESSION['username']);
+      $clientes = [];
+      $empleados = c_adminVeterinaria::encontrarEmpleados();
+      $n_empleados = count($empleados);
+      $count = 0;
+      for ($i=0; $i < $n_empleados; $i++) { //Numero empleados veterina
+        $casosVet = Caso::getCasos($empleados[$i]->getId());
+        $n_casos = count($casosVet);
+          for ($j=0; $j < $n_casos; $j++) { //Numero casos por veterinario
+            $id_mascota = $casosVet[$j]->getMascotaId();
+            $mascota = Mascota::findById($id_mascota);
+            $id_dueno = $mascota->getDuenoMasId();
+            $cliente = Usuario::getById();
+            $clientes[] = $cliente;
+          }
+      }
+      return $clientes;
+    }
+}
 
  ?>
