@@ -54,13 +54,26 @@ class Caso{
         $casos[] = Caso::getById($fila['id']);
       }
     }
-
+    return $casos;
   }
 
   public function getById($id_caso)
   {
     $conBD = new conexion();
     $sql = "SELECT * FROM CASO WHERE CASO.id = ".$id_caso;
+    $consulta = $conBD->ejecutarconsulta($sql);
+    if ($consulta->num_rows >= 1)
+    {
+      $fila = mysqli_fetch_array($consulta);
+      $usuarioObj = new Caso($fila['mascota_id'],$fila['medicoVet_id']);
+      $usuarioObj->setCalificacion($fila['calificacion']);
+      $usuarioObj->setCosto($fila['costo']);
+      $usuarioObj->setId($fila["id"]);
+      return $usuarioObj;
+    }
+    else {
+      return false;
+    }
   }
     /**
      * Get the value of Mascota Id
@@ -167,6 +180,21 @@ class Caso{
     public function getId()
     {
         return $this->id;
+    }
+
+
+    /**
+     * Set the value of Id
+     *
+     * @param mixed id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
 }
