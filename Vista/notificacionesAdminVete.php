@@ -76,6 +76,82 @@
             </div>
 			</div>
 			</div>
+			<div class="row">
+				<div class="list-group p-4 col-md-4" id="list-tab" role="tablist">
+					<?php
+					echo "<a class='list-group-item list-group-item-action active' id='0' data-toggle='list' href='#0' role='tab>";
+ 					echo "<p class='enunciado'>Solicitud de tralado</p>";
+ 					echo "<p class='contenido'>El veterinario xxx ha hecho una solicitud de tralado para la mascota yyy</p>";
+ 				  echo "</a>";
+	        for ($i=1; $i < 6; $i++)
+	        {
+						echo "<a class='list-group-item list-group-item-action' id='$i' data-toggle='list' href='#".$i."i' role='tab' data-target='#".$i."'>";
+	 					echo "<p class='enunciado'>Solicitud de tralado</p>";
+	 					echo "<p class='contenido'>El veterinario xxx ha hecho una solicitud de tralado para la mascota yyy</p>";
+	 				  echo "</a>";
+	        }
+	        ?>
+				</div>
+				<div class="col-md-8 p-4">
+					<div class="tab-content" id="nav-tabContent">
+			<?php
+				echo "<div class='tab-pane fade show active' id='0i' role='tabpanel' aria-labelledby='0'>";
+					echo "<h6>Remitente:Veterinario0</h6>";
+					echo "<h6>Asunto:Traslado</h6>";
+					echo "<h6>Contenido</h6>";
+					echo "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus cumque itaque voluptatibus eveniet cum, accusamus nihil voluptate ratione consectetur, animi optio hic odio, saepe unde voluptates blanditiis sunt dolores. Fugit?</p>";
+					echo "</div>";
+			for ($i = 1; $i < 6 ; $i++)
+				{
+						echo "<div class='tab-pane fade' id='#".$i."i' role='tabpanel' aria-labelledby='$i'>";
+						echo "<h6>Remitente:Veterinario"."$i"."</h6>";
+						echo "<h6>Asunto:Traslado</h6>";
+						echo "<h6>Contenido</h6>";
+						echo "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus cumque itaque voluptatibus eveniet cum, accusamus nihil voluptate ratione consectetur, animi optio hic odio, saepe unde voluptates blanditiis sunt dolores. Fugit?</p>";
+						echo "</div>";
+				}
+			?>
+		</div>
+		</div>
+		<div class="row">
+			<div class="list-group p-4 col-md-4" id="list-tab" role="tablist">
+							<a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab">
+								<p class="enunciado">Notificaciones</p>
+							</a>
+							<?php
+			        for ($i=1; $i < 6; $i++)
+			        {
+								echo "<a class='list-group-item list-group-item-action'".$i." data-toggle='list' href='#list-".$i."' role='tab'>";
+			 					echo "<p class='enunciado'>Solicitud de tralado</p>";
+			 					echo "<p class='contenido'>El veterinario xxx ha hecho una solicitud de tralado para la mascota yyy</p>";
+			 				  echo "</a>";
+			        }
+			        ?>
+			</div>
+			<div class="col-md-8 p-4">
+			<div class="tab-content" id="nav-tabContent">
+							<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+								<h6>Remitente:Veterinario</h6>
+								<h6>Asunto:Traslado</h6>
+								<h6>Contenido</h6>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus cumque itaque voluptatibus eveniet cum, accusamus nihil voluptate ratione consectetur, animi optio hic odio, saepe unde voluptates blanditiis sunt dolores. Fugit?</p>
+							</div>
+							<?php
+							for ($i = 1; $i < 6 ; $i++)
+								{
+										echo "<div class='tab-pane fade' id='list-".$i."' role='tabpanel' aria-labelledby='$i'>";
+										echo "<h6>Remitente:Veterinario"."$i"."</h6>";
+										echo "<h6>Asunto:Traslado</h6>";
+										echo "<h6>Contenido</h6>";
+										echo "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus cumque itaque voluptatibus eveniet cum, accusamus nihil voluptate ratione consectetur, animi optio hic odio, saepe unde voluptates blanditiis sunt dolores. Fugit?</p>";
+										echo "</div>";
+								}
+							?>
+							<div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
+							<div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+						</div>
+			</div>
+			</div>
     <script src="../assets/bootstrap/js/jquery.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
   </body>

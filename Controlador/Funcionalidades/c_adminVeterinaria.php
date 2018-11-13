@@ -146,10 +146,16 @@ include_once '../Modelo/Objetos/Mascota.php';
       $id_empleado = $_POST['idEmpleado'];
       if (!empty($id_mascota) && !empty($id_empleado))
       {
-        if (Mascota::findById())
+        if (Mascota::findById($id_mascota))
         {
-          $mascota = new Caso($id_mascota, $id_empleado);
-          $mascota->crearCaso();
+          $caso = new Caso($id_mascota, $id_empleado);
+          if ($caso->crearCaso())
+          {
+            header('Location: casosAdministrador.php');
+          }
+          else {
+            echo $this->errStyle."Error en la creacion de mascota</span>";
+          }
         }else {
           echo $this->errStyle."El id de la mascota no existe</span>";
         }
@@ -161,14 +167,17 @@ include_once '../Modelo/Objetos/Mascota.php';
     public function getCasosVeterinaria()
     {
       $usuario = Usuario::getByUsername($_SESSION['username']);
-      $casos = [][];
+      $casos = [];
       $empleados = c_adminVeterinaria::encontrarEmpleados();
       $n_empleados = count($empleados);
       $count = 0;
       for ($i=0; $i < $n_empleados; $i++) { //Numero empleados veterina
         $casosVet = Caso::getCasos($empleados[$i]->getId());
-        $n_casos = $casosVet->num_rows;
+        $n_casos = count($casosVet);
+        if ($casosVet[0] != NULL)
+        {
         for ($j=0; $j < $n_casos; $j++) { //Numero casos por veterinario
+          $casos[$count] = [];
           $id_mascota = $casosVet[$j]->getMascotaId();
           $mascota = Mascota::findById($id_mascota);
           $casos[$count][0] = $mascota;//Mascota
@@ -176,7 +185,13 @@ include_once '../Modelo/Objetos/Mascota.php';
           $casos[$count][2] = $empleados[$i];//Empleado
           $count = $count + 1;
         }
+<<<<<<< HEAD
       } 
+=======
+      }
+      }
+
+>>>>>>> bffdc65aa0dec34b45dcc613ec8e5c00bd3320c9
       return $casos;
     }
 

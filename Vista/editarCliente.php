@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="stylesheet" href="../styles/cliente.css">
-	<title>Home</title>
+	<title>Editar Perfil</title>
 </head>
 <body>
 	<!-- Inicio Navbar -->
@@ -36,7 +36,7 @@
   <div class="text-center fondo1 offset-md-2 col-md-8 col-xs-12">
   <form id="regisVete" form action="" name="regisVete" method="post">
     <div class="row d-flex justify-content-center mb-0">
-     <label class="tituloForm mb-0 mt-3">Registro de Cliente</label>
+     <label class="tituloForm mb-0 mt-3">Editar Perfil</label>
     </div>
     <?php
     include_once "../Controlador/Funcionalidades/registro.php";

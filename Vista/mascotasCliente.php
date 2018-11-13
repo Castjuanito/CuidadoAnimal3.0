@@ -67,14 +67,14 @@ session_start();
 				$mascotas = $dueno->encontrarMascotas();
 				$i=0;
 				if (!empty($mascotas)){
-				echo "<a class='list-group-item list-group-item-action active' id='".$mascotas[$i]->getId()."' data-toggle='list' href='#".$mascotas[$i]->getDuenoMasId()."' role='tab'>";
+				echo "<a class='list-group-item list-group-item-action active' id='".$mascotas[$i]->getId()."' data-toggle='list' href='#".$mascotas[$i]->getId()."i' role='tab'>";
 				echo "<p class='enunciado'>".$mascotas[$i]->getDuenoMasId()."</p>";
 				echo "<p class='contenido'>".$mascotas[$i]->getNombre()."</p>";
 				echo "</a>";
 				$i=$i+1;
 				for ($i; $i <count($mascotas) ; $i++)
 				{
-					echo "<a class='list-group-item list-group-item-action' id='".$mascotas[$i]->getId()."' data-toggle='list' href='#".$mascotas[$i]->getDuenoMasId()."' role='tab'>";
+					echo "<a class='list-group-item list-group-item-action' id='".$mascotas[$i]->getId()."i' data-toggle='list' href='#".$mascotas[$i]->getId()."' role='tab'>";
 					echo "<p class='enunciado'>".$mascotas[$i]->getDuenoMasId()."</p>";
 					echo "<p class='contenido'>".$mascotas[$i]->getNombre()."</p>";
 					echo "</a>";
@@ -95,7 +95,7 @@ session_start();
 						$i=0;
 
 						if (!empty($mascotas)){
-							echo "<div class='tab-pane fade show active' id='".$mascotas[$i]->getDuenoMasId()."' role='tabpanel' aria-labelledby='".$mascotas[$i]->getId()."'>";
+							echo "<div class='tab-pane fade show active' id='".$mascotas[$i]->getId()."i' role='tabpanel' aria-labelledby='".$mascotas[$i]->getId()."'>";
 							echo "<h class='enunciado'>ID Mascota: </h><h class='contenido'>".$mascotas[$i]->getId()."</h><br>";
 							echo "<h class='enunciado'>Nombre: </h><h class='contenido'>".$mascotas[$i]->getNombre()."</h><br>";
 							echo "<h class='enunciado'>Numero de placa: </h><h class='contenido'>".$mascotas[$i]->getDuenoMasId()."</h><br>";
@@ -106,9 +106,9 @@ session_start();
 							echo "<h class='enunciado'>Color: </h><h class='contenido'>".$mascotas[$i]->getColor()."</h><br>";
 							echo "</div>";
 						$i=$i+1;
-						for ($i; $i <count($mascotas) ; $i++)
+						for ($i = $i; $i <count($mascotas) ; $i++)
 							{
-								echo "<div class='tab-pane fade show active' id='".$mascotas[$i]->getDuenoMasId()."' role='tabpanel' aria-labelledby='".$mascotas[$i]->getId()."'>";
+								echo "<div class='tab-pane fade' id='".$mascotas[$i]->getId()."i' role='tabpanel' aria-labelledby='".$mascotas[$i]->getId()."'>";
 								echo "<h class='enunciado'>ID Mascota: </h><h class='contenido'>".$mascotas[$i]->getId()."</h><br>";
 								echo "<h class='enunciado'>Nombre: </h><h class='contenido'>".$mascotas[$i]->getNombre()."</h><br>";
 								echo "<h class='enunciado'>Numero de placa: </h><h class='contenido'>".$mascotas[$i]->getDuenoMasId()."</h><br>";

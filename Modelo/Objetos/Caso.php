@@ -13,14 +13,10 @@ class Caso{
   {
     $this->mascota_id = $mascota_id;
     $this->medico_id = $medico_id;
-    $this->$calificacion = 5;
-    $this->$costo = 0;
+    $this->calificacion = 5;
+    $this->costo = 0;
   }
 
-  function Caso ()
-  {
-
-  }
 
   public function crearCaso()
   {
@@ -50,7 +46,15 @@ class Caso{
   {
     $conBD = new conexion();
     $sql = "SELECT * FROM CASO WHERE CASO.medicoVet_id=". $id_medico;
-    return $conBD->ejecutarconsulta($sql);
+    $consulta = $conBD->ejecutarconsulta($sql);
+    $casos = [];
+    if (mysqli_num_rows($consulta) > 0)
+    {
+      while ($fila = mysqli_fetch_array($consulta)) {
+        $casos[] = Caso::getById($fila['id']);
+      }
+    }
+
   }
 
   public function getById($id_caso)

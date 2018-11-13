@@ -30,7 +30,7 @@
         </div>
       </div>
   </nav>
-    <div class="text-center fondo1 offset-md-2 col-md-8 col-xs-12">
+    <div class="text-center offset-md-2 col-md-8 col-xs-12">
     <form id="regisVete" form action="" name="regisVete" method="post">
       <div class="row d-flex justify-content-center mb-0">
        <label class="tituloForm mb-0 mt-3">Registro de Cliente</label>
