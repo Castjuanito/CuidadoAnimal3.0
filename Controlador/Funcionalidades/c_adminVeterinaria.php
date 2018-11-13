@@ -173,9 +173,9 @@ include_once '../Modelo/Objetos/Mascota.php';
       $count = 0;
       for ($i=0; $i < $n_empleados; $i++) { //Numero empleados veterina
         $casosVet = Caso::getCasos($empleados[$i]->getId());
-        $n_casos = count($casosVet);
         if ($casosVet[0] != NULL)
         {
+          $n_casos = count($casosVet);
         for ($j=0; $j < $n_casos; $j++) { //Numero casos por veterinario
           $casos[$count] = [];
           $id_mascota = $casosVet[$j]->getMascotaId();
