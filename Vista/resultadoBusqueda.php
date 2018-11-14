@@ -1,3 +1,22 @@
+<?php
+include_once "../Controlador/Funcionalidades/Busqueda.php";
+$serv = $_GET['servicioSelect'];
+$ciudad = $_GET['ciudadSelect'];
+$locaidad = $_GET['localidadSelect'];
+$barrio = $_GET['barrioSelect'];
+$palabra = $_GET['palabraFormControlInput'];
+$auxpalabra = $palabra;
+if ($palabra==null) {
+    $auxpalabra='%';
+}
+
+$cen = getCentroVet($serv,$auxpalabra,$ciudad,$locaidad,$barrio);
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +32,7 @@
   <!--Barra de navegacion-->
   <nav class="navbar nav-masthead navbar-dark navbar-expand-lg text-center barra" id="mainNav">
       <a class="navbar-brand mx-auto" href="">
-          <img id="logo" src="../assets/img/logoIngSoft.PNG" height="50" class="d-inline-block align-top" alt="Cuidado animal">
+          <img id="logo" src="../assets/img/logoIngSoft2.PNG" height="50" class="d-inline-block align-top" alt="Cuidado animal">
       </a>
       <button class="navbar-toggler collapsed navbar-toggler-right text-center" type="button" data-toggle="collapse" data-target="#navbarTogglerCA" aria-controls="navbarTogglerCA" aria-halflings-expandes="false" aria-label="Toggle navigation">
           <span class="nav-icon navbar-toggler-icon"></span>
@@ -28,7 +47,7 @@
       </div>
   </nav>
   <div class="container">
-    <div class="offset-md-2 col-md-8 col-sm-12 fondo1">
+    <div class="offset-md-1 col-md-10 col-sm-12 my-4">
             <table class="table table-striped table-bordered">
             <thead>
               <tr class="tabla">
@@ -41,27 +60,26 @@
             </thead>
             <tbody>
               <!--ejemplo-->
-              <tr>
-                <th scope="row">1</th>
-                <td>VetPlus</td>
-                <td>Clinica</td>
-                <td style="color: green;">Abierto Ahora</td>
-                <td>Cll 45 # 7-45</td>
-              </tr>
-              <tr>
-                <th scope="row">1</th>
-                <td>VetMas</td>
-                <td>Centro de belleza</td>
-                <td style="color: green;">Abierto Ahora</td>
-                <td>Cll 45 # 7-45</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>VatZero</td>
-                <td>Veterinaria de barrio</td>
-                <td>Lunes a sabado 07:00 18:00</td>
-                <td>Cll 22 # 14-55</td>
-              </tr>
+              <?php
+              while($row = $cen->fetch_assoc()) {
+                echo " <tr>
+                  <th>".$row["id"]."</th>
+                  <td>".$row["nombre"]."</td>
+                  <td>".$row["tipo"]."</td>";
+                  if ($row["horaI"]<date.("h:i".":00.00")&&$row["horaF"]>date.("h:i".":00.00")){
+                      echo"<td style=\"color: green;\">Abierto ahora</td>
+                  <td>".$row["direccion"]."</td>
+                  </tr>";
+                  }else {
+                      echo "<td style=\"color: red;\">Cerrado ahora</td>
+                  <td>" . $row["direccion"] . "</td>
+                  </tr>";
+                  }
+
+              }
+
+              ?>
+
               <!--fin ejemplo-->
             </tbody>
           </table>
