@@ -26,7 +26,7 @@
             	<a class="nav-item nav-link text-light" href="homeVeterinario.php"><img src="../assets/img/home.svg" class="d-inline-block align-top mx-1" width="25" height="25"> Inicio </a>
             	<a class="nav-item nav-link text-light" href="casosVeterinario.php"><img src="../assets/img/mascota.svg" class="d-inline-block align-top mx-1" width="25" height="25">Casos</a>
             	<a class="nav-item nav-link text-light" href="busquedaVeterinario.php"><img src="../assets/img/cliente.svg" class="d-inline-block align-top mx-1" width="25" height="25">Buscar</a>
-              <a class="nav-item nav-link text-light" href="veterinariasVisitadas.php"><img src="../assets/img/veterinario.svg" class="d-inline-block align-top mx-1" width="25" height="25">Veterinarias</a>
+              <a class="nav-item nav-link text-light" href="veterinariasVeterinario.php"><img src="../assets/img/veterinario.svg" class="d-inline-block align-top mx-1" width="25" height="25">Veterinarias</a>
         	</div>
         	<div class="d-flex flex-row justify-content-center">
         		<a class="mr-2 text-light" href="login.php"><img src="../assets/img/Salir.svg" class="d-inline-block align-top mx-1" width="25" height="25">Salir</a>
