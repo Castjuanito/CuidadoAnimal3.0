@@ -1,3 +1,7 @@
+<?php
+session_start();
+include_once '../Controlador/Funcionalidades/registro.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,22 +43,22 @@
      <label class="tituloForm mb-0 mt-3">Editar Perfil</label>
     </div>
     <?php
-    include_once "../Controlador/Funcionalidades/registro.php";
+		$controlador = new registro();
+		$datos = $controlador->getDatosUsuario();
     if (isset($_POST['registrar']))
     {
       $_POST['rol'] = 'duenoMascota';
-      $login = new registro();
-      $login->registrarUsuario();
+      $controlador->actualizarDatosUsuario();
     }
     ?>
     <div class="row form-group d-flex justify-content-center">
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Nombre</label>
-        <input type="text" class="form-control" name="nombre" placeholder="Nombres">
+        <input type="text" class="form-control" name="nombre" placeholder="Nombres" <?php echo "value=".$datos->getNombre() ?>>
       </div>
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Apellido</label>
-        <input type="text" class="form-control" name="apellido" placeholder="nUsuario">
+        <input type="text" class="form-control" name="apellido" placeholder="nUsuario"  <?php echo "value=".$datos->getApellido() ?>>
       </div>
     </div>
     <div class="row form-group d-flex justify-content-center">
@@ -67,17 +71,17 @@
       </div>
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Correo Electronico</label>
-        <input type="text" class="form-control" name="correo" placeholder="correo">
+        <input type="text" class="form-control" name="correo" placeholder="correo"  <?php echo "value=".$datos->getEmailadd() ?>>
       </div>
     </div>
     <div class="row form-group d-flex justify-content-center">
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Nombre de usuario</label>
-        <input type="text" class="form-control" name="username" placeholder="nombre de usuario">
+        <input type="text" class="form-control" name="username" placeholder="nombre de usuario"  <?php echo "value=".$datos->getUserName() ?>>
       </div>
       <div class="col-md-5 col-xs-12 p-0 campo">
         <label class="letraForm">Telefono</label>
-        <input type="text" class="form-control" name="telefono" placeholder="telefono">
+        <input type="text" class="form-control" name="telefono" placeholder="telefono"  <?php echo "value=".$datos->getTelefono() ?>>
       </div>
     </div>
     <div class="row form-group d-flex justify-content-center">

@@ -5,6 +5,7 @@ include_once '../Modelo/Objetos/Usuario.php';
 include_once '../Modelo/Objetos/Empleado.php';
 include_once '../Modelo/Objetos/Caso.php';
 include_once '../Modelo/Objetos/Mascota.php';
+include_once '../Modelo/Objetos/DetalleCaso.php';
   /**
    *
    */
@@ -65,13 +66,6 @@ include_once '../Modelo/Objetos/Mascota.php';
       return $veterinaria;
     }
 
-    public function getDatosAdmin()
-    {
-      $id_admin = Usuario::getByUsername($_SESSION['username'])->getId() ;
-      $admin = Usuario::getById($id_admin);
-      return $admin;
-    }
-
 
     public function actualizarVeterinaria()
     {
@@ -93,7 +87,7 @@ include_once '../Modelo/Objetos/Mascota.php';
       }
     }
 
-    public function actualizarDatosAdmin()
+    public function actualizarDatosUsuario()
     {
       $usuario = Usuario::getByUsername($_SESSION['username']);
       $err = false;
@@ -224,6 +218,22 @@ include_once '../Modelo/Objetos/Mascota.php';
           }
       }
       return $clientes;
+    }
+
+    public function getCasos()
+    {
+      $usuario = (Usuario::getByUsername($_SESSION['username']))->getId();
+      $info = [];
+      $casos = Caso::getCasos($usuario->getId());
+      for ($i=0; $i < count($casos) ; $i++) {
+        $historial = DetalleCaso::getByCaso($casos[$i]->getId());
+        $info[] = $casos[$i];
+        for ($j=0; $j < count($historial); $j++) {
+          $info[$i] = [];
+          $info[$i][] = $historial[$j]->getById();
+        }
+      }
+      return $info;
     }
 }
 

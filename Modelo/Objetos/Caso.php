@@ -75,6 +75,25 @@ class Caso{
       return false;
     }
   }
+
+  public function getByIdMascota($id_mascota)
+  {
+    $conBD = new conexion();
+    $sql = "SELECT * FROM CASO WHERE CASO.mascota_id = ".$id_mascota;
+    $consulta = $conBD->ejecutarconsulta($sql);
+    if ($consulta->num_rows >= 1)
+    {
+      $fila = mysqli_fetch_array($consulta);
+      $usuarioObj = new Caso($fila['mascota_id'],$fila['medicoVet_id']);
+      $usuarioObj->setCalificacion($fila['calificacion']);
+      $usuarioObj->setCosto($fila['costo']);
+      $usuarioObj->setId($fila["id"]);
+      return $usuarioObj;
+    }
+    else {
+      return false;
+    }
+  }
     /**
      * Get the value of Mascota Id
      *
