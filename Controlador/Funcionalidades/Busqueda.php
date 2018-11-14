@@ -21,6 +21,17 @@ function getCiudades(){
 
 }
 
+function getCentroVet($servicio_nombre, $palabra_clave_nombre, $barrio_nombre, $localidad_nombre, $ciudad_nombre){
+
+    $ser = new Busqueda();
+    return $ser->findCentroVet($servicio_nombre, $palabra_clave_nombre, $barrio_nombre, $localidad_nombre, $ciudad_nombre);
+
+}
+
+
+
+
+
 
 
 ?>

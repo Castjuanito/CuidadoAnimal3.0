@@ -31,8 +31,25 @@ class c_medicoVeterinaria
   public function getCasos()
   {
     $id_medico = Usuario::getByUsername($_SESSION['username'])->getId();
+<<<<<<< HEAD
     return Caso::getCasos($id_medico);
 
+=======
+    $consulta= Caso::getCasos($id_medico);
+    $casos = [];
+    $n_casos = count($consulta);
+    for($i = 0; $i < $n_casos; $i++ )
+    {
+      $casos[] = $consulta[$i];
+      $detalles = DetalleCaso::getByCaso($consulta[$i]->getId());
+      $casos[$i] = [];
+      $n_detalles = count($detalles);
+      for ($j=0; $j < $n_detalles; $j++) {
+        $casos[$i][] = $detalles[$j];
+      }
+    }
+    return $casos;
+>>>>>>> f671e3c897af396ba4d22c91f3313e06ad19f808
   }
 
 }

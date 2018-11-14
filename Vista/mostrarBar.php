@@ -27,8 +27,8 @@ $ser = $loc->findLocalidadByCiudad($q);
 
 echo "<label for=\"servicioFormSelect\">Barrio</label>";
 
-echo "<select class=\"form-control\"  id=\"localidadSelect\">
-      <option>Elija una opcion</option>\";";
+echo "<select class=\"form-control\"  id=\"barrioSelect\" name=\"barrioSelect\">
+      <option value=\"%\" >Elija una opcion</option>\";";
 
 while($row = $ser->fetch_assoc()) {
     echo "<option value='". $row["id"] ."'> " . $row["nombre"]. "</option>";

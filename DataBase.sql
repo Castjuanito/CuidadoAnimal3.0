@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS servicio (
 CREATE TABLE IF NOT EXISTS palabra_clave (
   id INT AUTO_INCREMENT,
   PRIMARY KEY(id),
-  nombre VARCHAR(50)
+    nombre VARCHAR(50)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 /*--------------------------------------------------------------------------------------------*/
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS palabra_servicio (
 
 CREATE TABLE IF NOT EXISTS mascota (
   id INT AUTO_INCREMENT,
-  dueno_mas_id INT NOT NULL,
+  dueño_mas_id INT NOT NULL,
   nombre VARCHAR(50),
   especie VARCHAR(50),
   raza VARCHAR(50),
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS mascota (
   genero VARCHAR(50),
   color VARCHAR(50),
   PRIMARY KEY(id),
-  FOREIGN KEY (dueno_mas_id) REFERENCES usuario(id)
+  FOREIGN KEY (dueño_mas_id) REFERENCES usuario(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 /*--------------------------------------------------------------------------------------------*/
@@ -107,18 +107,14 @@ CREATE TABLE IF NOT EXISTS caso (
   costo FLOAT,
   PRIMARY KEY(id),
   FOREIGN KEY (mascota_id) REFERENCES mascota(id),
-  FOREIGN KEY (medicoVet_id) REFERENCES usuario(id),
-  UNIQUE (mascota_id, medicoVet_id),
-  PRIMARY KEY (id)
+  FOREIGN KEY (medicoVet_id) REFERENCES usuario(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 /*--------------------------------------------------------------------------------------------*/
 
 CREATE TABLE IF NOT EXISTS detalle_caso (
   id INT AUTO_INCREMENT,
-  caso_id INT NOT NULL,
-  fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
-  info VARCHAR(500),
+  caso_id int NOT NULL,
   PRIMARY KEY(id),
   info VARCHAR(500),
   FOREIGN KEY (caso_id) REFERENCES caso(id)

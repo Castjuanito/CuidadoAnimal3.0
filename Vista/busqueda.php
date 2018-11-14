@@ -81,11 +81,11 @@ include_once "../Controlador/Funcionalidades/Busqueda.php";
 		<div class="col-md-4 col-sm-12 fondo1">
 			<p class="text-center titulo">Cuidado Animal</p>
 			<p class="text-center subtitulo">Busca una veterinaria</p>
-      <form action="" name="busqueda">
+      <form action="resultadoBusqueda.php" name="busqueda"  method="get">
 			<div class="form-group texto">
     			<label for="servicioFormSelect">Servicio</label>
-    			<select class="form-control" id="servicioSelect">
-      				<option>Elija una opcion</option>
+    			<select class="form-control" id="servicioSelect" name = "servicioSelect">
+      				<option value="%" >Elija una <opcion></opcion></option>
 
                     <?php
                         while($row = $ser->fetch_assoc()) {
@@ -97,8 +97,8 @@ include_once "../Controlador/Funcionalidades/Busqueda.php";
  		 	</div>
         	<div class="form-group texto">
     			<label for="servicioFormSelect">Ciudad</label>
-    			<select class="form-control" id="ciudadSelect" onchange="showLoc(this.value)">
-      				<option value="">Elija una opcion</option>
+    			<select class="form-control" id="ciudadSelect" name="ciudadSelect" onchange="showLoc(this.value)">
+      				<option value="%" >Elija una opcion</option>
 
                     <?php
                     while($row = $cit->fetch_assoc()) {
@@ -110,25 +110,22 @@ include_once "../Controlador/Funcionalidades/Busqueda.php";
  		 	</div>
 			<div id="txtHint" class="form-group texto">
     			<label for="servicioFormSelect">Localidad</label>
-    			<select class="form-control" id="localidadSelect"  onchange="showBar(this.value);">
-      				<option>Elija una opcion</option>
+    			<select class="form-control" id="localidadSelect"  name="localidadSelect" onchange="showBar(this.value);">
+      				<option value="%" >Elija una opcion</option>
                 </select>
  		 	</div>
  		 	<div id="txtHint2" class="form-group texto">
     			<label for="servicioFormSelect">Barrio</label>
-    			<select class="form-control" id="barrioSelect">
-      				<option>Elija una opcion</option>
-
-
-
+    			<select class="form-control" id="barrioSelect" name="barrioSelect">
+      				<option value="%" >Elija una opcion</option>
 
     			</select>
  		 	</div>
  		 	<div class="form-group texto">
     			<label for="palabraFormText">Palabras Clave (opcional)</label>
-    			<input class="form-control" id="palabraFormControlInput" placeholder="pata rota, falta de apetito, moqueo">
+    			<input class="form-control" id="palabraFormControlInput" name="palabraFormControlInput" value="%" placeholder="pata rota, falta de apetito, moqueo">
  		 	</div>
- 		 	<button type="submit" class="btn btn-primary btn-buscar">Buscar</button>
+ 		 	<button  type="submit" name= "buscarVet" class="btn btn-primary btn-buscar">Buscar</button>
       </form>
   		</div>
   	</div>
