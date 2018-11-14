@@ -16,6 +16,7 @@ class Mascota
   private $color;
   private $genero;
 
+
   function __construct($dueno_mas_id,$nombre,$especie,$raza,$fecha_nacimiento,$color,$genero)
   {
     $this->dueno_mas_id = $dueno_mas_id;
@@ -243,7 +244,29 @@ class Mascota
 
         return $this;
     }
+    /**
+     * Get the value of Color
+     *
+     * @return mixed
+     */
+    public function getGenero()
+    {
+        return $this->genero;
+    }
 
+    /**
+     * Set the value of Color
+     *
+     * @param mixed color
+     *
+     * @return self
+     */
+    public function setGenero($genero)
+    {
+        $this->genero = $genero;
+
+        return $this;
+    }
 
 }
 ?>

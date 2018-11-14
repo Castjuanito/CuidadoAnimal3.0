@@ -2,7 +2,6 @@
 include_once "../Controlador/Funcionalidades/Busqueda.php";
     $ser = getServicios();
     $cit = getCiudades();
-
 ?>
 
 
@@ -16,12 +15,14 @@ include_once "../Controlador/Funcionalidades/Busqueda.php";
 	<link rel="stylesheet" href="../styles/busqueda.css">
 	<title>Busqueda</title>
     <script>
-
         function showLoc(str) {
+<<<<<<< HEAD
             if (str=="%") {
 
+=======
+            if (str=="") {
+>>>>>>> 8c4b6c374a0d3cb8a4c016bd86ff934a6e7ee3b6
                 showBar(str);
-
             }
             if (window.XMLHttpRequest) {
                 // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -31,20 +32,16 @@ include_once "../Controlador/Funcionalidades/Busqueda.php";
             }
             xmlhttp.onreadystatechange=function() {
                 console.log(this);
-
                 if (this.readyState==4 && this.status==200) {
                     console.log("lol");
                     document.getElementById("txtHint").innerHTML=this.responseText;
                 }
                 else console.log("lol1");
-
             }
             xmlhttp.open("GET","MostrarLoc.php?q="+str,true);
             xmlhttp.send();
         }
-
         function showBar(str) {
-
             if (window.XMLHttpRequest) {
                 // code for IE7+, Firefox, Chrome, Opera, Safari
                 xmlhttp=new XMLHttpRequest();
@@ -53,13 +50,11 @@ include_once "../Controlador/Funcionalidades/Busqueda.php";
             }
             xmlhttp.onreadystatechange=function() {
                 console.log(this);
-
                 if (this.readyState==4 && this.status==200) {
                     console.log("lol");
                     document.getElementById("txtHint2").innerHTML=this.responseText;
                 }
                 else console.log("lol1");
-
             }
             xmlhttp.open("GET","mostrarBar.php?q="+str,true);
             xmlhttp.send();
@@ -70,44 +65,23 @@ include_once "../Controlador/Funcionalidades/Busqueda.php";
 
 	<!-- Inicio Navbar -->
 	<!--Barra de navegacion-->
-	<nav class="navbar navbar-expand-xl navbar-dark bg-dark sticky-top">
-    <div class="container-fluid d-flex justify-content-between">
-      <a class="navbar-brand mx-auto" href="#">
-          <img id="logo" src="../assets/img/logoIngSoft.PNG" height="30" class="d-inline-block align-top" alt="Cuidado animal">
+	<nav class="navbar nav-masthead navbar-dark navbar-expand-lg text-center barra" id="mainNav">
+    	<a class="navbar-brand mx-auto" href="">
+          <img id="logo" src="../assets/img/logoIngSoft.PNG" height="50" class="d-inline-block align-top" alt="Cuidado animal">
       </a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#MyNavbar" aria-controls="MyNavbar" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="MyNavbar">
-        <div class="navbar-nav mr-auto ml-auto text-center">
-          <a class="nav-item nav-link active" href="#">
-            <div class="d-flex align-items-center justify-content-center">
-                <img src="../assets/img/login-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">
-                Login
-            </div>
-          </a>
-          <a class="nav-item nav-link" href="busqueda.php">
-            <div class="d-flex align-items-center justify-content-center">
-                <img src="../assets/img/buscar-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">
-                Buscar
-            </div>
-          </a>
-          <a class="nav-item nav-link" href="registro.php">
-            <div class="d-flex align-items-center justify-content-center">
-                <img src="../assets/img/registro-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">
-                Registrarse
-            </div>
-          </a>
-          <a class="nav-item nav-link" href="contacto.php">
-            <div class="d-flex align-items-center justify-content-center">
-                <img src="../assets/img/contacto-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">
-                Contactanos
-            </div>
-          </a>
+      <button class="navbar-toggler collapsed navbar-toggler-right text-center" type="button" data-toggle="collapse" data-target="#navbarTogglerCA" aria-controls="navbarTogglerCA" aria-halflings-expandes="false" aria-label="Toggle navigation">
+          <span class="nav-icon navbar-toggler-icon"></span>
+        </button>
+		<div class="collapse navbar-collapse" id="navbarTogglerCA">
+        <div class="navbar-nav mx-auto text-center">
+            <a class="nav-item text-barra" href="busqueda.php"><img src="../assets/img/buscar-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Busqueda</a>
+            <a class="nav-item text-barra" href="login.php"><img src="../assets/img/login-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Login</a>
+            <a class="nav-item text-barra" href="registro.php"><img src="../assets/img/registro-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Registrarse</a>
+            <a class="nav-item text-barra" href="contacto.php"><img src="../assets/img/contacto-negro.svg" class="d-inline-block align-top mx-1" width="25" height="25">Contactanos</a>
         </div>
-      </div>
-    </div>
-    </nav>
+    	</div>
+	</nav>
+
   	<div class="container">
 		<div class="col-md-4 col-sm-12 fondo1">
 			<p class="text-center titulo">Cuidado Animal</p>
