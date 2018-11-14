@@ -4,6 +4,8 @@ include_once '../Controlador/Funcionalidades/registro.php';
 include_once '../Modelo/Objetos/Usuario.php';
 include_once '../Modelo/Objetos/Empleado.php';
 include_once '../Modelo/Objetos/Caso.php';
+include_once '../Modelo/Objetos/Mascota.php';
+include_once '../Modelo/Objetos/DetalleCaso.php';
   /**
    *
    */
@@ -23,7 +25,6 @@ include_once '../Modelo/Objetos/Caso.php';
       {
         $id_admin = Usuario::getByUsername($_SESSION['username'])->getId();
         $id_empleado = Usuario::getByUsername($_POST['username'])->getId();
-        echo $id_admin."---".$id_empleado."<br>";
         $empleado = new Empleado($id_admin,$id_empleado,$area);
         if($empleado->crearEmpleado())
         {
@@ -65,13 +66,6 @@ include_once '../Modelo/Objetos/Caso.php';
       return $veterinaria;
     }
 
-    public function getDatosAdmin()
-    {
-      $id_admin = Usuario::getByUsername($_SESSION['username'])->getId() ;
-      $admin = Usuario::getById($id_admin);
-      return $admin;
-    }
-
 
     public function actualizarVeterinaria()
     {
@@ -93,7 +87,7 @@ include_once '../Modelo/Objetos/Caso.php';
       }
     }
 
-    public function actualizarDatosAdmin()
+    public function actualizarDatosUsuario()
     {
       $usuario = Usuario::getByUsername($_SESSION['username']);
       $err = false;
@@ -146,10 +140,16 @@ include_once '../Modelo/Objetos/Caso.php';
       $id_empleado = $_POST['idEmpleado'];
       if (!empty($id_mascota) && !empty($id_empleado))
       {
-        if (Mascota::findById())
+        if (Mascota::findById($id_mascota))
         {
-          $mascota = new Caso($id_mascota, $id_empleado);
-          $mascota->crearCaso();
+          $caso = new Caso($id_mascota, $id_empleado);
+          if ($caso->crearCaso())
+          {
+            header('Location: casosAdministrador.php');
+          }
+          else {
+            echo $this->errStyle."Error en la creacion de mascota</span>";
+          }
         }else {
           echo $this->errStyle."El id de la mascota no existe</span>";
         }
@@ -158,6 +158,83 @@ include_once '../Modelo/Objetos/Caso.php';
       }
     }
 
-  }
+    public function getCasosVeterinaria()
+    {
+      $usuario = Usuario::getByUsername($_SESSION['username']);
+      $casos = [];
+      $empleados = c_adminVeterinaria::encontrarEmpleados();
+      $n_empleados = count($empleados);
+      $count = 0;
+      for ($i=0; $i < $n_empleados; $i++) { //Numero empleados veterina
+        $casosVet = Caso::getCasos($empleados[$i]->getId());
+        $n_casos = count($casosVet);
+          for ($j=0; $j < $n_casos; $j++) { //Numero casos por veterinario
+            $casos[$count] = [];
+            $id_mascota = $casosVet[$j]->getMascotaId();
+            $mascota = Mascota::findById($id_mascota);
+            $casos[$count][0] = $mascota;//Mascota
+            $casos[$count][1] = $casosVet[$j];//Caso
+            $casos[$count][2] = $empleados[$i];//Empleado
+            $count = $count + 1;
+          }
+      }
+      return $casos;
+    }
+
+    public function getMascotas()
+    {
+      $usuario = Usuario::getByUsername($_SESSION['username']);
+      $mascotas = [];
+      $empleados = c_adminVeterinaria::encontrarEmpleados();
+      $n_empleados = count($empleados);
+      $count = 0;
+      for ($i=0; $i < $n_empleados; $i++) { //Numero empleados veterina
+        $casosVet = Caso::getCasos($empleados[$i]->getId());
+        $n_casos = count($casosVet);
+          for ($j=0; $j < $n_casos; $j++) { //Numero casos por veterinario
+            $id_mascota = $casosVet[$j]->getMascotaId();
+            $mascotas[] = Mascota::findById($id_mascota);
+          }
+      }
+      return $mascotas;
+    }
+
+    public function getClientes()
+    {
+      $usuario = Usuario::getByUsername($_SESSION['username']);
+      $clientes = [];
+      $empleados = c_adminVeterinaria::encontrarEmpleados();
+      $n_empleados = count($empleados);
+      $count = 0;
+      for ($i=0; $i < $n_empleados; $i++) { //Numero empleados veterina
+        $casosVet = Caso::getCasos($empleados[$i]->getId());
+        $n_casos = count($casosVet);
+          for ($j=0; $j < $n_casos; $j++) { //Numero casos por veterinario
+            $id_mascota = $casosVet[$j]->getMascotaId();
+            $mascota = Mascota::findById($id_mascota);
+            $id_dueno = $mascota->getDuenoMasId();
+            $cliente = Usuario::getById();
+            $clientes[] = $cliente;
+          }
+      }
+      return $clientes;
+    }
+
+    public function getCasos()
+    {
+      $usuario = (Usuario::getByUsername($_SESSION['username']))->getId();
+      $info = [];
+      $casos = Caso::getCasos($usuario->getId());
+      for ($i=0; $i < count($casos) ; $i++) {
+        $historial = DetalleCaso::getByCaso($casos[$i]->getId());
+        $info[] = $casos[$i];
+        for ($j=0; $j < count($historial); $j++) {
+          $info[$i] = [];
+          $info[$i][] = $historial[$j]->getById();
+        }
+      }
+      return $info;
+    }
+}
 
  ?>

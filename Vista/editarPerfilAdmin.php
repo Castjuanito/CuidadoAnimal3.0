@@ -1,5 +1,7 @@
 <?php
 session_start();
+include_once '../Controlador/Funcionalidades/c_adminVeterinaria.php';
+include_once '../Controlador/Funcionalidades/registro.php';
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,18 +39,18 @@ session_start();
        		</div>
     	</div>
 	</nav>
+
   <div class="text-center fondo1 offset-md-2 col-md-8 col-xs-12">
 <form id="regisVete" action="" method="post" name="regisVete">
 <div class="row d-flex justify-content-center mb-0">
 <label class="tituloForm mb-0 mt-3">Editar perfil</label>
 </div>
 <?php
-include_once '../Controlador/Funcionalidades/c_adminVeterinaria.php';
-$controlador = new c_adminVeterinaria();
-$datos = $controlador->getDatosAdmin();
+$controlador = new registro();
+$datos = $controlador->getDatosUsuario();
 if (isset($_POST['editar']))
 {
-  $controlador->actualizarDatosAdmin();
+  $controlador->actualizarDatosUsuario();
 }
  ?>
 <div class="row form-group d-flex justify-content-center">

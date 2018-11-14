@@ -48,6 +48,26 @@ class c_duenoMascota
     return $mascotas;
   }
 
+  public function veterinariasVisitadas()
+  {
+    $mascotas = c_duenoMascota::encontrarMascotas();
+    $n_mascotas = count($mascotas);
+    $veterinarias = [];
+    for ($i=0; $i < $n_mascotas ; $i++) {
+      $caso = Caso::getByIdMascota($mascotas->getId());
+      if (!$caso) {
+        $id_medico = $caso->getMedicoId();
+        $empleado = Empleado::findByIdEmpleado($id_medico);
+        $veterinarias[] = CentroVeterinario::findByDueno($empleado->getIdDueno());
+      }
+    }
+    return $veterinarias;
+  }
+
+  public function getDatos()
+  {
+    return Usuario::getByUsername($_SESSION['username']);
+  }
 }
 
  ?>

@@ -136,6 +136,13 @@ class registro
             $_SESSION['username'] = $consulta->getUserName();
             header('Location: homeCliente.php');
           }
+          if ($consulta->getRol() == 'medicoVet')
+          {
+            session_start();
+            $_SESSION['rol'] = $consulta->getRol();
+            $_SESSION['username'] = $consulta->getUserName();
+            header('Location: homeVeterinario.php');
+          }
         }
         else {
           echo $this->errStyle."Contraseña incorrecta.</span>";
@@ -150,7 +157,58 @@ class registro
     }
   }
 
+  public function actualizarDatosUsuario()
+  {
+    $usuario = Usuario::getByUsername($_SESSION['username']);
+    $err = false;
+    $id_admin = $usuario->getId();
+    $password = $usuario->getPassword();
+    if (empty($_POST['username']))
+    {
+      echo $this->errStyle."El campo usuario no puede quedar en blanco.</span>";
+      $err = true;
+    }
+    if ($_POST['username'] != $_SESSION['username']) {
+      $user = Usuario::getByUsername($_POST['username']);
+      if ($user != false)
+      {
+        echo $this->errStyle."El nombre de usuario ya existe.</span>";
+        $err = true;
+      }
+    }
+    if (!empty($_POST['password'])) {
 
+      if ( ($_POST['password'] == $_POST['password2'])) {
+        $password = $_POST['password'];
+      }
+      else{
+        echo $this->errStyle."Las contraseñas no coinciden.</span>";
+        $err = true;
+      }
+    }
+    if (!$err)
+    {
+      $admin = Usuario::getById($id_admin);
+      $admin->setNombre($_POST['nombre']);
+      $admin->setApellido($_POST['apellido']);
+      $admin->setEmailadd($_POST['correo']);
+      $admin->setUserName($_POST['username']);
+      $admin->setPassword($password);
+      if ($admin->UpdateUsuario())
+      {
+        echo $this->successStyle."Datos actualizados.</span>";
+      }else {
+        echo $this->errStyle."No se pudo actualizar los datos </span>";
+      }
+    }
+  }
+
+  public function getDatosUsuario()
+  {
+    $id_admin = Usuario::getByUsername($_SESSION['username'])->getId() ;
+    $admin = Usuario::getById($id_admin);
+    return $admin;
+  }
 }
 
 

@@ -53,6 +53,13 @@ include_once "../Modelo/Objetos/conexion.php";
       $sql = "SELECT * FROM empleado WHERE empleado.id_dueno = ". $id_dueno;
       return $conBD->ejecutarConsulta($sql);
     }
+
+    function findByIdEmpleado($id_empleado)
+    {
+      $conBD = new conexion();
+      $sql = "SELECT * FROM empleado WHERE empleado.id_empleado = ". $id_empleado;
+      return $conBD->ejecutarConsulta($sql);
+    }
     /**
      * Get the value of Id Dueno
      *

@@ -1,3 +1,7 @@
+<?php
+session_start();
+include_once '../Controlador/Funcionalidades/c_duenoMascota.php';
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +13,9 @@
 	<title>Home</title>
 </head>
 <body>
+	<?php
+	$usuario = c_duenoMascota::getDatos();
+	 ?>
 	<!-- Inicio Navbar -->
 	<!--Barra de navegacion-->
 	<nav class="navbar nav-masthead navbar-dark sticky-top navbar-expand-lg text-center barra" id="mainNav">
@@ -35,17 +42,16 @@
 	</nav>
   <div class="container">
     <div class="titulo text-center my-4">
-      <p>VetPlus</p>
+      <p><?php echo $usuario->getNombre()." ".$usuario->getEmailadd();; ?></p>
     </div>
     <div class="text-center">
       <div class="my-4">
           <img src="../Imagenes/logoVet.png" width="250" height="250" >
           </div>
           <div class="container">
-            <div class="text3">VetPlus</div>
-            <div class="text3">Clinica</div>
-            <div class="text3">Cr.7#54-32</div>
-            <div class="text3">7:00-18:00</div>
+            <div class="text3"><?php echo $usuario->getNombre()." ".$usuario->getEmailadd(); ?></div>
+            <div class="text3"><?php echo $usuario->getApellido(); ?></div>
+            <div class="text3"><?php echo $usuario->getTelefono(); ?></div>
             <div id="calificacion" class="container d-flex justify-content-center"></div>
           </div>
           <div class="col-md-4 offset-md-4 my-4">

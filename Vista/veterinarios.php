@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="../styles/administradorVeterinaria.css">
-  <title>Veterinarios</title>
+  <title>Casos</title>
 </head>
 <body>
   <!-- Inicio Navbar -->
@@ -39,7 +39,7 @@
    </nav>
    <div class="container">
       <div class="titulo text-center my-4">
-      <p>Veterinarios</p>
+      <p>Casos</p>
     </div>
     <div class="row text-center justify-content-center">
     <div class="text-center col-md-4"><p class="subtitulo">Filtrar resultados:</p></div>
@@ -54,74 +54,63 @@
           <div class="col-4"> <button class="btn btn-primary">Buscar</button></div>
         </div>
         </div>
-    <div class="row">
-      <div class="p-4 col-md-4">
-        <div class="list-group" id="list-tab" role="tablist">
-        <?php
-        include_once '../Controlador/Funcionalidades/c_adminVeterinaria.php';
-        $admin = new c_adminVeterinaria();
-        $empleados = $admin->encontrarEmpleados();
-        $i=0;
-        if (!empty($empleados)){
-        echo "<a class='list-group-item list-group-item-action active' id='".$empleados[$i]->getId()."' data-toggle='list' href='#".$empleados[$i]->getUserName()."' role='tab'>";
-        echo "<p class='enunciado'>".$empleados[$i]->getId()."</p>";
-        echo "<p class='contenido'>".$empleados[$i]->getNombre()."</p>";
-        echo "</a>";
-        $i=$i+1;
-        for ($i; $i <count($empleados) ; $i++)
-        {
-          echo "<a class='list-group-item list-group-item-action' id='".$empleados[$i]->getId()."' data-toggle='list' href='#".$empleados[$i]->getUserName()."' role='tab'>";
-          echo "<p class='enunciado'>".$empleados[$i]->getId()."</p>";
-          echo "<p class='contenido'>".$empleados[$i]->getNombre()."</p>";
-          echo "</a>";
-        }
-      }
-        ?>
-        </div>
-      <div class="justify-content-center my-1">
+        <div class="row">
+          <div class="list-group p-4 col-md-4">
+    			<div class="list-group" id="list-tab" role="tablist">
+    							<a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab">
+    								<p class="enunciado">Veterinarios</p>
+    							</a>
+    							<?php
+                  include_once '../Controlador/Funcionalidades/c_adminVeterinaria.php';
+            $admin = new c_adminVeterinaria();
+            $empleados = $admin->encontrarEmpleados();
+            if (!empty($empleados))
+            {
+    			        for ($i=0; $i <count($empleados) ; $i++)
+    			        {
+                    $especialidad = $admin->getEspecialidad($empleados[$i]->getId());
+    								echo "<a class='list-group-item list-group-item-action'".$i." data-toggle='list' href='#list-".$i."' role='tab'>";
+                    echo "<h class='enunciado'>ID: </h><h class='enunciado'>".$empleados[$i]->getId()."</h><br>";
+                    echo "<h class='enunciado'>Nombre: </h><h class='contenido'>".$empleados[$i]->getNombre()."</h><br>";
+                    echo "<h class='enunciado'>Especialidad: </h><h class='contenido'>".$especialidad."</h><br>";
+                    echo "</a>";
+    			 				  echo "</a>";
+    			        }
+                }
+    			        ?>
+    			</div>
+          <div class="justify-content-center my-1">
             <button type="button" class="btn btn-success col-md-12 boton" onClick="location.href='registroVeterinario.php'">Nuevo veterianario</button>
       </div>
-    </div>
-
-      <div class="col-md-8 p-4 borde my-4">
-      <div class="tab-content" id="nav-tabContent">
-          <?php
-          include_once '../Controlador/Funcionalidades/c_adminVeterinaria.php';
-          $admin = new c_adminVeterinaria();
-          $empleados = $admin->encontrarEmpleados();
-          $i=0;
-          if (!empty($empleados)){
-            $especialidad = $admin->getEspecialidad($empleados[$i]->getId());
-            echo "<div class='tab-pane fade show active' id='".$empleados[$i]->getUserName()."' role='tabpanel' aria-labelledby='".$empleados[$i]->getId()."'>";
-            echo "<h class='enunciado'>ID: </h><h class='contenido'>".$empleados[$i]->getId()."</h><br>";
-            echo "<h class='enunciado'>Nombre: </h><h class='contenido'>".$empleados[$i]->getNombre()."</h><br>";
-            echo "<h class='enunciado'>Apellido: </h><h class='contenido'>".$empleados[$i]->getApellido()."</h><br>";
-            echo "<img src='' width='250' height='250' ><br>";
-            echo "<h class='enunciado'>Especialidad: </h><h class='contenido'>".$especialidad."</h><br>";
-            echo "<h class='enunciado'>Correo: </h><h class='contenido'>".$empleados[$i]->getEmailadd()."</h><br>";
-            echo "<h class='enunciado'>Telefono: </h><h class='contenido'>".$empleados[$i]->getTelefono()."</h><br>";
-            echo "</div>";
-          $i=$i+1;
-          for ($i; $i <count($empleados) ; $i++)
-            {
-              $especialidad = $admin->getEspecialidad($empleados[$i]->getId());
-              echo "<div class='tab-pane fade show active' id='".$empleados[$i]->getUserName()."' role='tabpanel' aria-labelledby='".$empleados[$i]->getId()."'>";
-              echo "<h class='enunciado'>ID: </h><h class='contenido'>".$empleados[$i]->getId()."</h><br>";
-              echo "<h class='enunciado'>Nombre: </h><h class='contenido'>".$empleados[$i]->getNombre()."</h><br>";
-              echo "<h class='enunciado'>Apellido: </h><h class='contenido'>".$empleados[$i]->getApellido()."</h><br>";
-              echo "<img src='' width='250' height='250' ><br>";
-              echo "<h class='enunciado'>Especialidad: </h><h class='contenido'>".$especialidad."</h><br>";
-              echo "<h class='enunciado'>Correo: </h><h class='contenido'>".$empleados[$i]->getEmailadd()."</h><br>";
-              echo "<h class='enunciado'>Telefono: </h><h class='contenido'>".$empleados[$i]->getTelefono()."</h><br>";
-              echo "</div>";
-            }
-          }
-          ?>
-          <type="button" class="btn btn-danger col-md-4 boton" onClick="location.href='registroCliente.php'">Eliminar Veterinario</button>
-              </div>
-          </div>
       </div>
-      </div>
+    			<div class="col-md-8 p-4 borde my-4">
+    			<div class="tab-content" id="nav-tabContent">
+    							<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+    								<h6>Elija un caso</h6>
+	                </div>
+    					<?php
+              include_once '../Controlador/Funcionalidades/c_adminVeterinaria.php';
+              $admin = new c_adminVeterinaria();
+              $empleados = $admin->encontrarEmpleados();
+              if (!empty($empleados)){
+              for ($i=0; $i <count($empleados) ; $i++)
+                {
+                        $especialidad = $admin->getEspecialidad($empleados[$i]->getId());
+    										echo "<div class='tab-pane fade' id='list-".$i."' role='tabpanel' aria-labelledby='$i'>";
+                        echo "<h class='enunciado'>ID: </h><h class='contenido'>".$empleados[$i]->getId()."</h><br>";
+                        echo "<h class='enunciado'>Nombre: </h><h class='contenido'>".$empleados[$i]->getNombre()."</h><br>";
+                        echo "<h class='enunciado'>Apellido: </h><h class='contenido'>".$empleados[$i]->getApellido()."</h><br>";
+                        echo "<img src='' width='250' height='250' ><br>";
+                        echo "<h class='enunciado'>Especialidad: </h><h class='contenido'>".$especialidad."</h><br>";
+                        echo "<h class='enunciado'>Correo: </h><h class='contenido'>".$empleados[$i]->getEmailadd()."</h><br>";
+                        echo "<h class='enunciado'>Telefono: </h><h class='contenido'>".$empleados[$i]->getTelefono()."</h><br>";
+    										echo "</div>";
+    								}
+                  }
+                    ?>
+    						</div>
+    			   </div>
+    			</div>
     <script src="../assets/bootstrap/js/jquery.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
   </body>
