@@ -173,21 +173,6 @@ include_once '../Modelo/Objetos/Mascota.php';
       $count = 0;
       for ($i=0; $i < $n_empleados; $i++) { //Numero empleados veterina
         $casosVet = Caso::getCasos($empleados[$i]->getId());
-<<<<<<< HEAD
-        if ($casosVet[0] != NULL)
-        {
-          $n_casos = count($casosVet);
-        for ($j=0; $j < $n_casos; $j++) { //Numero casos por veterinario
-          $casos[$count] = [];
-          $id_mascota = $casosVet[$j]->getMascotaId();
-          $mascota = Mascota::findById($id_mascota);
-          $casos[$count][0] = $mascota;//Mascota
-          $casos[$count][1] = $casosVet[$j];//Caso
-          $casos[$count][2] = $empleados[$i];//Empleado
-          $count = $count + 1;
-        }
-      }
-=======
         $n_casos = count($casosVet);
           for ($j=0; $j < $n_casos; $j++) { //Numero casos por veterinario
             $casos[$count] = [];
@@ -198,7 +183,6 @@ include_once '../Modelo/Objetos/Mascota.php';
             $casos[$count][2] = $empleados[$i];//Empleado
             $count = $count + 1;
           }
->>>>>>> 7f85b5dcf811372c236c1e8f8b9aff19e34bde46
       }
       return $casos;
     }
@@ -230,7 +214,7 @@ include_once '../Modelo/Objetos/Mascota.php';
       $count = 0;
       for ($i=0; $i < $n_empleados; $i++) { //Numero empleados veterina
         $casosVet = Caso::getCasos($empleados[$i]->getId());
-        $n_casos = count($casosVet);
+                $n_casos = count($casosVet);
           for ($j=0; $j < $n_casos; $j++) { //Numero casos por veterinario
             $id_mascota = $casosVet[$j]->getMascotaId();
             $mascota = Mascota::findById($id_mascota);

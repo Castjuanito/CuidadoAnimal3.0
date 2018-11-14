@@ -1,3 +1,6 @@
+<?php
+  session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,52 +54,60 @@
           <div class="col-4"> <button class="btn btn-primary">Buscar</button></div>
         </div>
         </div>
-    <div class="row">
-      <div class="p-4 col-md-4">
-      <div class="list-group" id="list-tab" role="tablist">
-      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">
-                <p class="enunciado">Id</p>
-                <p class="contenido">Fecha</p>
-                <p class="contenido">Estado</p>
-              </a>
-              <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">
-                <p class="enunciado">Id</p>
-                <p class="contenido">Fecha</p>
-                <p class="contenido">Estado</p>
-              </a>
-              <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">
-                <p class="enunciado">Id</p>
-                <p class="contenido">Fecha</p>
-                <p class="contenido">Estado</p>
-              </a>
-              <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">
-                <p class="enunciado">Id</p>
-                <p class="contenido">Fecha</p>
-                <p class="contenido">Estado</p>
-              </a>
+        <div class="row">
+          <div class="list-group p-4 col-md-4">
+          <div class="list-group" id="list-tab" role="tablist">
+                  <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab">
+                    <p class="enunciado">Veterinarios</p>
+                  </a>
+                  <?php
+                  include_once '../Controlador/Funcionalidades/c_adminVeterinaria.php';
+            $admin = new c_adminVeterinaria();
+            $mascota = $admin->getMascotas();
+            if (!empty($mascota))
+            {
+                  for ($i=0; $i <count($mascota) ; $i++)
+                  {
+                    echo "<a class='list-group-item list-group-item-action'".$i." data-toggle='list' href='#list-".$i."' role='tab'>";
+                    echo "<h class='enunciado'>ID: </h><h class='enunciado'>".$mascota[$i]->getId()."</h><br>";
+                    echo "<h class='enunciado'>Nombre: </h><h class='contenido'>".$mascota[$i]->getNombre()."</h><br>";                    echo "</a>";
+                    echo "</a>";
+                  }
+                }
+                  ?>
+          </div>
+          <div class="justify-content-center my-1">
+            <button type="button" class="btn btn-success col-md-12 boton" onClick="location.href='registroVeterinario.php'">Nuevo veterianario</button>
       </div>
       </div>
-      <div class="col-md-8 p-4 borde my-4">
-      <div class="tab-content" id="nav-tabContent">
-              <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-                <h6>Id: 0000</h6>
-                <h6>Veterianrio: yyy</h6>
-                <img src="../Imagenes/logoVet.png" width="250" height="250" >
-                <h6>Detalle:</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus cumque itaque voluptatibus eveniet cum, accusamus nihil voluptate ratione consectetur, animi optio hic odio, saepe unde voluptates blanditiis sunt dolores. Fugit?</p>
-                <button type="button" class="btn btn-info col-md-4 boton" onClick="location.href='registroCliente.php'">Dueño</button>
-              </div>
-              <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
-                <h6>Id: 0000</h6>
-                <h6>Veterianrio: yyy</h6>
-                <h6>Detalle:</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus cumque itaque voluptatibus eveniet cum, accusamus nihil voluptate ratione consectetur, animi optio hic odio, saepe unde voluptates blanditiis sunt dolores. Fugit?</p>
-              </div>
-              <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
-              <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
-            </div>
-      </div>
-      </div>
+          <div class="col-md-8 p-4 borde my-4">
+          <div class="tab-content" id="nav-tabContent">
+                  <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                    <h6>Elija un caso</h6>
+                  </div>
+              <?php
+              include_once '../Controlador/Funcionalidades/c_adminVeterinaria.php';
+              $admin = new c_adminVeterinaria();
+              $mascota = $admin->getMascotas();
+              if (!empty($mascota)){
+              for ($i=0; $i <count($mascota) ; $i++)
+                {
+                  echo "<div class='tab-pane fade' id='list-".$i."' role='tabpanel' aria-labelledby='$i'>";
+                  echo "<h class='enunciado'>ID: </h><h class='enunciado'>".$mascota[$i]->getId()."</h><br>";
+                  echo "<h class='enunciado'>Nombre: </h><h class='contenido'>".$mascota[$i]->getNombre()."</h><br>";
+                  echo "<h class='enunciado'>Raza: </h><h class='contenido'>".$mascota[$i]->getRaza()."</h><br>";
+                  echo "<h class='enunciado'>Especie: </h><h class='contenido'>".$mascota[$i]->getEspecie()."</h><br>";
+                  echo "<h class='enunciado'>Fecha Nacimiento: </h><h class='contenido'>".$mascota[$i]->getFechaNacimiento()."</h><br>";
+                  echo "<h class='enunciado'>Color: </h><h class='contenido'>".$mascota[$i]->getColor()."</h><br>";
+                  echo "<h class='enunciado'>Fecha: </h><h class='contenido'>".$mascota[$i]->getFechaNacimiento()."</h><br>";
+                  echo "<h class='enunciado'>Fecha: </h><h class='contenido'>".$mascota[$i]->getGenero()."</h><br>";
+                  echo "</div>";
+                    }
+                  }
+                    ?>
+                </div>
+             </div>
+    			</div>
     <script src="../assets/bootstrap/js/jquery.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
   </body>
