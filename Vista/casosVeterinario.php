@@ -48,7 +48,7 @@ session_start();
               </a>
               <?php
               include_once '../Controlador/Funcionalidades/c_medicoVeterinario.php';
-              $admin = new c_medicoVeterinario();
+              $admin = new c_medicoVeterinaria();
               $casos = $admin->getCasos();
               if (!empty($casos)){
               for ($i=0; $i <count($casos) ; $i++)

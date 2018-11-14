@@ -16,12 +16,7 @@ include_once "../Controlador/Funcionalidades/Busqueda.php";
 	<title>Busqueda</title>
     <script>
         function showLoc(str) {
-<<<<<<< HEAD
-            if (str=="%") {
-
-=======
             if (str=="") {
->>>>>>> 8c4b6c374a0d3cb8a4c016bd86ff934a6e7ee3b6
                 showBar(str);
             }
             if (window.XMLHttpRequest) {

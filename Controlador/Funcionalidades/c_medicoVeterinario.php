@@ -1,7 +1,7 @@
 <?php
 include_once '../Modelo/Objetos/Mascota.php';
 include_once '../Modelo/Objetos/Usuario.php';
-include_once '../Modelo/Objetos/Usuario.php';
+include_once '../Modelo/Objetos/Caso.php';
 /**
  *
  */
@@ -32,11 +32,16 @@ class c_medicoVeterinaria
   {
     $id_medico = Usuario::getByUsername($_SESSION['username'])->getId();
     $consulta= Caso::getCasos($id_medico);
-    $casos = []
-    if (!($casos->num_rows < 1))
+    $casos = [];
+    $n_casos = count($consulta);
+    for($i = 0; $i < $n_casos; $i++ )
     {
-      while ($fila = mysqli_fetch_array($consulta)) {
-        $casos[] = Caso::getById($fila['id']);
+      $casos[] = $consulta[$i];
+      $detalles = DetalleCaso::getByCaso($consulta[$i]->getId());
+      $casos[$i] = [];
+      $n_detalles = count($detalles);
+      for ($j=0; $j < $n_detalles; $j++) {
+        $casos[$i][] = $detalles[$j];
       }
     }
     return $casos;
