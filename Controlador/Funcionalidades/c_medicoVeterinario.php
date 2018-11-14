@@ -1,7 +1,7 @@
 <?php
 include_once '../Modelo/Objetos/Mascota.php';
 include_once '../Modelo/Objetos/Usuario.php';
-include_once '../Modelo/Objetos/Usuario.php';
+include_once '../Modelo/Objetos/Caso.php';
 /**
  *
  */
@@ -31,15 +31,8 @@ class c_medicoVeterinaria
   public function getCasos()
   {
     $id_medico = Usuario::getByUsername($_SESSION['username'])->getId();
-    $consulta= Caso::getCasos($id_medico);
-    $casos = []
-    if (!($casos->num_rows < 1))
-    {
-      while ($fila = mysqli_fetch_array($consulta)) {
-        $casos[] = Caso::getById($fila['id']);
-      }
-    }
-    return $casos;
+    return Caso::getCasos($id_medico);
+
   }
 
 }
